@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
+
+public class UIElementHandler : MonoBehaviour
+{
+    private static UIElementHandler _instance;
+    public static UIElementHandler Instance => _instance;
+
+    [Header("========== Text Elements ==========")]
+    [SerializeField] private List<string> textId;
+    [SerializeField] private List<Text> text;
+    
+    [Header("========== Button Elements ==========")]
+    
+    [SerializeField] private List<string> buttonId;
+    [SerializeField] private List<Button> button;
+    
+    [Header("========== Panel Elements ==========")]
+    [SerializeField] private List<string> panelId;
+    [SerializeField] private List<GameObject> panel;
+    
+    [Header("========== Canvas Elements ==========")]
+    
+    [SerializeField] private List<string> canvasId;
+    [SerializeField] private List<Canvas> canvas;
+
+    private void Awake()
+    {
+        _instance = this;
+    }
+
+    public Text GetText(string id)
+    {
+        // get index of the id and return text at this index
+        var index = textId.FindIndex(x => x.Equals(id));
+        return text[index];
+    }
+    public Button GetButton(string id)
+    {
+        var index = buttonId.FindIndex(x => x.Equals(id));
+        return button[index];
+    }
+    public GameObject GetPanel(string id)
+    {
+        var index = panelId.FindIndex(x => x.Equals(id));
+        return panel[index];
+    }
+    public Canvas GetCanvas(string id)
+    {
+        var index = canvasId.FindIndex(x => x.Equals(id));
+        return canvas[index];
+    }
+    
+    public void SetButtonEvent(string id, UnityAction onButtonClick)
+    {
+        var index = buttonId.FindIndex(x => x.Equals(id)); // get Button
+        button[index].onClick.AddListener(onButtonClick); // add a onClick event
+    }
+}
