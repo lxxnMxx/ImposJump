@@ -14,9 +14,19 @@ public class ButtonManager : DontDestroyOnLoad<ButtonManager>
         GameManager.Instance.ChangeGameState(GameState.StartGame);
     }
 
-    public void LoadLevel()
+    public void SelectLevel1()
     {
-        ViewManager.LoadLevel("Level1");
+        MenuManager.Instance.SelectLevel(1);
+    }
+    public void SelectLevel2()
+    {
+        MenuManager.Instance.SelectLevel(2);
+    }
+
+    public void Play()
+    {
+        print(MenuManager.Instance.GetSelectedLevel());
+        ViewManager.LoadLevel(MenuManager.Instance.GetSelectedLevel());
     }
 
     public void MainMenu()
