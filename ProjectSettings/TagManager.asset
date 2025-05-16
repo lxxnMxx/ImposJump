@@ -54,6 +54,9 @@ TagManager:
   - name: Ground
     uniqueID: 855601937
     locked: 0
+  - name: Decoration
+    uniqueID: 2503123691
+    locked: 0
   - name: Player
     uniqueID: 193621501
     locked: 0
