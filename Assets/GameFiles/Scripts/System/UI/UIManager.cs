@@ -30,7 +30,7 @@ public class UIManager : Singleton<UIManager>
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private async void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Level1")
         {
