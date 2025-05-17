@@ -10,8 +10,9 @@ public class MovingPlatform : MonoBehaviour
     
     [SerializeField] float speed;
 
-    private int _i;
     private Vector3 _direction;
+    private bool _hasChild;
+    private int _i;
     private float _angle;
     
     void Start()
@@ -28,13 +29,22 @@ public class MovingPlatform : MonoBehaviour
             {
                 _i += 1;
                 if (_i == points.Length) _i = 0;
+                
+                // turn the platform to the current point
                 _direction = transform.position - points[_i].position;
                 _angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.AngleAxis(_angle, Vector3.up);
             }
-            // turn the platform to the current point
             
-            
+            try
+            {
+                if(transform.GetChild(0))
+                    transform.GetChild(0).rotation = Quaternion.Euler(0,0,0);
+            }
+            catch (Exception e)
+            {
+                print(e);
+            }
             transform.position = Vector3.MoveTowards(transform.position, points[_i].position, speed * Time.deltaTime);
             yield return null;
         }
@@ -43,9 +53,9 @@ public class MovingPlatform : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (!other.gameObject.CompareTag("Player")) return;
-        if(transform.position.y < other.transform.position.y || transform.position.y > other.transform.position.y)
+        if (transform.position.y < other.transform.position.y || transform.position.y > other.transform.position.y)
             other.transform.SetParent(gameObject.transform);
-
+            
     }
 
     private void OnCollisionExit2D(Collision2D other)
