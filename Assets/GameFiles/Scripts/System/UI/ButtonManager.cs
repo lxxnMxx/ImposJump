@@ -39,4 +39,16 @@ public class ButtonManager : DontDestroyOnLoad<ButtonManager>
     {
         Application.Quit();
     }
+
+    public void OpenSettings()
+    {
+        UIElementHandler.Instance.GetCanvas("#Settings").gameObject.SetActive(true);
+        UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(false);
+    }
+
+    public void LeaveSettings()
+    {
+        UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
+        UIElementHandler.Instance.GetCanvas("#Settings").gameObject.SetActive(false);
+    }
 }

@@ -53,6 +53,8 @@ public class UIManager : Singleton<UIManager>
             UIElementHandler.Instance.SetButtonEvent("#Level2", ButtonManager.instance.SelectLevel2);
             UIElementHandler.Instance.SetButtonEvent("#Play", ButtonManager.instance.Play);
             UIElementHandler.Instance.SetButtonEvent("#Quit", ButtonManager.instance.Quit);
+            UIElementHandler.Instance.SetButtonEvent("#OpenSettings", ButtonManager.instance.OpenSettings);
+            UIElementHandler.Instance.SetButtonEvent("#BackSettings", ButtonManager.instance.LeaveSettings);
         }
     }
 
