@@ -11,6 +11,8 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField] float speed;
 
     private int _i;
+    private Vector3 _direction;
+    private float _angle;
     
     void Start()
     {
@@ -26,7 +28,13 @@ public class MovingPlatform : MonoBehaviour
             {
                 _i += 1;
                 if (_i == points.Length) _i = 0;
+                _direction = transform.position - points[_i].position;
+                _angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(_angle, Vector3.up);
             }
+            // turn the platform to the current point
+            
+            
             transform.position = Vector3.MoveTowards(transform.position, points[_i].position, speed * Time.deltaTime);
             yield return null;
         }

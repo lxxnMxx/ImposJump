@@ -8,6 +8,7 @@ TagManager:
   - Spike
   - JumpBoost
   - GravityPad
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX

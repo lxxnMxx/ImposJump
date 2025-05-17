@@ -13,6 +13,7 @@ public class CharacterController : MonoBehaviour
 
     private int _gravityDirection;
     private float _moveDirection;
+    private bool _isInverted;
     private bool _isGrounded = true;
     
     void Start()
@@ -49,11 +50,11 @@ public class CharacterController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Ground")) _isGrounded = true;
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform")) _isGrounded = true;
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if(other.gameObject.CompareTag("Ground")) _isGrounded = false;
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform")) _isGrounded = false;
     }
 }
