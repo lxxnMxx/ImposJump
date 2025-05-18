@@ -41,20 +41,20 @@ public class UIManager : Singleton<UIManager>
             _pausePanel = UIElementHandler.Instance.GetPanel("#PausePanel");
         
             // set Button events after SceneLoaded
-            UIElementHandler.Instance.SetButtonEvent("#Restart", ButtonManager.instance.Reset);
-            UIElementHandler.Instance.SetButtonEvent("#Resume", ButtonManager.instance.Resume);
-            UIElementHandler.Instance.SetButtonEvent("#MainMenuGO", ButtonManager.instance.MainMenu);
-            UIElementHandler.Instance.SetButtonEvent("#MainMenuPause", ButtonManager.instance.MainMenu);
+            UIElementHandler.Instance.SetButtonEvent("#Restart", ButtonManager.Instance.Reset);
+            UIElementHandler.Instance.SetButtonEvent("#Resume", ButtonManager.Instance.Resume);
+            UIElementHandler.Instance.SetButtonEvent("#MainMenuGO", ButtonManager.Instance.MainMenu);
+            UIElementHandler.Instance.SetButtonEvent("#MainMenuPause", ButtonManager.Instance.MainMenu);
         }
 
         if (scene.name == "MainMenu")
         {
-            UIElementHandler.Instance.SetButtonEvent("#Level1", ButtonManager.instance.SelectLevel1);
-            UIElementHandler.Instance.SetButtonEvent("#Level2", ButtonManager.instance.SelectLevel2);
-            UIElementHandler.Instance.SetButtonEvent("#Play", ButtonManager.instance.Play);
-            UIElementHandler.Instance.SetButtonEvent("#Quit", ButtonManager.instance.Quit);
-            UIElementHandler.Instance.SetButtonEvent("#OpenSettings", ButtonManager.instance.OpenSettings);
-            UIElementHandler.Instance.SetButtonEvent("#BackSettings", ButtonManager.instance.LeaveSettings);
+            UIElementHandler.Instance.SetButtonEvent("#Level1", ButtonManager.Instance.SelectLevel1);
+            UIElementHandler.Instance.SetButtonEvent("#Level2", ButtonManager.Instance.SelectLevel2);
+            UIElementHandler.Instance.SetButtonEvent("#Play", ButtonManager.Instance.Play);
+            UIElementHandler.Instance.SetButtonEvent("#Quit", ButtonManager.Instance.Quit);
+            UIElementHandler.Instance.SetButtonEvent("#OpenSettings", ButtonManager.Instance.OpenSettings);
+            UIElementHandler.Instance.SetButtonEvent("#BackSettings", ButtonManager.Instance.LeaveSettings);
         }
     }
 

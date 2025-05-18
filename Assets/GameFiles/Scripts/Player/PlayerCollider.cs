@@ -24,6 +24,7 @@ public class PlayerCollider : MonoBehaviour
         
         if (other.gameObject.CompareTag("JumpBoost") && _rb.linearVelocityY <= 0)
         {
+            SoundManager.Instance.Play(SoundType.PlayerJumppad);
             _rb.AddForce(Vector2.up * _playerBase.GetBaseValues(CharacterStats.JumpForce)*1.2f*gravityDirection, ForceMode2D.Impulse);
         }
     }

@@ -9,6 +9,18 @@ public class Timer : MonoBehaviour
     private Text _text;
     private double _seconds;
 
+    private bool _isGameOver;
+
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameOver += StopCounting;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameOver -= StopCounting;
+    }
+
     private void Start()
     {
         _text = GetComponent<Text>();
@@ -16,8 +28,13 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
-        _seconds = Math.Round(time % 60, 2);
-        _text.text = $"{_seconds:f2}";   
+        if (!_isGameOver)
+        {
+            time += Time.deltaTime;
+            _seconds = Math.Round(time % 60, 2);
+            _text.text = $"{_seconds:f2}";
+        }
     }
+    
+    private void StopCounting() => _isGameOver = true;
 }

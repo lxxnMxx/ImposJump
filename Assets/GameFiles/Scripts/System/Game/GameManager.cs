@@ -33,15 +33,15 @@ public class GameManager : Singleton<GameManager>
     
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return) && gameState is GameState.PauseMenu) ButtonManager.instance.Resume();
+        if(Input.GetKeyDown(KeyCode.Return) && gameState is GameState.PauseMenu) ButtonManager.Instance.Resume();
         
         else if(Input.GetKeyDown(KeyCode.Escape) && gameState is GameState.StartGame) ChangeGameState(GameState.PauseMenu);
         else if (Input.GetKeyDown(KeyCode.Return) && gameState is GameState.StartGame)
         {
             PlayerDeaths += 1;
-            ButtonManager.instance.Reset();
+            ButtonManager.Instance.Reset();
         }
-        else if (Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameOver) ButtonManager.instance.Reset();
+        else if (Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameOver) ButtonManager.Instance.Reset();
     }
 
     public void ChangeGameState(GameState state)

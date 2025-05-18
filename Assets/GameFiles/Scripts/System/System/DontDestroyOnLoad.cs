@@ -1,19 +1,15 @@
 using System;
 using UnityEngine;
 
-public class DontDestroyOnLoad<T> : MonoBehaviour where T : Component
+public class DontDestroyOnLoad : MonoBehaviour
 {
-    public static T instance;
-    
     private void Awake()
     {
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this as T;
         DontDestroyOnLoad(gameObject);
+        var instance = GameObject.Find($"{gameObject.name}");
+        if (instance.gameObject != gameObject)
+        {
+            Destroy(instance.gameObject);
+        }
     }
 }

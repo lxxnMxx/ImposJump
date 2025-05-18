@@ -42,6 +42,7 @@ public class PlayerBase : MonoBehaviour
 
     private void Die()
     {
+        SoundManager.Instance.Play(SoundType.PlayerDeath);
         Instantiate(playerDeathParticle, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

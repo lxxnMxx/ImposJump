@@ -9,7 +9,7 @@ public class ViewManager
         GameManager.Instance.ChangeGameState(GameState.StartGame);
     }
 
-    public static void UnloadLevel(string sceneName)
+    public static void UnloadScene(string sceneName)
     {
         SceneManager.UnloadSceneAsync(sceneName);
     }

@@ -43,7 +43,7 @@ public class MovingPlatform : MonoBehaviour
             }
             catch (Exception e)
             {
-                print(e);
+                print("");
             }
             transform.position = Vector3.MoveTowards(transform.position, points[_i].position, speed * Time.deltaTime);
             yield return null;
