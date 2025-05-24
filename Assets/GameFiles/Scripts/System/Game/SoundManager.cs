@@ -7,14 +7,6 @@ public class SoundManager : Singleton<SoundManager>
     
     void Awake()
     {
-        /*
-        var soundManager = GameObject.Find("SoundManager");
-        if (soundManager != null && soundManager != gameObject)
-        {
-            Destroy(soundManager);
-            return;
-        }
-        */
         
         foreach (Sound s in sounds)
         {
