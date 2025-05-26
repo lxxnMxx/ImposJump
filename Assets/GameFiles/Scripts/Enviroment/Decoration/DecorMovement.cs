@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,7 +7,7 @@ public class DecorMovement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Vector3 direction;
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(Movement());
     }

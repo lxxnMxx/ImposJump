@@ -49,14 +49,17 @@ TagManager:
   - name: Background
     uniqueID: 2915149699
     locked: 0
+  - name: Decoration
+    uniqueID: 2503123691
+    locked: 0
   - name: Objects
     uniqueID: 675855981
     locked: 0
   - name: Ground
     uniqueID: 855601937
     locked: 0
-  - name: Decoration
-    uniqueID: 2503123691
+  - name: Clouds
+    uniqueID: 2342020141
     locked: 0
   - name: Player
     uniqueID: 193621501
