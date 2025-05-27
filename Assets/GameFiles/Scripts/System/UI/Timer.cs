@@ -32,7 +32,7 @@ public class Timer : MonoBehaviour
         {
             time += Time.deltaTime;
             _seconds = Math.Round(time % 60, 2);
-            _text.text = $"{_seconds:f2}";
+            _text.text = $"{_seconds:f2}"; // the f2 means that the text doesn't get tinier if the number is tinier
         }
     }
     
