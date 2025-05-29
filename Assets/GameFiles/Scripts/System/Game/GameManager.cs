@@ -53,15 +53,19 @@ public class GameManager : Singleton<GameManager>
         switch (state)
         {
             case GameState.MainMenu:
+                UnlockCursor();
                 break;
             case GameState.StartGame:
                 OnGameStart?.Invoke();
+                LockCursor();
                 break;
             case GameState.PauseMenu:
                 GamePaused();
+                UnlockCursor();
                 break;
             case GameState.GameOver:
                 PlayerDeaths += 1;
+                UnlockCursor();
                 OnGameOver?.Invoke();
                 break;
         }
@@ -74,7 +78,21 @@ public class GameManager : Singleton<GameManager>
 
     private void ResumeGame(GameState state)
     {
-        if(state == GameState.PauseMenu)  return;
+        if(state == GameState.PauseMenu) return;
         Time.timeScale = 1;
+    }
+
+    private void LockCursor()
+    {
+        // Cursor Gets also locked in PlayerBase OnEnable()
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private void UnlockCursor()
+    {
+        // Unlock Cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

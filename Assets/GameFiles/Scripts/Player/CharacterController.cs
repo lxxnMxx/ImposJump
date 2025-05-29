@@ -4,9 +4,6 @@ using UnityEngine.InputSystem;
 
 public class CharacterController : MonoBehaviour
 {
-    [Space(7)]
-    [Range(-5, -40)] [SerializeField] float minHeight;
-    
     private Rigidbody2D _rb;
     private PlayerBase _playerBase;
     private PlayerCollider _playerCollider;
@@ -22,12 +19,10 @@ public class CharacterController : MonoBehaviour
         _playerBase = GetComponent<PlayerBase>();
         _playerCollider = GetComponent<PlayerCollider>();
     }
-
+    
+    // if the Player falls of a Platform - dies (Code is in CameraFollowControl.cs)
     private void Update()
     {
-        if(transform.position.y < minHeight)
-            GameManager.Instance.ChangeGameState(GameState.GameOver);
-        
         _moveDirection = Input.GetAxis("Horizontal");
         
         if (_moveDirection < 0)
@@ -42,8 +37,6 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && _isGrounded)
         {
             _isGrounded = false;
-            //_gravityDirection = _playerCollider.gravityDirection;
-            //print(_gravityDirection);
             _rb.AddForce(new Vector2(0, _playerCollider.gravityDirection) * _playerBase.GetBaseValues(CharacterStats.JumpForce), ForceMode2D.Impulse);
         }
     }

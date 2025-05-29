@@ -21,6 +21,10 @@ public class PlayerBase : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.OnGameOver += Die;
+        
+        // Lock Cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void OnDisable()
