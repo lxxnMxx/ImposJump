@@ -64,4 +64,20 @@ public class PlayerBase : MonoBehaviour
                 return 0;
         }
     }
+    
+    public void SetBaseValues(CharacterStats value, float newValue)
+    {
+        switch (value)
+        {
+            case CharacterStats.JumpForce:
+                jumpForce = newValue;
+                return;
+            case CharacterStats.MoveSpeed:
+                moveSpeed = newValue;
+                return;
+            default:
+                Debug.LogError("This CharacterStat Type doesn't exist! Check your Input!");
+                return;
+        }
+    }
 }
