@@ -10,6 +10,8 @@ public class UIManager : Singleton<UIManager>
     
     private Text _deathCountTxt;
 
+    private Slider _timeLeftBadCloud;
+
     private void OnEnable()
     {
         GameManager.Instance.OnGameOver += GameOver;
@@ -39,6 +41,8 @@ public class UIManager : Singleton<UIManager>
             
             _gameOverPanel = UIElementHandler.Instance.GetPanel("#GameOverPanel");
             _pausePanel = UIElementHandler.Instance.GetPanel("#PausePanel");
+            
+            _timeLeftBadCloud = UIElementHandler.Instance.GetSlider("#TimeLeftBadCloud");
         
             // set Button events after SceneLoaded
             UIElementHandler.Instance.SetButtonEvent("#Restart", ButtonManager.Instance.Reset);
@@ -58,6 +62,17 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    public void SetTimeLeftBadCloudMaxValue(float maxValue)
+    {
+        _timeLeftBadCloud.maxValue = maxValue;
+    }
+    
+    public void SetTimeLeftBadCloud(float timeLeft)
+    {
+        _timeLeftBadCloud.value = timeLeft;
+    }
+
+    
     private void PauseMenu(GameState state)
     {
         if (state != GameState.PauseMenu) return;

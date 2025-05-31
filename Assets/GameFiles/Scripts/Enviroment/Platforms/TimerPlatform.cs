@@ -21,6 +21,7 @@ public class TimerPlatform : MonoBehaviour
         if (_player && _timer > 0)
         {
             _timer -= Time.deltaTime;
+            UIManager.Instance.SetTimeLeftBadCloud(_timer);
             if (_timer <= 0)
             {
                 GameManager.Instance.ChangeGameState(GameState.GameOver);
@@ -32,6 +33,7 @@ public class TimerPlatform : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && _isFirstCollision)
         {
+            UIManager.Instance.SetTimeLeftBadCloudMaxValue(startTime);
             _isFirstCollision = false;
         }
         if (collision.gameObject.CompareTag("Player"))

@@ -26,6 +26,11 @@ public class UIElementHandler : MonoBehaviour
     
     [SerializeField] private List<string> canvasId;
     [SerializeField] private List<Canvas> canvas;
+    
+    [Header("========== Slider Elements ==========")]
+    
+    [SerializeField] private List<string> sliderId;
+    [SerializeField] private List<Slider> slider;
 
     private void Awake()
     {
@@ -52,6 +57,11 @@ public class UIElementHandler : MonoBehaviour
     {
         var index = canvasId.FindIndex(x => x.Equals(id));
         return canvas[index];
+    }
+    public Slider GetSlider(string id)
+    {
+        var index = sliderId.FindIndex(x => x.Equals(id));
+        return slider[index];
     }
     
     public void SetButtonEvent(string id, UnityAction onButtonClick)
