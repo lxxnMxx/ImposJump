@@ -13,7 +13,7 @@ public class ButtonManager : Singleton<ButtonManager>
     public void Resume()
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
-        GameManager.Instance.ChangeGameState(GameState.StartGame);
+        GameManager.Instance.ChangeGameState(GameState.GameContinues);
     }
 
     public void SelectLevel1()

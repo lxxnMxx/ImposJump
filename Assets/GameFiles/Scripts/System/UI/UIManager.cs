@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
+    private GameState _lastGameState;
+    
     private GameObject _gameOverPanel;
     private GameObject _pausePanel;
     
@@ -12,12 +14,15 @@ public class UIManager : Singleton<UIManager>
 
     private Slider _timeLeftBadCloud;
 
+    
+    
     private void OnEnable()
     {
         GameManager.Instance.OnGameOver += GameOver;
         GameManager.Instance.OnGameStart += GameStart;
         GameManager.Instance.OnGameStateChange += PauseMenu;
         GameManager.Instance.OnGameStateChange += ResumeGame;
+        GameManager.Instance.OnGameStateChange += Danger;
         
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -28,6 +33,7 @@ public class UIManager : Singleton<UIManager>
         GameManager.Instance.OnGameStart -= GameStart;
         GameManager.Instance.OnGameStateChange -= PauseMenu;
         GameManager.Instance.OnGameStateChange -= ResumeGame;
+        GameManager.Instance.OnGameStateChange -= Danger;
         
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
@@ -75,13 +81,33 @@ public class UIManager : Singleton<UIManager>
     
     private void PauseMenu(GameState state)
     {
-        if (state != GameState.PauseMenu) return;
+        print($"Lastgamestate was: {_lastGameState}");
+        if (state != GameState.PauseMenu)
+        {
+            _lastGameState = state;
+            return;
+        }
         _pausePanel.SetActive(true);
+        if (_lastGameState == GameState.Danger)
+        {
+            _timeLeftBadCloud.gameObject.SetActive(true);
+        }
+    }
+
+    private void Danger(GameState state)
+    {
+        // if the last GameState was pauseMenu then let the bar still active
+        if (state == GameState.Danger)
+        {
+            _timeLeftBadCloud.gameObject.SetActive(true); return;
+        }
+        if(_lastGameState == GameState.Danger) return;
+        _timeLeftBadCloud.gameObject.SetActive(false);
     }
 
     private void ResumeGame(GameState state)
     {
-        if (state is GameState.PauseMenu) return;
+        if (state is GameState.PauseMenu or GameState.MainMenu) return;
         _pausePanel.SetActive(false);
     }
 

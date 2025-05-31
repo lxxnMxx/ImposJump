@@ -14,6 +14,8 @@ public class GameManager : Singleton<GameManager>
     public event Action OnGameOver;
     public event Action OnGameStart;
 
+    
+    
     private void OnEnable()
     {
         OnGameStateChange += ResumeGame;
@@ -29,25 +31,29 @@ public class GameManager : Singleton<GameManager>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(scene.name == "MainMenu") ChangeGameState(GameState.MainMenu);
+        if(scene.buildIndex is 3 or 4) ChangeGameState(GameState.StartGame);
     }
     
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Return) && gameState is GameState.PauseMenu) ButtonManager.Instance.Resume();
         
-        else if(Input.GetKeyDown(KeyCode.Escape) && gameState is GameState.StartGame) ChangeGameState(GameState.PauseMenu);
-        else if (Input.GetKeyDown(KeyCode.Return) && gameState is GameState.StartGame)
+        else if(Input.GetKeyDown(KeyCode.Escape) && gameState is GameState.GameContinues or GameState.Danger)
+            ChangeGameState(GameState.PauseMenu);
+        
+        else if (Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameContinues or GameState.Danger)
         {
             PlayerDeaths += 1;
             ButtonManager.Instance.Reset();
         }
+        
         else if (Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameOver) ButtonManager.Instance.Reset();
     }
 
     public void ChangeGameState(GameState state)
     {
         gameState = state;
-        //print(gameState);
+        print(gameState);
         OnGameStateChange?.Invoke(gameState);
         
         switch (state)
@@ -55,18 +61,34 @@ public class GameManager : Singleton<GameManager>
             case GameState.MainMenu:
                 UnlockCursor();
                 break;
+            
             case GameState.StartGame:
                 OnGameStart?.Invoke();
                 LockCursor();
+                ChangeGameState(GameState.GameContinues);
                 break;
+            
+            case GameState.GameContinues:
+                LockCursor();
+                break;
+            
+            case GameState.Danger:
+                LockCursor();
+                break;
+            
             case GameState.PauseMenu:
                 GamePaused();
                 UnlockCursor();
                 break;
+            
             case GameState.GameOver:
                 PlayerDeaths += 1;
                 UnlockCursor();
                 OnGameOver?.Invoke();
+                break;
+            
+            case GameState.GameFinished:
+                UnlockCursor();
                 break;
         }
     }
