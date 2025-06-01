@@ -61,6 +61,11 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     source: {fileID: 0}
+  - type: 3
+    clip: {fileID: 8300000, guid: 0af233bd36c3ec7408b6b6dc69209ee3, type: 3}
+    volume: 0.7
+    pitch: 1
+    source: {fileID: 0}
 --- !u!114 &-3070484773697202682
 MonoBehaviour:
   m_ObjectHideFlags: 0

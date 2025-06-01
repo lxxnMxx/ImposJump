@@ -9,6 +9,7 @@ public class UIManager : Singleton<UIManager>
     
     private GameObject _gameOverPanel;
     private GameObject _pausePanel;
+    private GameObject _finishPanel;
     
     private Text _deathCountTxt;
 
@@ -23,6 +24,7 @@ public class UIManager : Singleton<UIManager>
         GameManager.Instance.OnGameStateChange += PauseMenu;
         GameManager.Instance.OnGameStateChange += ResumeGame;
         GameManager.Instance.OnGameStateChange += Danger;
+        GameManager.Instance.OnLevelFinished += LevelFinished;
         
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
@@ -34,10 +36,13 @@ public class UIManager : Singleton<UIManager>
         GameManager.Instance.OnGameStateChange -= PauseMenu;
         GameManager.Instance.OnGameStateChange -= ResumeGame;
         GameManager.Instance.OnGameStateChange -= Danger;
+        GameManager.Instance.OnLevelFinished -= LevelFinished;
         
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
+    // Initialization of UI Elements
+    // TODO: find a better solution for this DEFINITELY!!!! (imagine handling 5 levels with this)
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == "Level1")
@@ -47,6 +52,7 @@ public class UIManager : Singleton<UIManager>
             
             _gameOverPanel = UIElementHandler.Instance.GetPanel("#GameOverPanel");
             _pausePanel = UIElementHandler.Instance.GetPanel("#PausePanel");
+            _finishPanel = UIElementHandler.Instance.GetPanel("#FinishPanel");
             
             _timeLeftBadCloud = UIElementHandler.Instance.GetSlider("#TimeLeftBadCloud");
         
@@ -55,6 +61,8 @@ public class UIManager : Singleton<UIManager>
             UIElementHandler.Instance.SetButtonEvent("#Resume", ButtonManager.Instance.Resume);
             UIElementHandler.Instance.SetButtonEvent("#MainMenuGO", ButtonManager.Instance.MainMenu);
             UIElementHandler.Instance.SetButtonEvent("#MainMenuPause", ButtonManager.Instance.MainMenu);
+            UIElementHandler.Instance.SetButtonEvent("#MainMenuFinish", ButtonManager.Instance.MainMenu);
+            UIElementHandler.Instance.SetButtonEvent("#PlayAgainFinish", ButtonManager.Instance.Reset);
         }
 
         if (scene.name == "MainMenu")
@@ -81,19 +89,15 @@ public class UIManager : Singleton<UIManager>
     
     private void PauseMenu(GameState state)
     {
-        print($"Lastgamestate was: {_lastGameState}");
-        if (state != GameState.PauseMenu)
-        {
-            _lastGameState = state;
-            return;
-        }
+        if (state != GameState.PauseMenu) return;
         _pausePanel.SetActive(true);
-        if (_lastGameState == GameState.Danger)
-        {
+        
+        // show the bar here that the player can see how much time he got left on this platform
+        if (GameManager.Instance.lastGameState == GameState.Danger)
             _timeLeftBadCloud.gameObject.SetActive(true);
-        }
     }
 
+    // if the player is in Danger
     private void Danger(GameState state)
     {
         // if the last GameState was pauseMenu then let the bar still active
@@ -101,7 +105,9 @@ public class UIManager : Singleton<UIManager>
         {
             _timeLeftBadCloud.gameObject.SetActive(true); return;
         }
-        if(_lastGameState == GameState.Danger) return;
+        
+        // return here cause when not, it would get deactivated in the pauseMenu
+        if(GameManager.Instance.lastGameState == GameState.Danger && state != GameState.GameContinues) return;
         _timeLeftBadCloud.gameObject.SetActive(false);
     }
 
@@ -119,5 +125,11 @@ public class UIManager : Singleton<UIManager>
     private void GameStart()
     {
         _gameOverPanel.SetActive(false);
+        _pausePanel.SetActive(false);
+    }
+
+    private void LevelFinished()
+    {
+        _finishPanel.SetActive(true);
     }
 }

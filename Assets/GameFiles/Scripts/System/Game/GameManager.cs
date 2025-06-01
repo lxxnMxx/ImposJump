@@ -9,10 +9,12 @@ public class GameManager : Singleton<GameManager>
     public int PlayerDeaths {set; get;} //TODO: find a better solution to store, set and access these type of Data
     
     public GameState gameState;
+    public GameState lastGameState;
     public event Action<GameState> OnGameStateChange;
     
     public event Action OnGameOver;
     public event Action OnGameStart;
+    public event Action OnLevelFinished;
 
     
     
@@ -20,11 +22,13 @@ public class GameManager : Singleton<GameManager>
     {
         OnGameStateChange += ResumeGame;
         SceneManager.sceneLoaded += OnSceneLoaded;
+        OnLevelFinished += LevelFinished;
     }
 
     private void OnDisable()
     {
         OnGameStateChange -= ResumeGame;
+        OnLevelFinished -= LevelFinished;
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
@@ -52,6 +56,7 @@ public class GameManager : Singleton<GameManager>
 
     public void ChangeGameState(GameState state)
     {
+        lastGameState = gameState;
         gameState = state;
         print(gameState);
         OnGameStateChange?.Invoke(gameState);
@@ -87,7 +92,8 @@ public class GameManager : Singleton<GameManager>
                 OnGameOver?.Invoke();
                 break;
             
-            case GameState.GameFinished:
+            case GameState.LevelFinished:
+                OnLevelFinished?.Invoke();
                 UnlockCursor();
                 break;
         }
@@ -116,5 +122,10 @@ public class GameManager : Singleton<GameManager>
         // Unlock Cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    private void LevelFinished()
+    {
+        SoundManager.Instance.Play(SoundType.LevelFinished);
     }
 }

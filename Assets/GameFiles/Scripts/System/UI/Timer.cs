@@ -14,11 +14,13 @@ public class Timer : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.OnGameOver += StopCounting;
+        GameManager.Instance.OnLevelFinished += StopCounting;
     }
 
     private void OnDisable()
     {
         GameManager.Instance.OnGameOver -= StopCounting;
+        GameManager.Instance.OnLevelFinished -= StopCounting;
     }
 
     private void Start()

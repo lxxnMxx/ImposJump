@@ -6,5 +6,5 @@ public enum GameState
     Danger,
     PauseMenu,
     GameOver,
-    GameFinished
+    LevelFinished
 }

@@ -37,5 +37,10 @@ public class PlayerCollider : MonoBehaviour
             if (gravityDirection is < 0 or > 0) gravityDirection = -gravityDirection;
             _rb.gravityScale *= -1;
         }
+
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            GameManager.Instance.ChangeGameState(GameState.LevelFinished);
+        }
     }
 }
