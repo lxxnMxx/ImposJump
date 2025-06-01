@@ -40,27 +40,27 @@ public class UIElementHandler : MonoBehaviour
     public Text GetText(string id)
     {
         // get index of the id and return text at this index
-        var index = textId.FindIndex(x => x.Equals(id));
+        var index = textId.FindIndex(x => x == id);
         return text[index];
     }
     public Button GetButton(string id)
     {
-        var index = buttonId.FindIndex(x => x.Equals(id));
+        var index = buttonId.FindIndex(x => x == id);
         return button[index];
     }
     public GameObject GetPanel(string id)
     {
-        var index = panelId.FindIndex(x => x.Equals(id));
+        var index = panelId.FindIndex(x => x == id);
         return panel[index];
     }
     public Canvas GetCanvas(string id)
     {
-        var index = canvasId.FindIndex(x => x.Equals(id));
+        var index = canvasId.FindIndex(x => x == id);
         return canvas[index];
     }
     public Slider GetSlider(string id)
     {
-        var index = sliderId.FindIndex(x => x.Equals(id));
+        var index = sliderId.FindIndex(x => x == id);
         return slider[index];
     }
     

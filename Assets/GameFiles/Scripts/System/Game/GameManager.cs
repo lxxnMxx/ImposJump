@@ -35,7 +35,6 @@ public class GameManager : Singleton<GameManager>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(scene.name == "MainMenu") ChangeGameState(GameState.MainMenu);
-        if(scene.buildIndex is 3 or 4) ChangeGameState(GameState.StartGame);
     }
     
     void Update()

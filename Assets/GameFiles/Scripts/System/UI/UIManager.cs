@@ -45,7 +45,8 @@ public class UIManager : Singleton<UIManager>
     // TODO: find a better solution for this DEFINITELY!!!! (imagine handling 5 levels with this)
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "Level1")
+        
+        if (scene.name == "LevelUI")
         {
             _deathCountTxt = UIElementHandler.Instance.GetText("#DeathCount");
             _deathCountTxt.text = $"Deaths: {GameManager.Instance.PlayerDeaths}";
@@ -55,7 +56,7 @@ public class UIManager : Singleton<UIManager>
             _finishPanel = UIElementHandler.Instance.GetPanel("#FinishPanel");
             
             _timeLeftBadCloud = UIElementHandler.Instance.GetSlider("#TimeLeftBadCloud");
-        
+            
             // set Button events after SceneLoaded
             UIElementHandler.Instance.SetButtonEvent("#Restart", ButtonManager.Instance.Reset);
             UIElementHandler.Instance.SetButtonEvent("#Resume", ButtonManager.Instance.Resume);
@@ -64,7 +65,7 @@ public class UIManager : Singleton<UIManager>
             UIElementHandler.Instance.SetButtonEvent("#MainMenuFinish", ButtonManager.Instance.MainMenu);
             UIElementHandler.Instance.SetButtonEvent("#PlayAgainFinish", ButtonManager.Instance.Reset);
         }
-
+        
         if (scene.name == "MainMenu")
         {
             UIElementHandler.Instance.SetButtonEvent("#Level1", ButtonManager.Instance.SelectLevel1);
@@ -107,13 +108,14 @@ public class UIManager : Singleton<UIManager>
         }
         
         // return here cause when not, it would get deactivated in the pauseMenu
-        if(GameManager.Instance.lastGameState == GameState.Danger && state != GameState.GameContinues) return;
+        if(GameManager.Instance.lastGameState == GameState.Danger || !_timeLeftBadCloud) 
+            return;
         _timeLeftBadCloud.gameObject.SetActive(false);
     }
 
     private void ResumeGame(GameState state)
     {
-        if (state is GameState.PauseMenu or GameState.MainMenu) return;
+        if (state is GameState.PauseMenu or GameState.MainMenu or GameState.StartGame || !_pausePanel) return;
         _pausePanel.SetActive(false);
     }
 
@@ -124,6 +126,8 @@ public class UIManager : Singleton<UIManager>
 
     private void GameStart()
     {
+        if (!_gameOverPanel || !_pausePanel)
+            return;
         _gameOverPanel.SetActive(false);
         _pausePanel.SetActive(false);
     }

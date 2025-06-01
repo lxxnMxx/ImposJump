@@ -1,4 +1,3 @@
-using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ViewManager
@@ -7,11 +6,6 @@ public class ViewManager
     {
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
         GameManager.Instance.ChangeGameState(GameState.StartGame);
-    }
-
-    public static void UnloadScene(string sceneName)
-    {
-        SceneManager.UnloadSceneAsync(sceneName);
     }
 
     public static void LoadMainMenu()

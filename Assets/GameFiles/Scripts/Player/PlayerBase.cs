@@ -32,18 +32,6 @@ public class PlayerBase : MonoBehaviour
         GameManager.Instance.OnGameOver -= Die;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void Die()
     {
         SoundManager.Instance.Play(SoundType.PlayerDeath);
