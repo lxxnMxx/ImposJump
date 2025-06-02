@@ -13,6 +13,7 @@ public class PlayerBase : MonoBehaviour
     [Header("=== Values ===")] 
     [SerializeField] private float jumpForce;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private Vector3 startPosition;
     
     [Space(7)]
     
@@ -31,14 +32,12 @@ public class PlayerBase : MonoBehaviour
     {
         GameManager.Instance.OnGameOver -= Die;
     }
-
-    private void Die()
+    
+    private void Start()
     {
-        SoundManager.Instance.Play(SoundType.PlayerDeath);
-        Instantiate(playerDeathParticle, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        startPosition = transform.position;
     }
-
+    
     public float GetBaseValues(CharacterStats value)
     {
         switch (value)
@@ -52,20 +51,11 @@ public class PlayerBase : MonoBehaviour
                 return 0;
         }
     }
-    
-    public void SetBaseValues(CharacterStats value, float newValue)
+
+    private void Die()
     {
-        switch (value)
-        {
-            case CharacterStats.JumpForce:
-                jumpForce = newValue;
-                return;
-            case CharacterStats.MoveSpeed:
-                moveSpeed = newValue;
-                return;
-            default:
-                Debug.LogError("This CharacterStat Type doesn't exist! Check your Input!");
-                return;
-        }
+        SoundManager.Instance.Play(SoundType.PlayerDeath);
+        Instantiate(playerDeathParticle, transform.position, Quaternion.identity);
+        gameObject.SetActive(false);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
-    private GameState _lastGameState;
+    private UIElementHandler _elementHandler;
     
     private GameObject _gameOverPanel;
     private GameObject _pausePanel;
@@ -45,35 +45,35 @@ public class UIManager : Singleton<UIManager>
     // TODO: find a better solution for this DEFINITELY!!!! (imagine handling 5 levels with this)
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        
+        _elementHandler = UIElementHandler.Instance;
         if (scene.name == "LevelUI")
         {
-            _deathCountTxt = UIElementHandler.Instance.GetText("#DeathCount");
+            print("Level UI got loaded again!");
+            _deathCountTxt = _elementHandler.GetText("#DeathCount");
             _deathCountTxt.text = $"Deaths: {GameManager.Instance.PlayerDeaths}";
             
-            _gameOverPanel = UIElementHandler.Instance.GetPanel("#GameOverPanel");
-            _pausePanel = UIElementHandler.Instance.GetPanel("#PausePanel");
-            _finishPanel = UIElementHandler.Instance.GetPanel("#FinishPanel");
+            _timeLeftBadCloud = _elementHandler.GetSlider("#TimeLeftBadCloud");
             
-            _timeLeftBadCloud = UIElementHandler.Instance.GetSlider("#TimeLeftBadCloud");
+            _gameOverPanel = _elementHandler.GetPanel("#GameOverPanel");
+            _pausePanel = _elementHandler.GetPanel("#PausePanel");
             
             // set Button events after SceneLoaded
-            UIElementHandler.Instance.SetButtonEvent("#Restart", ButtonManager.Instance.Reset);
-            UIElementHandler.Instance.SetButtonEvent("#Resume", ButtonManager.Instance.Resume);
-            UIElementHandler.Instance.SetButtonEvent("#MainMenuGO", ButtonManager.Instance.MainMenu);
-            UIElementHandler.Instance.SetButtonEvent("#MainMenuPause", ButtonManager.Instance.MainMenu);
-            UIElementHandler.Instance.SetButtonEvent("#MainMenuFinish", ButtonManager.Instance.MainMenu);
-            UIElementHandler.Instance.SetButtonEvent("#PlayAgainFinish", ButtonManager.Instance.Reset);
+            _elementHandler.SetButtonEvent("#Resume", ButtonManager.Instance.Resume);
+            _elementHandler.SetButtonEvent("#MainMenuPause", ButtonManager.Instance.MainMenu);
+            _elementHandler.SetButtonEvent("#Restart", ButtonManager.Instance.Reset);
+            _elementHandler.SetButtonEvent("#MainMenuGO", ButtonManager.Instance.MainMenu);
+            _elementHandler.SetButtonEvent("#MainMenuFinish", ButtonManager.Instance.MainMenu);
+            _elementHandler.SetButtonEvent("#PlayAgainFinish", ButtonManager.Instance.Reset);
         }
         
         if (scene.name == "MainMenu")
         {
-            UIElementHandler.Instance.SetButtonEvent("#Level1", ButtonManager.Instance.SelectLevel1);
-            UIElementHandler.Instance.SetButtonEvent("#Level2", ButtonManager.Instance.SelectLevel2);
-            UIElementHandler.Instance.SetButtonEvent("#Play", ButtonManager.Instance.Play);
-            UIElementHandler.Instance.SetButtonEvent("#Quit", ButtonManager.Instance.Quit);
-            UIElementHandler.Instance.SetButtonEvent("#OpenSettings", ButtonManager.Instance.OpenSettings);
-            UIElementHandler.Instance.SetButtonEvent("#BackSettings", ButtonManager.Instance.LeaveSettings);
+            _elementHandler.SetButtonEvent("#Level1", ButtonManager.Instance.SelectLevel1);
+            _elementHandler.SetButtonEvent("#Level2", ButtonManager.Instance.SelectLevel2);
+            _elementHandler.SetButtonEvent("#Play", ButtonManager.Instance.Play);
+            _elementHandler.SetButtonEvent("#Quit", ButtonManager.Instance.Quit);
+            _elementHandler.SetButtonEvent("#OpenSettings", ButtonManager.Instance.OpenSettings);
+            _elementHandler.SetButtonEvent("#BackSettings", ButtonManager.Instance.LeaveSettings);
         }
     }
 
@@ -108,32 +108,32 @@ public class UIManager : Singleton<UIManager>
         }
         
         // return here cause when not, it would get deactivated in the pauseMenu
-        if(GameManager.Instance.lastGameState == GameState.Danger || !_timeLeftBadCloud) 
+        if(GameManager.Instance.lastGameState == GameState.Danger) 
             return;
-        _timeLeftBadCloud.gameObject.SetActive(false);
+        _timeLeftBadCloud?.gameObject.SetActive(false);
     }
 
     private void ResumeGame(GameState state)
     {
-        if (state is GameState.PauseMenu or GameState.MainMenu or GameState.StartGame || !_pausePanel) return;
-        _pausePanel.SetActive(false);
+        if (state is GameState.PauseMenu or GameState.MainMenu or GameState.StartGame) return;
+        _pausePanel?.SetActive(false);
     }
 
     private void GameOver()
     {
+        // load some elements here cause their 
         _gameOverPanel.SetActive(true);
     }
 
     private void GameStart()
     {
-        if (!_gameOverPanel || !_pausePanel)
-            return;
-        _gameOverPanel.SetActive(false);
-        _pausePanel.SetActive(false);
+        _gameOverPanel?.SetActive(false); // this question mark means basically this: if(exampleObject != null)
+        _pausePanel?.SetActive(false);
     }
 
     private void LevelFinished()
     {
+        _finishPanel = _elementHandler.GetPanel("#FinishPanel");
         _finishPanel.SetActive(true);
     }
 }

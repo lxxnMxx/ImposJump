@@ -11,6 +11,16 @@ public class TimerPlatform : MonoBehaviour
     private float _timer;
     private GameObject _player;
 
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameStart += ResetTimeOnPlatform;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameStart += ResetTimeOnPlatform;
+    }
+
     private void Start()
     {
         _timer = startTime;
@@ -28,6 +38,11 @@ public class TimerPlatform : MonoBehaviour
             }
         }
     }
+
+    private void ResetTimeOnPlatform()
+    {
+        _timer = startTime;
+    } 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

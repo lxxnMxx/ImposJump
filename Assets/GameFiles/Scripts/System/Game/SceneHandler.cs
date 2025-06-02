@@ -4,9 +4,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneHandler : MonoBehaviour
+public class SceneHandler : Singleton<SceneHandler>
 {
-    [SerializeField] private List<string> levels;
+    public List<string> levels;
     
     private int _sceneIndex;
     private string _sceneName;
@@ -16,15 +16,14 @@ public class SceneHandler : MonoBehaviour
         GameManager.Instance.OnGameStart += GameStarted;
         GameManager.Instance.OnGameStateChange += MainMenu;
         
-        if (SceneManager.GetActiveScene().name ==
-            levels[levels.FindIndex(x => x == SceneManager.GetActiveScene().name)])
+        if (IsSceneLevel())
             GameManager.Instance.ChangeGameState(GameState.StartGame);
     }
 
     private void OnDisable()
     {
         GameManager.Instance.OnGameStart -= GameStarted;
-        GameManager.Instance.OnGameStateChange += MainMenu;
+        GameManager.Instance.OnGameStateChange -= MainMenu;
     }
 
     private void MainMenu(GameState state)
@@ -35,12 +34,26 @@ public class SceneHandler : MonoBehaviour
 
     private void GameStarted()
     {
-        print("Scenemanager does also exists!!!");
-        if (SceneManager.GetActiveScene().name == "LevelUI")
+        if (SceneManager.sceneCount < 2)
         {
-            return;
+            SceneManager.LoadSceneAsync("LevelUI", LoadSceneMode.Additive);
         }
-            
-        SceneManager.LoadSceneAsync("LevelUI", LoadSceneMode.Additive);
+        
+    }
+    
+    // if this check is true, then the current scene is a level
+    public bool IsSceneLevel() => SceneManager.GetActiveScene().name ==
+                                  levels[levels.FindIndex(x => x == SceneManager.GetActiveScene().name)];
+    
+    public void LoadLevel(string sceneName)
+    {
+        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        GameManager.Instance.ChangeGameState(GameState.StartGame);
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
+        GameManager.Instance.ChangeGameState(GameState.MainMenu);
     }
 }

@@ -14,6 +14,7 @@ public class Timer : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.OnGameOver += StopCounting;
+        GameManager.Instance.OnGameStart += ResetTimer;
         GameManager.Instance.OnLevelFinished += StopCounting;
     }
 
@@ -21,6 +22,7 @@ public class Timer : MonoBehaviour
     {
         GameManager.Instance.OnGameOver -= StopCounting;
         GameManager.Instance.OnLevelFinished -= StopCounting;
+        GameManager.Instance.OnGameStart -= ResetTimer;
     }
 
     private void Start()
@@ -36,6 +38,12 @@ public class Timer : MonoBehaviour
             _seconds = Math.Round(time % 60, 2);
             _text.text = $"{_seconds:f2}"; // the f2 means that the text doesn't get tinier if the number is tinier
         }
+    }
+
+    private void ResetTimer() 
+    {
+        _isGameOver = false;
+        time = 0;
     }
     
     private void StopCounting() => _isGameOver = true;

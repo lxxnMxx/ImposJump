@@ -11,6 +11,16 @@ public class CameraFollowControl : MonoBehaviour
 
     private Transform _player;
 
+    private void OnEnable()
+    {
+        GameManager.Instance.OnGameStart += GameStarted;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnGameStart -= GameStarted;
+    }
+
     private void Start()
     {
         _player = gameObject.transform;
@@ -25,5 +35,11 @@ public class CameraFollowControl : MonoBehaviour
             virtualCamera.LookAt = null;
             GameManager.Instance.ChangeGameState(GameState.GameOver);
         }
+    }
+
+    private void GameStarted()
+    {
+        virtualCamera.Follow = _player;
+        virtualCamera.LookAt = _player;
     }
 }

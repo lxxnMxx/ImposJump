@@ -13,17 +13,7 @@ public class CharacterController : MonoBehaviour
     private float _moveDirection;
     private bool _isInverted;
     private bool _isGrounded = true;
-
-
-    private void OnEnable()
-    {
-        GameManager.Instance.OnLevelFinished += LevelFinished;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.Instance.OnLevelFinished -= LevelFinished;
-    }
+    
 
     void Start()
     {
@@ -52,8 +42,6 @@ public class CharacterController : MonoBehaviour
             _rb.AddForce(new Vector2(0, _playerCollider.gravityDirection) * _playerBase.GetBaseValues(CharacterStats.JumpForce), ForceMode2D.Impulse);
         }
     }
-
-    private void LevelFinished() => _canMove = false;
 
     private void OnCollisionEnter2D(Collision2D other)
     {

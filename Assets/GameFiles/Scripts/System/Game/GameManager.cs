@@ -16,6 +16,9 @@ public class GameManager : Singleton<GameManager>
     public event Action OnGameStart;
     public event Action OnLevelFinished;
 
+
+    private GameObject _player;
+    private Vector3 _playerStartPosition;
     
     
     private void OnEnable()
@@ -23,6 +26,7 @@ public class GameManager : Singleton<GameManager>
         OnGameStateChange += ResumeGame;
         SceneManager.sceneLoaded += OnSceneLoaded;
         OnLevelFinished += LevelFinished;
+        OnGameStart += GameStarted;
     }
 
     private void OnDisable()
@@ -30,11 +34,18 @@ public class GameManager : Singleton<GameManager>
         OnGameStateChange -= ResumeGame;
         OnLevelFinished -= LevelFinished;
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        OnGameStart -= GameStarted;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(scene.name == "MainMenu") ChangeGameState(GameState.MainMenu);
+        print(SceneHandler.Instance.IsSceneLevel());
+        if (SceneHandler.Instance.IsSceneLevel())
+        {
+            _player = GameObject.FindWithTag("Player"); 
+            _playerStartPosition = _player.transform.position;
+        }
     }
     
     void Update()
@@ -68,8 +79,6 @@ public class GameManager : Singleton<GameManager>
             
             case GameState.StartGame:
                 OnGameStart?.Invoke();
-                LockCursor();
-                ChangeGameState(GameState.GameContinues);
                 break;
             
             case GameState.GameContinues:
@@ -96,6 +105,18 @@ public class GameManager : Singleton<GameManager>
                 UnlockCursor();
                 break;
         }
+    }
+
+    // TODO: FIX CAN MOVE IN CHARACTERCONTROLLER
+    private void GameStarted()
+    {
+        LockCursor();
+        ChangeGameState(GameState.GameContinues);
+        
+        // I don't like the way how this is fixed ...
+        if(_player == null) return; // question mark didn't work here (specifically at the transform.position access)
+        _player.transform.position = _playerStartPosition;
+        _player.SetActive(true);
     }
 
     private void GamePaused()

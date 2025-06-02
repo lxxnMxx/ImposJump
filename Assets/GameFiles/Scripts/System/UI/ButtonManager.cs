@@ -6,7 +6,7 @@ public class ButtonManager : Singleton<ButtonManager>
     public void Reset()
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
-        ViewManager.LoadLevel(SceneManager.GetActiveScene().name);
+        GameManager.Instance.ChangeGameState(GameState.StartGame);
     }
 
     public void Resume()
@@ -29,13 +29,13 @@ public class ButtonManager : Singleton<ButtonManager>
     public void Play()
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
-        ViewManager.LoadLevel(MenuManager.Instance.GetSelectedLevel());
+        SceneHandler.Instance.LoadLevel(MenuManager.Instance.GetSelectedLevel());
     }
 
     public void MainMenu()
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
-        ViewManager.LoadMainMenu();
+        SceneHandler.Instance.LoadMainMenu();
     }
 
     public void Quit()
