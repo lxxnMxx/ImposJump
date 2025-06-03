@@ -116,6 +116,8 @@ public class GameManager : Singleton<GameManager>
         if(_player == null) return; // question mark didn't work here (specifically at the transform.position access)
         _player.transform.position = _playerStartPosition;
         _player.SetActive(true);
+        _player.GetComponent<PlayerCollider>().gravityDirection = 1;
+        _player.GetComponent<Rigidbody2D>().gravityScale = 2.7f;
     }
 
     private void GamePaused()
