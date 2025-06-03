@@ -108,7 +108,7 @@ public class UIManager : Singleton<UIManager>
         }
         
         // return here cause when not, it would get deactivated in the pauseMenu
-        if(GameManager.Instance.lastGameState == GameState.Danger) 
+        if(GameManager.Instance.lastGameState == GameState.Danger && state == GameState.PauseMenu) 
             return;
         _timeLeftBadCloud?.gameObject.SetActive(false);
     }
@@ -133,7 +133,7 @@ public class UIManager : Singleton<UIManager>
 
     private void LevelFinished()
     {
-        _finishPanel = _elementHandler.GetPanel("#FinishPanel");
+        _finishPanel = _elementHandler.GetPanel("#FinishPanel"); // Initialized here cause earlier not needed
         _finishPanel.SetActive(true);
     }
 }

@@ -4786,7 +4786,6 @@ GameObject:
   - component: {fileID: 1743655608}
   - component: {fileID: 1743655607}
   - component: {fileID: 1743655609}
-  - component: {fileID: 1743655610}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -4868,20 +4867,6 @@ MonoBehaviour:
   m_ZoomScale: 1
   m_FollowAttachment: 0.406
   m_LookAtAttachment: 0.414
---- !u!114 &1743655610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1743655606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928a9ef8cb3797f42863051ee1d93008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 1743655607}
-  yStopPoint: {x: 17, y: -10}
 --- !u!4 &1760390176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7665773548576229897, guid: 94b230323427b65498a33434af815573, type: 3}
@@ -7350,6 +7335,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3458971538306012245, guid: d27f996d434bbbb49866daaabf512fed, type: 3}
+      propertyPath: yRange.x
+      value: -10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458971538306012245, guid: d27f996d434bbbb49866daaabf512fed, type: 3}
+      propertyPath: yRange.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8046510341218364528, guid: d27f996d434bbbb49866daaabf512fed, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7358,20 +7351,8 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8711668685473136051, guid: d27f996d434bbbb49866daaabf512fed, type: 3}
-      propertyPath: yStopPoint.x
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711668685473136051, guid: d27f996d434bbbb49866daaabf512fed, type: 3}
-      propertyPath: yStopPoint.y
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 8711668685473136051, guid: d27f996d434bbbb49866daaabf512fed, type: 3}
-      propertyPath: virtualCamera
-      value: 
-      objectReference: {fileID: 1743655607}
     m_RemovedComponents:
-    - {fileID: 8711668685473136051, guid: d27f996d434bbbb49866daaabf512fed, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

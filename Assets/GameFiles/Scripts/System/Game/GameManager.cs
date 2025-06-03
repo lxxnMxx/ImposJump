@@ -107,7 +107,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    // TODO: FIX CAN MOVE IN CHARACTERCONTROLLER
     private void GameStarted()
     {
         LockCursor();

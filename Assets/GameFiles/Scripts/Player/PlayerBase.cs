@@ -13,7 +13,7 @@ public class PlayerBase : MonoBehaviour
     [Header("=== Values ===")] 
     [SerializeField] private float jumpForce;
     [SerializeField] private float moveSpeed;
-    [SerializeField] private Vector3 startPosition;
+    [SerializeField] private Vector2 yRange;
     
     [Space(7)]
     
@@ -32,10 +32,11 @@ public class PlayerBase : MonoBehaviour
     {
         GameManager.Instance.OnGameOver -= Die;
     }
-    
-    private void Start()
+
+    private void Update()
     {
-        startPosition = transform.position;
+        if(transform.position.y <= yRange.x || transform.position.y >= yRange.y)
+            GameManager.Instance.ChangeGameState(GameState.GameOver);
     }
     
     public float GetBaseValues(CharacterStats value)

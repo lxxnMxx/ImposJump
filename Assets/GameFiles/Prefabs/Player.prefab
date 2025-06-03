@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8605907263820673100}
   - component: {fileID: 8688737304777549779}
   - component: {fileID: 3458971538306012245}
-  - component: {fileID: 8711668685473136051}
   - component: {fileID: 7156819997693204957}
   - component: {fileID: 6575291925137975125}
   m_Layer: 0
@@ -80,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 193621501
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -180,21 +179,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 55
   moveSpeed: 5.5
+  startPosition: {x: 0, y: 0, z: 0}
   playerDeathParticle: {fileID: 8072699219730614820, guid: 9919389b796bf3c4480dedb40b26d589, type: 3}
---- !u!114 &8711668685473136051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8046510341218364528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928a9ef8cb3797f42863051ee1d93008, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
-  yStopPoint: -13
 --- !u!114 &7156819997693204957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,7 +193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ee8ab2e4ec58a42a84250bbbf3d7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minHeight: -11.5
 --- !u!114 &6575291925137975125
 MonoBehaviour:
   m_ObjectHideFlags: 0
