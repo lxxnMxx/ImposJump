@@ -50,11 +50,25 @@ public class ButtonManager : Singleton<ButtonManager>
         UIElementHandler.Instance.GetCanvas("#Settings").gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(false);
     }
+    
+    public void OpenTutorial()
+    {
+        SoundManager.Instance.Play(SoundType.ButtonClick);
+        UIElementHandler.Instance.GetCanvas("#TutorialSelection").gameObject.SetActive(true);
+        UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(false);
+    }
 
     public void LeaveSettings()
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
         UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas("#Settings").gameObject.SetActive(false);
+    }
+    
+    public void LeaveTutorial()
+    {
+        SoundManager.Instance.Play(SoundType.ButtonClick);
+        UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
+        UIElementHandler.Instance.GetCanvas("#TutorialSelection").gameObject.SetActive(false);
     }
 }
