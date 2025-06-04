@@ -28,6 +28,7 @@ public class CameraFollow : MonoBehaviour
 
     private void GameStarted()
     {
+        if (!target) return;
         transform.position = target.position;
     }
 }

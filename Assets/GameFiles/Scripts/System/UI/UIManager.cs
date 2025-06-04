@@ -48,7 +48,6 @@ public class UIManager : Singleton<UIManager>
         _elementHandler = UIElementHandler.Instance;
         if (scene.name == "LevelUI")
         {
-            print("Level UI got loaded again!");
             _deathCountTxt = _elementHandler.GetText("#DeathCount");
             _deathCountTxt.text = $"Deaths: {GameManager.Instance.PlayerDeaths}";
             
@@ -56,24 +55,6 @@ public class UIManager : Singleton<UIManager>
             
             _gameOverPanel = _elementHandler.GetPanel("#GameOverPanel");
             _pausePanel = _elementHandler.GetPanel("#PausePanel");
-            
-            // set Button events after SceneLoaded
-            _elementHandler.SetButtonEvent("#Resume", ButtonManager.Instance.Resume);
-            _elementHandler.SetButtonEvent("#MainMenuPause", ButtonManager.Instance.MainMenu);
-            _elementHandler.SetButtonEvent("#Restart", ButtonManager.Instance.Reset);
-            _elementHandler.SetButtonEvent("#MainMenuGO", ButtonManager.Instance.MainMenu);
-            _elementHandler.SetButtonEvent("#MainMenuFinish", ButtonManager.Instance.MainMenu);
-            _elementHandler.SetButtonEvent("#PlayAgainFinish", ButtonManager.Instance.Reset);
-        }
-        
-        if (scene.name == "MainMenu")
-        {
-            _elementHandler.SetButtonEvent("#Level1", ButtonManager.Instance.SelectLevel1);
-            _elementHandler.SetButtonEvent("#Level2", ButtonManager.Instance.SelectLevel2);
-            _elementHandler.SetButtonEvent("#Play", ButtonManager.Instance.Play);
-            _elementHandler.SetButtonEvent("#Quit", ButtonManager.Instance.Quit);
-            _elementHandler.SetButtonEvent("#OpenSettings", ButtonManager.Instance.OpenSettings);
-            _elementHandler.SetButtonEvent("#BackSettings", ButtonManager.Instance.LeaveSettings);
         }
     }
 
@@ -86,11 +67,10 @@ public class UIManager : Singleton<UIManager>
     {
         _timeLeftBadCloud.value = timeLeft;
     }
-
     
     private void PauseMenu(GameState state)
     {
-        if (state != GameState.PauseMenu) return;
+        if (state != GameState.PauseMenu || !_pausePanel) return;
         _pausePanel.SetActive(true);
         
         // show the bar here that the player can see how much time he got left on this platform
@@ -108,27 +88,28 @@ public class UIManager : Singleton<UIManager>
         }
         
         // return here cause when not, it would get deactivated in the pauseMenu
-        if(GameManager.Instance.lastGameState == GameState.Danger && state == GameState.PauseMenu) 
+        if(GameManager.Instance.lastGameState == GameState.Danger && state == GameState.PauseMenu || !_timeLeftBadCloud) 
             return;
-        _timeLeftBadCloud?.gameObject.SetActive(false);
+        _timeLeftBadCloud.gameObject.SetActive(false);
     }
 
     private void ResumeGame(GameState state)
     {
-        if (state is GameState.PauseMenu or GameState.MainMenu or GameState.StartGame) return;
+        if (state is GameState.PauseMenu or GameState.MainMenu or GameState.StartGame || !_pausePanel) return;
         _pausePanel?.SetActive(false);
     }
 
     private void GameOver()
     {
-        // load some elements here cause their 
         _gameOverPanel.SetActive(true);
+        _deathCountTxt.text = $"Deaths: {GameManager.Instance.PlayerDeaths}";
     }
 
     private void GameStart()
     {
-        _gameOverPanel?.SetActive(false); // this question mark means basically this: if(exampleObject != null)
-        _pausePanel?.SetActive(false);
+        if (!_gameOverPanel || !_pausePanel) return;
+        _gameOverPanel.SetActive(false);
+        _pausePanel.SetActive(false);
     }
 
     private void LevelFinished()

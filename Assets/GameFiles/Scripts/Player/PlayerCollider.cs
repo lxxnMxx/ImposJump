@@ -9,12 +9,9 @@ public class PlayerCollider : MonoBehaviour
     private Rigidbody2D _rb;
     private PlayerBase _playerBase;
 
-    private float _startGravityScale;
-
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _startGravityScale = _rb.gravityScale;
         _playerBase = GetComponent<PlayerBase>();
     }
 

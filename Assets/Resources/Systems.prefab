@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerDeaths>k__BackingField: 0
-  gameState: 1
+  gameState: 0
   lastGameState: 0
 --- !u!1 &491228266884121705
 GameObject:
@@ -91,50 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ab9342724733d42af3b19a9cc24c73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1272820173312131223
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3771206759543510989}
-  - component: {fileID: 8316693903011471304}
-  m_Layer: 0
-  m_Name: ButtonManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3771206759543510989
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272820173312131223}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 684843789983854264}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8316693903011471304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1272820173312131223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2fb846a029f904479cdab04473226b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3312984672106410070
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +120,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3771206759543510989}
   - {fileID: 3072882172462416141}
   - {fileID: 1919671806922434081}
   - {fileID: 7826639744167378768}
@@ -181,6 +136,14 @@ PrefabInstance:
     - target: {fileID: 1238538958800659513, guid: 3923b3c309212164f8811f5a2ef8a2dc, type: 3}
       propertyPath: m_Name
       value: SceneHandler
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671289946118528512, guid: 3923b3c309212164f8811f5a2ef8a2dc, type: 3}
+      propertyPath: 'levels.Array.data[0]'
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671289946118528512, guid: 3923b3c309212164f8811f5a2ef8a2dc, type: 3}
+      propertyPath: 'levels.Array.data[1]'
+      value: Level2
       objectReference: {fileID: 0}
     - target: {fileID: 6161115234836032255, guid: 3923b3c309212164f8811f5a2ef8a2dc, type: 3}
       propertyPath: m_LocalPosition.x

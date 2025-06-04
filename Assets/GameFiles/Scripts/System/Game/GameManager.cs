@@ -41,7 +41,7 @@ public class GameManager : Singleton<GameManager>
     {
         if(scene.name == "MainMenu") ChangeGameState(GameState.MainMenu);
         print(SceneHandler.Instance.IsSceneLevel());
-        if (SceneHandler.Instance.IsSceneLevel())
+        if (SceneHandler.Instance.IsSceneLevel() && mode == LoadSceneMode.Single)
         {
             _player = GameObject.FindWithTag("Player"); 
             _playerStartPosition = _player.transform.position;

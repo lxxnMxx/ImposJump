@@ -13,41 +13,30 @@ public class SceneHandler : Singleton<SceneHandler>
     
     private void OnEnable()
     {
-        GameManager.Instance.OnGameStart += GameStarted;
-        GameManager.Instance.OnGameStateChange += MainMenu;
+        //GameManager.Instance.OnGameStart += GameStarted;
         
-        if (IsSceneLevel())
+        if (IsSceneLevel() && GameManager.Instance.lastGameState == null)
             GameManager.Instance.ChangeGameState(GameState.StartGame);
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.OnGameStart -= GameStarted;
-        GameManager.Instance.OnGameStateChange -= MainMenu;
-    }
-
-    private void MainMenu(GameState state)
-    {
-        if (state is GameState.MainMenu)
-            SceneManager.UnloadSceneAsync("LevelUI");
+        //GameManager.Instance.OnGameStart -= GameStarted;
     }
 
     private void GameStarted()
     {
-        if (SceneManager.sceneCount < 2)
-        {
-            SceneManager.LoadSceneAsync("LevelUI", LoadSceneMode.Additive);
-        }
         
     }
     
     // if this check is true, then the current scene is a level
-    public bool IsSceneLevel() => SceneManager.GetActiveScene().name ==
-                                  levels[levels.FindIndex(x => x == SceneManager.GetActiveScene().name)];
-    
+    // .Any just iterates through the collection, and if the condition is true, return true, otherwise false
+    public bool IsSceneLevel() => levels.Any(lvl => lvl == SceneManager.GetActiveScene().name);
+
     public void LoadLevel(string sceneName)
     {
         SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("LevelUI", LoadSceneMode.Additive);
         GameManager.Instance.ChangeGameState(GameState.StartGame);
     }
 
