@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ec19712109b1d5c47a6879e20ae6202e
+guid: 5497b2b571038a84d89ac9606501eb28
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5026092619118502836
-    second: MovingPlatform_0
+      213: 848736081365253657
+    second: MovePlatform2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MovingPlatform
+      name: MovePlatform2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
+        width: 24
         height: 8
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4b365c29b9440c540800000000000000
-      internalID: 5026092619118502836
+      spriteID: 91e35dd18f057cb00800000000000000
+      internalID: 848736081365253657
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 32c847ac3ba1d0f44b7c7a80397a172f
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      MovingPlatform: 5026092619118502836
+      MovePlatform2_0: 848736081365253657
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: be545895c1071e74d98f64112473cda5
+guid: a6dfbb4cc136afc42a7b9400299807c2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6507373660999871590
-    second: Plattform_sheet_0
+      213: -441482919945366195
+    second: Plattform_sheet1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Plattform_0
+      name: Plattform_1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -126,16 +126,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: dab53d9d9e0aff8448e93e2c31288629
-      internalID: -6507373660999871590
+      spriteID: d4511469f998fd9f0800000000000000
+      internalID: -441482919945366195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plattform_1
+      name: Plattform_1_1
       rect:
         serializedVersion: 2
         x: 8
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d219a54fec057e24a88cfc1d9302ffd5
-      internalID: 1734466901
+      spriteID: ba7cf7e135db20c489505134efb58df4
+      internalID: -424963270
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plattform_2
+      name: Plattform_1_2
       rect:
         serializedVersion: 2
         x: 16
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 079a2a792fff89b4fb2bdc65fc7cf971
-      internalID: -764641547
+      spriteID: 8ceee93ecc718504bbf317b9113808f4
+      internalID: 1811675378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plattform_3
+      name: Plattform_1_3
       rect:
         serializedVersion: 2
         x: 24
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 353f65d5625d3eb4195baf94fa0a69dc
-      internalID: -375578293
+      spriteID: 08302a8b1273588479c9a0b7bf3508dc
+      internalID: -485992695
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plattform_4
+      name: Plattform_1_4
       rect:
         serializedVersion: 2
         x: 32
@@ -216,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cd9d3d0bc91a4945b0bca7380d7fcf3
-      internalID: -15823539
+      spriteID: bd8c848eba48f1046b8669291e02f657
+      internalID: 28142091
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plattform_5
+      name: Plattform_1_5
       rect:
         serializedVersion: 2
         x: 0
@@ -238,14 +238,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0ba5edd6205cc24a88c6324c80fd0d4
-      internalID: 1056581866
+      spriteID: 20265c625df42254fbe18803e7729501
+      internalID: 706663410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plattform_6
+      name: Plattform_1_6
       rect:
         serializedVersion: 2
         x: 8
@@ -260,14 +260,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb929516019d44046969270292813432
-      internalID: -149463191
+      spriteID: 3937a302387e2cc41ae5de480ea83599
+      internalID: 865304545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plattform_7
+      name: Plattform_1_7
       rect:
         serializedVersion: 2
         x: 16
@@ -282,14 +282,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df1e2cacf0c51dc4c9a9593fd3fa04ef
-      internalID: 814154727
+      spriteID: 230d1f5137371bc44897df1b45e18dae
+      internalID: 1913927929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Plattform_8
+      name: Plattform_1_8
       rect:
         serializedVersion: 2
         x: 24
@@ -304,8 +304,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06125ad4dbf857c448bdcd3e6649b4da
-      internalID: -204944769
+      spriteID: 2368ca013e5f31d478ce78ee06a3dcd9
+      internalID: 2120546634
       vertices: []
       indices: 
       edges: []
@@ -314,7 +314,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1839f2cdcefb36043b3cd1eff86ccbc1
+    spriteID: 3e06bb5a07313704d89538d26cec7a12
     internalID: 0
     vertices: []
     indices: 
@@ -324,16 +324,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Plattform: -6507373660999871590
-      Plattform_0: -6507373660999871590
-      Plattform_1: 1734466901
-      Plattform_2: -764641547
-      Plattform_3: -375578293
-      Plattform_4: -15823539
-      Plattform_5: 1056581866
-      Plattform_6: -149463191
-      Plattform_7: 814154727
-      Plattform_8: -204944769
+      Plattform_1_0: -441482919945366195
+      Plattform_1_1: -424963270
+      Plattform_1_2: 1811675378
+      Plattform_1_3: -485992695
+      Plattform_1_4: 28142091
+      Plattform_1_5: 706663410
+      Plattform_1_6: 865304545
+      Plattform_1_7: 1913927929
+      Plattform_1_8: 2120546634
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
