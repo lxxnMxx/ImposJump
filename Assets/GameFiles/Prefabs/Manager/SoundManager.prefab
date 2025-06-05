@@ -48,17 +48,17 @@ MonoBehaviour:
   sounds:
   - type: 1
     clip: {fileID: 8300000, guid: 60f072a13b9c4b34fa522f0765eed869, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     source: {fileID: 0}
   - type: 0
     clip: {fileID: 8300000, guid: 56d3d7c03a4bc8346ac139e1e24b8056, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     source: {fileID: 0}
   - type: 2
     clip: {fileID: 8300000, guid: 2907c106f24175443be8fb8c551532a2, type: 3}
-    volume: 1
+    volume: 0.8
     pitch: 1
     source: {fileID: 0}
   - type: 3

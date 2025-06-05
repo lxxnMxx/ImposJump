@@ -13,12 +13,12 @@ public class TimerPlatform : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.Instance.OnGameStart += ResetTimeOnPlatform;
+        GameManager.Instance.OnGameStart += GameStarted;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.OnGameStart += ResetTimeOnPlatform;
+        GameManager.Instance.OnGameStart += GameStarted;
     }
 
     private void Start()
@@ -39,9 +39,10 @@ public class TimerPlatform : MonoBehaviour
         }
     }
 
-    private void ResetTimeOnPlatform()
+    private void GameStarted()
     {
         _timer = startTime;
+        _isFirstCollision = true;
     } 
 
     private void OnCollisionEnter2D(Collision2D collision)
