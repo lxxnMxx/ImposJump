@@ -138,11 +138,19 @@ PrefabInstance:
       value: SceneHandler
       objectReference: {fileID: 0}
     - target: {fileID: 4671289946118528512, guid: 3923b3c309212164f8811f5a2ef8a2dc, type: 3}
+      propertyPath: levels.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671289946118528512, guid: 3923b3c309212164f8811f5a2ef8a2dc, type: 3}
       propertyPath: 'levels.Array.data[0]'
-      value: Level1
+      value: Tutorial
       objectReference: {fileID: 0}
     - target: {fileID: 4671289946118528512, guid: 3923b3c309212164f8811f5a2ef8a2dc, type: 3}
       propertyPath: 'levels.Array.data[1]'
+      value: Level1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671289946118528512, guid: 3923b3c309212164f8811f5a2ef8a2dc, type: 3}
+      propertyPath: 'levels.Array.data[2]'
       value: Level2
       objectReference: {fileID: 0}
     - target: {fileID: 6161115234836032255, guid: 3923b3c309212164f8811f5a2ef8a2dc, type: 3}

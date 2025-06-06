@@ -38,13 +38,15 @@ public class MovingPlatform : MonoBehaviour
             
             try
             {
-                if(transform.GetChild(0))
-                    transform.GetChild(0).rotation = Quaternion.Euler(0,0,0);
+                if (transform.GetChild(0)) 
+                    transform.GetChild(0).transform.rotation = Quaternion.EulerAngles(0,0,0);
+                
             }
-            catch (Exception e)
+            catch
             {
                 print("");
             }
+            
             transform.position = Vector3.MoveTowards(transform.position, points[_i].position, speed * Time.deltaTime);
             yield return null;
         }

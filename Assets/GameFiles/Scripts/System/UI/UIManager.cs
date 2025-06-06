@@ -55,6 +55,7 @@ public class UIManager : Singleton<UIManager>
             
             _gameOverPanel = _elementHandler.GetPanel("#GameOverPanel");
             _pausePanel = _elementHandler.GetPanel("#PausePanel");
+            _finishPanel = _elementHandler.GetPanel("#FinishPanel");
         }
     }
 
@@ -107,14 +108,15 @@ public class UIManager : Singleton<UIManager>
 
     private void GameStart()
     {
-        if (!_gameOverPanel || !_pausePanel) return;
+        if (!_gameOverPanel || !_pausePanel || !_deathCountTxt || !_finishPanel) return;
         _gameOverPanel.SetActive(false);
         _pausePanel.SetActive(false);
+        _finishPanel.SetActive(false);
+        _deathCountTxt.text = $"Deaths: {GameManager.Instance.PlayerDeaths}";
     }
 
     private void LevelFinished()
     {
-        _finishPanel = _elementHandler.GetPanel("#FinishPanel"); // Initialized here cause earlier not needed
         _finishPanel.SetActive(true);
     }
 }
