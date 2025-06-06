@@ -15,15 +15,10 @@ public class ButtonManager : Singleton<ButtonManager>
         GameManager.Instance.ChangeGameState(GameManager.Instance.lastGameState);
     }
 
-    public void SelectLevel1()
+    public void SelectLevel(int index)
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
-        MenuManager.Instance.SelectLevel(1);
-    }
-    public void SelectLevel2()
-    {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
-        MenuManager.Instance.SelectLevel(2);
+        MenuManager.Instance.SelectLevel(index);
     }
 
     public void Play()
@@ -42,6 +37,12 @@ public class ButtonManager : Singleton<ButtonManager>
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
         Application.Quit();
+    }
+
+    public void PlayTutorial(int index)
+    {
+        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SceneHandler.Instance.LoadTutorial(index);
     }
 
     public void OpenSettings()

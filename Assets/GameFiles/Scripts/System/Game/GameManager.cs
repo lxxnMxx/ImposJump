@@ -10,6 +10,7 @@ public class GameManager : Singleton<GameManager>
     
     public GameState gameState;
     public GameState lastGameState;
+    public int tutorialIndex;
     public event Action<GameState> OnGameStateChange;
     
     public event Action OnGameOver;
@@ -40,8 +41,9 @@ public class GameManager : Singleton<GameManager>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(scene.name == "MainMenu") ChangeGameState(GameState.MainMenu);
-        print(SceneHandler.Instance.IsSceneLevel());
-        if (SceneHandler.Instance.IsSceneLevel() && mode == LoadSceneMode.Single)
+        print(SceneHandler.Instance.IsCurrentSceneLevel());
+        if ((SceneHandler.Instance.IsCurrentSceneTutorial() || SceneHandler.Instance.IsCurrentSceneLevel()) 
+            && mode == LoadSceneMode.Single)
         {
             _player = GameObject.FindWithTag("Player"); 
             _playerStartPosition = _player.transform.position;

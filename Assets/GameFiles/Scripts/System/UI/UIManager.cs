@@ -42,7 +42,6 @@ public class UIManager : Singleton<UIManager>
     }
 
     // Initialization of UI Elements
-    // TODO: find a better solution for this DEFINITELY!!!! (imagine handling 5 levels with this)
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         _elementHandler = UIElementHandler.Instance;
