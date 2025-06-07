@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cb4d84ae5c36dad4088a02cea2aff8fc
+guid: b11c8be3f07909d4892e52d137d16cda
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3887379614752692110
-    second: TimerPlatform2_0
+      213: 2289019249569170771
+    second: BackgroundLayer1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TimerPlatform2_0
+      name: BackgroundLayer1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 12
-        width: 24
-        height: 12
+        y: 0
+        width: 224
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,74 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e87dd64d92fb2f530800000000000000
-      internalID: 3887379614752692110
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TimerPlatform2_1
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 12
-        width: 24
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3af051de93d8f74585380edf4aab76a
-      internalID: -1915812874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TimerPlatform2_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 24
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bfb307cd2385200418b4d760afd8479b
-      internalID: 400563826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TimerPlatform2_3
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 24
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8c849f7c3e323a4ca0ca6f4ee10f745
-      internalID: -1800219790
+      spriteID: 3550a9631ea34cf10800000000000000
+      internalID: 2289019249569170771
       vertices: []
       indices: 
       edges: []
@@ -214,10 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TimerPlatform2_0: 3887379614752692110
-      TimerPlatform2_1: -1915812874
-      TimerPlatform2_2: 400563826
-      TimerPlatform2_3: -1800219790
+      BackgroundLayer1_0: 2289019249569170771
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 1024
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 113
+  controlID: 110
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 85
+  controlID: 24
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 86
+  controlID: 85
   draggingID: 0
 --- !u!114 &9
 MonoBehaviour:
@@ -1045,9 +1045,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 453.6913, y: 430.26993, z: 0.006760547}
+    m_Target: {x: 699.95953, y: 302.30353, z: -0.0080940295}
     speed: 2
-    m_Value: {x: 453.6913, y: 430.26993, z: 0.006760547}
+    m_Value: {x: 699.95953, y: 302.30353, z: -0.0080940295}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1097,9 +1097,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 337.6735
+    m_Target: 447.90082
     speed: 2
-    m_Value: 337.6735
+    m_Value: 447.90082
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1168,7 +1168,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 139240
+  m_LastSelectedObjectID: 95268
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1398,7 +1398,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/GameFiles/Sprite/Enviroment
+    - Assets/Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1408,16 +1408,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/GameFiles/Sprite/Enviroment
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\makad\Documents\!DESKTOP\Folders\Coding\Unity\2D\Eigene\ImposJump
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 447}
-    m_SelectedIDs: 5ad70000
-    m_LastClickedID: 55130
-    m_ExpandedIDs: 0000000080d6000082d6000084d6000086d6000088d600008ad600008cd600008ed6000090d6000092d6000094d6000096d6000098d600009ad600009cd600009ed60000a0d60000a2d60000a4d60000a6d60000a8d60000
+    scrollPos: {x: 0, y: 604.6667}
+    m_SelectedIDs: 86d90000
+    m_LastClickedID: 55686
+    m_ExpandedIDs: 0000000084d6000086d6000088d600008ad600008cd600008ed6000090d6000092d6000094d6000096d6000098d600009ad600009cd600009ed60000a0d60000a2d60000a4d60000a6d60000a8d60000aad60000acd60000aed60000b0d60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1446,7 +1446,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000080d6000082d6000084d6000086d6000088d600008ad600008cd600008ed6000090d6000092d6000094d6000096d6000098d600009ad600009cd600009ed60000a0d60000a2d60000a4d60000a6d60000a8d60000
+    m_ExpandedIDs: 0000000084d6000086d6000088d600008ad600008cd600008ed6000090d6000092d6000094d6000096d6000098d600009ad600009cd600009ed60000a0d60000a2d60000a4d60000a6d60000a8d60000aad60000acd60000aed60000b0d60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1474,8 +1474,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000506800004e610000c6700000e0b200007ab000006cb80000acad0000d2ad000042b00000aead0000c4ad000060b00000a4bc00003eba000040ba000088e90000c2e900005cfb0000cad10000f862010096130100c21e01000000000004d60000e4d50000ded7000030d800004ed60000bce5000044d500007ad60000f8d6000062fd0000e8e7000062d700008adb0000c2d30000bed30000cad30000bef0010088e5000086e500003a7e0200
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c6230000506800004e610000c6700000e0b200007ab000006cb80000acad0000d2ad000042b00000aead0000c4ad000060b00000a4bc00003eba000040ba000088e90000c2e900005cfb0000cad10000f862010096130100c21e01000000000004d60000e4d50000ded7000030d800004ed60000bce5000044d500007ad60000f8d6000062fd0000e8e7000062d700008adb0000c2d30000bed30000cad30000bef0010088e5000086e500003a7e02008e0b01001ad60000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1578,10 +1578,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 9.666687}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b418feff241dfeffc020feff7823feff2026feffe228fefffc2bfeffa045feff7a58feff1859feff685afeffdc69fefffa7dfeff727ffeffc486feff768cfeffaa93feffe696feffce97feff4e9bfeff4aa3feffc8aafeff90b1feff8eb2feff72b6feffccbdfeff5abffeff20d0feff02ddfeff2c35fffff668ffff6676ffff127affff3a7ffffffa92ffff28cbffff38deffff3adeffffbcdeffff68faffff6afaffffc6fafffff4ffffff90d50000e0d5000014e70000a613010060550100307f0100188c0100f2a3010020a901007aa9010000aa01005ec3010088c3010022c4010086cf010024d0010032e10100ace10100ecf2010066f3010098f5010082100200f41c0200562002009635020096380200
+      m_ExpandedIDs: febffeffb8c5feff82f5feffb802ffffc002ffff0404ffffcc19ffff281affffce28ffff743dffff2240ffff9e44ffffd247ffff464bffffda4cffffb04effff7286ffff2e89ffffde90ffff0292ffff5699ffff669cffff98c3ffffd6c7ffff9ecbfffff4cdffff3cdeffff8ae6ffff08e8ffff12eeffff1eeeffff4eeeffff8ceeffffd4eeffff16efffff4eefffff62efffff76efffffa0efffffc6fafffff4ffffffdcf6000004f7000056f700005af7000062040100e02101000e2f01003e400100b24a010054640100786d0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1598,7 +1598,7 @@ MonoBehaviour:
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_TrimLeadingAndTrailingWhitespace: 0
-        m_ClientGUIView: {fileID: 10}
+        m_ClientGUIView: {fileID: 7}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -1676,9 +1676,9 @@ MonoBehaviour:
     m_TextWithWhitespace: "Tile Palette\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1319.3334
+    x: 1310.6667
     y: 78.66667
-    width: 386.33325
+    width: 395
     height: 942
   m_SerializedDataModeController:
     m_DataMode: 0

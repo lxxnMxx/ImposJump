@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -12,24 +13,26 @@ public class DecorationHandler : Singleton<DecorationHandler>
     [SerializeField] private Vector2 spawnTimeRange;
     
     // Initializing (making the Cpu comfortable with this variable)
-    GameObject bird;
+    private GameObject _object;
     private float rnd;
+    private int rndType;
     private Vector3 position;
     
     private void Start()
     {
-        StartCoroutine(SpawnDecoration());
+        if(SceneManager.GetActiveScene().name == "Level1")
+            StartCoroutine(SpawnDecorationLvl1());
     }
 
-    private IEnumerator SpawnDecoration()
+    private IEnumerator SpawnDecorationLvl1()
     {
         while (true)
         {
             rnd = Random.Range(spawnTimeRange.x, spawnTimeRange.y);
             yield return new WaitForSeconds(rnd);
             position = new Vector3(cameraPosition.position.x + 20, cameraPosition.position.y + Random.Range(spawnRangeY.x, spawnRangeY.y), 0);
-            bird = PoolingHandler.Instance.Spawn(DecorationType.Bird, position, Quaternion.identity);
-            StartCoroutine(Despawn(bird));
+            _object = PoolingHandler.Instance.Spawn(DecorationType.Bird, position, Quaternion.identity);
+            StartCoroutine(Despawn(_object));
         }
     }
     

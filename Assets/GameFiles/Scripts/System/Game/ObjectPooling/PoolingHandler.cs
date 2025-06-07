@@ -5,7 +5,6 @@ using UnityEngine;
 
 public enum DecorationType
 {
-    Cloud,
     Bird
 }
 
@@ -20,8 +19,6 @@ public class PoolingHandler : Singleton<PoolingHandler>
     {
         switch (type)
         {
-            case DecorationType.Cloud:
-                return FindActiveObjects(PoolingObjects.Instance.cloudPool, position, rotation);
             case DecorationType.Bird:
                 return FindActiveObjects(PoolingObjects.Instance.birdPool, position, rotation);
             default:

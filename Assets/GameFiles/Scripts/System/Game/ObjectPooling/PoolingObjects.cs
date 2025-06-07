@@ -8,9 +8,6 @@ public class PoolingObjects : MonoBehaviour
     
     [Header("======== Level 1 ========")]
     public List<GameObject> birdPool;
-    
-    [Space(10)]
-    public List<GameObject> cloudPool;
 
     private void Awake() => Instance = this;
 }
