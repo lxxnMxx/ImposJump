@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4395394333214340215}
   - component: {fileID: 2546602808386236685}
   - component: {fileID: 3996020870145941150}
-  - component: {fileID: 3350607984506390282}
+  - component: {fileID: 666201225240443418}
   m_Layer: 0
   m_Name: Platform
   m_TagString: MovingPlatform
@@ -171,7 +171,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3350607984506390282
+--- !u!114 &666201225240443418
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1298257708639368502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab5006264fd3a2c41bda04d116d1c216, type: 3}
+  m_Script: {fileID: 11500000, guid: a82ed08bcfe6b5e4bb81fd4732c4a482, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   points:

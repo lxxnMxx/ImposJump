@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class MovingPlatform : MonoBehaviour
+public class MovingPlatformAdaption : MonoBehaviour
 {
     [Header("Platform Settings")] 
     [SerializeField] Transform[] points;
@@ -29,6 +29,22 @@ public class MovingPlatform : MonoBehaviour
             {
                 _i += 1;
                 if (_i == points.Length) _i = 0;
+                
+                // turn the platform to the current point
+                _direction = transform.position - points[_i].position;
+                _angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.AngleAxis(_angle, Vector3.up);
+            }
+            
+            try
+            {
+                if (transform.GetChild(0)) 
+                    transform.GetChild(0).transform.rotation = Quaternion.EulerAngles(0,0,0);
+                
+            }
+            catch
+            {
+                print("");
             }
             
             transform.position = Vector3.MoveTowards(transform.position, points[_i].position, speed * Time.deltaTime);

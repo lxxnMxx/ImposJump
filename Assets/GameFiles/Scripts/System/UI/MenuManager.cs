@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class MenuManager : Singleton<MenuManager>
 {
     public int selectedLvlIndex = 0;
-    public Action OnSelectedLevelChanged;
 
     [SerializeField] private string[] backgrounds;
 

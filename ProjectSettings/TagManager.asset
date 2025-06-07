@@ -67,7 +67,7 @@ TagManager:
   - name: Particles
     uniqueID: 3170944583
     locked: 0
-  - name: BadCloud
+  - name: TimerPlatform
     uniqueID: 1013435403
     locked: 0
   m_RenderingLayers:
