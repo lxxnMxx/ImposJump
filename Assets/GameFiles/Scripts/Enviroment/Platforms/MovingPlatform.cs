@@ -10,12 +10,12 @@ public class MovingPlatform : MonoBehaviour
     
     [SerializeField] float speed;
 
-    private Vector3 _direction;
-    private bool _hasChild;
-    private int _i;
-    private float _angle;
+    Vector3 _direction;
+    bool _hasChild;
+    int _i;
+    float _angle;
     
-    void Start()
+    void OnEnable()
     {
         transform.position = points[startingIndex].position;
         StartCoroutine(Move());

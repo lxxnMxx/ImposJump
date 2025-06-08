@@ -15,7 +15,7 @@ public class MovingPlatformAdaption : MonoBehaviour
     private int _i;
     private float _angle;
     
-    void Start()
+    void OnEnable()
     {
         transform.position = points[startingIndex].position;
         StartCoroutine(Move());
