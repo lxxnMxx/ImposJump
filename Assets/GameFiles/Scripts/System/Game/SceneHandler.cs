@@ -19,20 +19,25 @@ public class SceneHandler : Singleton<SceneHandler>
 
     public void LoadLevel(string sceneName)
     {
-        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
-        SceneManager.LoadSceneAsync("LevelUI", LoadSceneMode.Additive);
-        GameManager.Instance.ChangeGameState(GameState.StartGame);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        StandardLoad();
     }
     
     public void LoadTutorial(int index)
     {
-        SceneManager.LoadSceneAsync($"Tutorial{index}", LoadSceneMode.Single);
-        SceneManager.LoadSceneAsync("LevelUI", LoadSceneMode.Additive);
+        SceneManager.LoadScene($"Tutorial{index}", LoadSceneMode.Single);
+        StandardLoad();
     }
 
     public void LoadMainMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu");
         GameManager.Instance.ChangeGameState(GameState.MainMenu);
+    }
+
+    private void StandardLoad()
+    {
+        SceneManager.LoadSceneAsync("LevelUI", LoadSceneMode.Additive);
+        GameManager.Instance.ChangeGameState(GameState.StartGame);
     }
 }

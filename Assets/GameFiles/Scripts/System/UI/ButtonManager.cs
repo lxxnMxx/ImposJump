@@ -6,12 +6,15 @@ public class ButtonManager : Singleton<ButtonManager>
     public void Reset()
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
+        UIManager.Instance.DeactivateGameOverPanel();
+        UIManager.Instance.DeactivateFinishPanel();
         GameManager.Instance.ChangeGameState(GameState.StartGame);
     }
 
     public void Resume()
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
+        UIManager.Instance.DeactivatePausePanel();
         GameManager.Instance.ChangeGameState(GameManager.Instance.lastGameState);
     }
 

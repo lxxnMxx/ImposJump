@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Jobs;
 
 public class LevelLoadingHandler : MonoBehaviour
 {
@@ -36,7 +37,6 @@ public class LevelLoadingHandler : MonoBehaviour
 
     void UpdateChunks()
     {
-        print("Chunks get calculated");
         _camX = cam.transform.position.x;
         _minX = _camX + renderingRange.y;
         _maxX = _camX + renderingRange.x;

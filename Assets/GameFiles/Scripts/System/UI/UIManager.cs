@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -47,17 +48,19 @@ public class UIManager : Singleton<UIManager>
         _elementHandler = UIElementHandler.Instance;
         if (scene.name == "LevelUI")
         {
-            _deathCountTxt = _elementHandler.GetText("#DeathCount");
-            _deathCountTxt.text = $"Deaths: {GameManager.Instance.PlayerDeaths}";
-            
             _timeLeftBadCloud = _elementHandler.GetSlider("#TimeLeftBadCloud");
             
             _gameOverPanel = _elementHandler.GetPanel("#GameOverPanel");
             _pausePanel = _elementHandler.GetPanel("#PausePanel");
             _finishPanel = _elementHandler.GetPanel("#FinishPanel");
+            _deathCountTxt = _elementHandler.GetText("#DeathCount");
         }
     }
 
+    public void DeactivateFinishPanel() {if(_finishPanel) _finishPanel.SetActive(false);}
+    public void DeactivateGameOverPanel() {if(_gameOverPanel) _gameOverPanel.SetActive(false);}
+    public void DeactivatePausePanel() {if(_pausePanel) _pausePanel.SetActive(false);}
+    
     public void SetTimeLeftBadCloudMaxValue(float maxValue)
     {
         _timeLeftBadCloud.maxValue = maxValue;
@@ -96,7 +99,7 @@ public class UIManager : Singleton<UIManager>
     private void ResumeGame(GameState state)
     {
         if (state is GameState.PauseMenu or GameState.MainMenu or GameState.StartGame || !_pausePanel) return;
-        _pausePanel?.SetActive(false);
+        _pausePanel.SetActive(false);
     }
 
     private void GameOver()
@@ -107,10 +110,7 @@ public class UIManager : Singleton<UIManager>
 
     private void GameStart()
     {
-        if (!_gameOverPanel || !_pausePanel || !_deathCountTxt || !_finishPanel) return;
-        _gameOverPanel.SetActive(false);
-        _pausePanel.SetActive(false);
-        _finishPanel.SetActive(false);
+        if (!_deathCountTxt) _deathCountTxt = _elementHandler.GetText("#DeathCount");
         _deathCountTxt.text = $"Deaths: {GameManager.Instance.PlayerDeaths}";
     }
 
@@ -118,4 +118,5 @@ public class UIManager : Singleton<UIManager>
     {
         _finishPanel.SetActive(true);
     }
+    
 }

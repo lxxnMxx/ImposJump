@@ -41,7 +41,8 @@ public class GameManager : Singleton<GameManager>
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(scene.name == "MainMenu") ChangeGameState(GameState.MainMenu);
-        print(SceneHandler.Instance.IsCurrentSceneLevel());
+        
+        print(SceneHandler.Instance.IsCurrentSceneTutorial() || SceneHandler.Instance.IsCurrentSceneLevel());
         if ((SceneHandler.Instance.IsCurrentSceneTutorial() || SceneHandler.Instance.IsCurrentSceneLevel()) 
             && mode == LoadSceneMode.Single)
         {

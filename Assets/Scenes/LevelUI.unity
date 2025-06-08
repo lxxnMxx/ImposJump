@@ -2361,20 +2361,8 @@ MonoBehaviour:
   - '#DeathCount'
   text:
   - {fileID: 1734061207}
-  buttonId:
-  - '#Restart'
-  - '#MainMenuGO'
-  - '#Resume'
-  - '#MainMenuPause'
-  - '#MainMenuFinish'
-  - '#PlayAgainFinish'
-  button:
-  - {fileID: 99446578}
-  - {fileID: 670388807}
-  - {fileID: 706348010}
-  - {fileID: 2074370165}
-  - {fileID: 2126657341}
-  - {fileID: 495804900}
+  buttonId: []
+  button: []
   panelId:
   - '#GameOverPanel'
   - '#PausePanel'
@@ -2398,7 +2386,7 @@ Transform:
   m_GameObject: {fileID: 1947696347}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7710896, y: 0.032811373, z: 0.009040689}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
