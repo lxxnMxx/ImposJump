@@ -41,7 +41,6 @@ public class UIElementHandler : MonoBehaviour
     public Text GetText(string id)
     {
         // get index of the id and return text at this index
-        print(SceneManager.GetActiveScene().name);
         var index = textId.FindIndex(x => x == id);
         return text[index];
     }

@@ -25,7 +25,7 @@ public class GameManager : Singleton<GameManager>
     private void OnEnable()
     {
         OnGameStateChange += ResumeGame;
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneHandler.Instance.OnSceneLoaded += OnSceneLoaded;
         OnLevelFinished += LevelFinished;
         OnGameStart += GameStarted;
     }
@@ -34,19 +34,19 @@ public class GameManager : Singleton<GameManager>
     {
         OnGameStateChange -= ResumeGame;
         OnLevelFinished -= LevelFinished;
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneHandler.Instance.OnSceneLoaded -= OnSceneLoaded;
         OnGameStart -= GameStarted;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(string sceneName)
     {
-        if(scene.name == "MainMenu") ChangeGameState(GameState.MainMenu);
+        if(sceneName == "MainMenu") ChangeGameState(GameState.MainMenu);
         
         print(SceneHandler.Instance.IsCurrentSceneTutorial() || SceneHandler.Instance.IsCurrentSceneLevel());
-        if ((SceneHandler.Instance.IsCurrentSceneTutorial() || SceneHandler.Instance.IsCurrentSceneLevel()) 
-            && mode == LoadSceneMode.Single)
+        
+        if (SceneHandler.Instance.IsSceneTutorial(sceneName) || SceneHandler.Instance.IsSceneLevel(sceneName))
         {
-            _player = GameObject.FindWithTag("Player"); 
+            _player = GameObject.FindWithTag("Player");
             _playerStartPosition = _player.transform.position;
         }
     }

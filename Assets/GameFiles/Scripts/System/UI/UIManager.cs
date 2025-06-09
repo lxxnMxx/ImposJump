@@ -27,7 +27,7 @@ public class UIManager : Singleton<UIManager>
         GameManager.Instance.OnGameStateChange += Danger;
         GameManager.Instance.OnLevelFinished += LevelFinished;
         
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneHandler.Instance.OnSceneLoaded += OnSceneLoaded;
     }
 
     private void OnDisable()
@@ -39,15 +39,16 @@ public class UIManager : Singleton<UIManager>
         GameManager.Instance.OnGameStateChange -= Danger;
         GameManager.Instance.OnLevelFinished -= LevelFinished;
         
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneHandler.Instance.OnSceneLoaded -= OnSceneLoaded;
     }
 
     // Initialization of UI Elements
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(string sceneName)
     {
         _elementHandler = UIElementHandler.Instance;
-        if (scene.name == "LevelUI")
+        if (sceneName == "LevelUI")
         {
+            GameManager.Instance.ChangeGameState(GameState.StartGame);
             _timeLeftBadCloud = _elementHandler.GetSlider("#TimeLeftBadCloud");
             
             _gameOverPanel = _elementHandler.GetPanel("#GameOverPanel");

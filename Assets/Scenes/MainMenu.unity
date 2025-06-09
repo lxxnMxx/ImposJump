@@ -1066,13 +1066,13 @@ MonoBehaviour:
       - m_Target: {fileID: 973468273}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: PlayTutorial
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 5
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Tutorial5
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &492914795
@@ -1587,13 +1587,13 @@ MonoBehaviour:
       - m_Target: {fileID: 973468273}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: PlayTutorial
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Tutorial1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &664274160
@@ -2678,13 +2678,13 @@ MonoBehaviour:
       - m_Target: {fileID: 973468273}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: PlayTutorial
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Tutorial2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1214634367
@@ -3718,13 +3718,13 @@ MonoBehaviour:
       - m_Target: {fileID: 973468273}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: PlayTutorial
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Tutorial3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1954740678
@@ -3882,13 +3882,13 @@ MonoBehaviour:
       - m_Target: {fileID: 973468273}
         m_TargetAssemblyTypeName: ButtonManager, Assembly-CSharp
         m_MethodName: PlayTutorial
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Tutorial4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1971290508

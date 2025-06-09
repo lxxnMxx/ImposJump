@@ -42,10 +42,10 @@ public class ButtonManager : Singleton<ButtonManager>
         Application.Quit();
     }
 
-    public void PlayTutorial(int index)
+    public void PlayTutorial(string sceneName)
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
-        SceneHandler.Instance.LoadTutorial(index);
+        SceneHandler.Instance.LoadLevel(sceneName);
     }
 
     public void OpenSettings()

@@ -1,43 +1,50 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Task = System.Threading.Tasks.Task;
 
 public class SceneHandler : Singleton<SceneHandler>
 {
     public List<string> levels;
     public List<string> tutorials;
+    public event Action<string> OnSceneLoaded;
     
     private int _sceneIndex;
     private string _sceneName;
+    private AsyncOperation _scene;
     
     // if this check is true, then the current scene is a level
     // .Any just iterates through the collection, and if the condition is true, return true, otherwise false
     public bool IsCurrentSceneLevel() => levels.Any(lvl => lvl == SceneManager.GetActiveScene().name);
     public bool IsCurrentSceneTutorial() => tutorials.Any(tut => tut == SceneManager.GetActiveScene().name);
-
-    public void LoadLevel(string sceneName)
-    {
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-        StandardLoad();
-    }
     
-    public void LoadTutorial(int index)
+    public bool IsSceneLevel(string sceneName) => levels.Any(lvl => lvl == sceneName);
+    public bool IsSceneTutorial(string sceneName) => tutorials.Any(tut => tut == sceneName);
+
+    public async void LoadLevel(string sceneName)
     {
-        SceneManager.LoadScene($"Tutorial{index}", LoadSceneMode.Single);
-        StandardLoad();
+        await LoadScene(sceneName, LoadSceneMode.Single);
+        await LoadScene("LevelUI", LoadSceneMode.Additive);
     }
 
-    public void LoadMainMenu()
+    public async void LoadMainMenu()
     {
-        SceneManager.LoadSceneAsync("MainMenu");
-        GameManager.Instance.ChangeGameState(GameState.MainMenu);
+        await LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
-    private void StandardLoad()
+    public async Task<int> LoadScene(string sceneName, LoadSceneMode mode)
     {
-        SceneManager.LoadSceneAsync("LevelUI", LoadSceneMode.Additive);
-        GameManager.Instance.ChangeGameState(GameState.StartGame);
+        _scene = SceneManager.LoadSceneAsync(sceneName, mode);
+        if(_scene == null) return 0; // have to return something because await
+        
+        while (_scene.progress < 1f)
+        {
+            await Task.Yield();
+        }
+        OnSceneLoaded?.Invoke(sceneName); // Invoke own OnSceneLoad event
+        return 0;
     }
 }
