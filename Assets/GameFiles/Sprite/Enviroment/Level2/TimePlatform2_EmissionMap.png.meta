@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 133982e181f89214e9799e719ab73940
+guid: 005ba99eb2419f943b89ee41f16ee1c5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6762378210854573069
-    second: BgStars_Emission_0
+      213: 3189914501505010481
+    second: TimePlatform2_EmissionMap_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BgStars_Emission_0
+      name: TimePlatform2_EmissionMap_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 224
-        height: 63
+        width: 48
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fbeb2988d43722a0800000000000000
-      internalID: -6762378210854573069
+      spriteID: 13bc216965ad44c20800000000000000
+      internalID: 3189914501505010481
       vertices: []
       indices: 
       edges: []

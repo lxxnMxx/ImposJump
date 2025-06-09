@@ -3,8 +3,8 @@ guid: 5b0be6623e55d66499efcf6212f1b125
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8474006179037124178
-    second: BgPlanets_Emission_0
+      213: -3696809976413356371
+    second: Layer2_Emission_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BgPlanets_Emission_0
+      name: Layer2_Emission_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 25619fdf8b7b99570800000000000000
-      internalID: 8474006179037124178
+      spriteID: daef2c9b9ea42bcc0800000000000000
+      internalID: -3696809976413356371
       vertices: []
       indices: 
       edges: []
