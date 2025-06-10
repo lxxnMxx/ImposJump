@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -128,7 +128,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3, y: 1}
+    oldSize: {x: 3.75, y: 1.375}
     newSize: {x: 3, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -136,12 +136,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 1.25365, y: -0.25150496}
-      - {x: 1.5001173, y: -0.12526104}
-      - {x: 1.49997, y: 0.12373467}
-      - {x: 1.249514, y: 0.24971229}
-      - {x: -1.3758801, y: 0.25049517}
-      - {x: -1.3760027, y: -0.25154206}
+    - - {x: 1.1247473, y: -0.31257012}
+      - {x: 1.3820304, y: -0.06518169}
+      - {x: 1.380847, y: 0.063283645}
+      - {x: 1.1254584, y: 0.31282917}
+      - {x: -1.500423, y: 0.3127422}
+      - {x: -1.5001936, y: -0.31250218}
   m_UseDelaunayMesh: 0
 --- !u!50 &3996020870145941150
 Rigidbody2D:

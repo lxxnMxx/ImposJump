@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1992325752536333173}
   - component: {fileID: 6989894611830313389}
   m_Layer: 0
-  m_Name: LevelLoadingHandler
+  m_Name: ChunkLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,15 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderingRange: {x: 22, y: -30}
   cam: {fileID: 0}
-  chunks:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  chunks: []
   movementThreshold: 2

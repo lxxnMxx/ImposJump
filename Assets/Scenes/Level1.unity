@@ -7545,6 +7545,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 6989894611830313389, guid: d769b83797a89d24791f077fc37e6079, type: 3}
+      propertyPath: chunks.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6989894611830313389, guid: d769b83797a89d24791f077fc37e6079, type: 3}
       propertyPath: 'chunks.Array.data[0]'
       value: 
       objectReference: {fileID: 91245150}
