@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1646314238967812089}
   - component: {fileID: 1156847676919124202}
   - component: {fileID: 1131982830323408798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TimerPlatform
   m_TagString: Ground
   m_Icon: {fileID: 0}

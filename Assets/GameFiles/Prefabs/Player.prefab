@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 55
   moveSpeed: 5.5
-  startPosition: {x: 0, y: 0, z: 0}
+  yRange: {x: 0, y: 0}
   playerDeathParticle: {fileID: 8072699219730614820, guid: 9919389b796bf3c4480dedb40b26d589, type: 3}
 --- !u!114 &7156819997693204957
 MonoBehaviour:
@@ -193,6 +193,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ee8ab2e4ec58a42a84250bbbf3d7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  castDistance: 0
+  boxSize: {x: 0.9, y: 1.25}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &6575291925137975125
 MonoBehaviour:
   m_ObjectHideFlags: 0

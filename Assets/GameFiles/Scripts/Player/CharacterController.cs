@@ -4,6 +4,11 @@ using UnityEngine.InputSystem;
 
 public class CharacterController : MonoBehaviour
 {
+    [Header("IsGrounded Raycast stuff")]
+    [SerializeField] private float castDistance;
+    [SerializeField] private Vector2 boxSize;
+    [SerializeField] private LayerMask layerMask;
+    
     private Rigidbody2D _rb;
     private PlayerBase _playerBase;
     private PlayerCollider _playerCollider;
@@ -36,20 +41,35 @@ public class CharacterController : MonoBehaviour
             transform.Translate(Vector3.right * _playerBase.GetBaseValues(CharacterStats.MoveSpeed) * Time.deltaTime);
         }
         
-        if (Input.GetKey(KeyCode.Space) && _isGrounded && _canMove)
+        if (Input.GetKey(KeyCode.Space) && IsGrounded() && _canMove)
         {
             _isGrounded = false;
             _rb.AddForce(new Vector2(0, _playerCollider.gravityDirection) * _playerBase.GetBaseValues(CharacterStats.JumpForce), ForceMode2D.Impulse);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private bool IsGrounded()
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform")) _isGrounded = true;
+        if (Physics2D.BoxCast(transform.position, boxSize, 0, Vector2.down, castDistance, layerMask))
+        {
+            return true;
+        }
+        return false;
     }
 
-    private void OnCollisionExit2D(Collision2D other)
+    private void OnDrawGizmos()
     {
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform")) _isGrounded = false;
+        Gizmos.DrawWireCube((Vector2)transform.position - Vector2.down * castDistance, boxSize);
     }
+
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") && _rb.linearVelocityY <= 2)
+    //         _isGrounded = true;
+    // }
+    //
+    // private void OnCollisionExit2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform")) _isGrounded = false;
+    // }
 }
