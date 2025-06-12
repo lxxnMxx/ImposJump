@@ -22,7 +22,7 @@ public class PlayerCollider : MonoBehaviour
             GameManager.Instance.ChangeGameState(GameState.GameOver);
         }
         
-        if (other.gameObject.CompareTag("JumpBoost") && _rb.linearVelocityY <= 0) // linearVelY means if the rb moves at thy y axe
+        if (other.gameObject.CompareTag("JumpBoost") && _rb.linearVelocityY <= 0.1) // linearVelY means if the rb moves at thy y axe
         {
             SoundManager.Instance.Play(SoundType.PlayerJumppad);
             _rb.AddForce(Vector2.up * _playerBase.GetBaseValues(CharacterStats.JumpForce) * 1.2f * gravityDirection, ForceMode2D.Impulse);

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : Singleton<GameManager>, IDataPersistence
 {
     [field:  SerializeField] // expose to the Unity Inspector
     public int PlayerDeaths {set; get;} //TODO: find a better solution to store, set and access these type of Data
@@ -37,12 +37,22 @@ public class GameManager : Singleton<GameManager>
         SceneHandler.Instance.OnSceneLoaded -= OnSceneLoaded;
         OnGameStart -= GameStarted;
     }
+    
+    public void LoadData(GameData data)
+    {
+        PlayerDeaths = data.deathCount;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.deathCount = PlayerDeaths;
+    }
 
     private void OnSceneLoaded(string sceneName)
     {
         if(sceneName == "MainMenu") ChangeGameState(GameState.MainMenu);
         
-        print(SceneHandler.Instance.IsCurrentSceneTutorial() || SceneHandler.Instance.IsCurrentSceneLevel());
+        //print(SceneHandler.Instance.IsCurrentSceneTutorial() || SceneHandler.Instance.IsCurrentSceneLevel());
         
         if (SceneHandler.Instance.IsSceneTutorial(sceneName) || SceneHandler.Instance.IsSceneLevel(sceneName))
         {
