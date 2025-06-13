@@ -34,15 +34,21 @@ public class SceneHandler : Singleton<SceneHandler>
     public async void LoadLevel(string sceneName)
     {
         _levelIndex =_levelManager.levels.FindIndex(lvl => lvl.name == sceneName);
-        print(_levelManager.levels[_levelIndex].name);
         _levelManager.levels[_levelIndex].isActive = true;
+        await LoadScene(sceneName, LoadSceneMode.Single);
+        await LoadScene("LevelUI", LoadSceneMode.Additive);
+    }
+    
+    public async void LoadTutorial(string sceneName)
+    {
         await LoadScene(sceneName, LoadSceneMode.Single);
         await LoadScene("LevelUI", LoadSceneMode.Additive);
     }
 
     public async void LoadMainMenu()
     {
-        _levelManager.levels[_levelManager.GetActiveLevel()].isActive = false;
+        if(!IsCurrentSceneTutorial())
+            _levelManager.levels[_levelManager.GetActiveLevel()].isActive = false;
         await LoadScene("MainMenu", LoadSceneMode.Single);
     }
 

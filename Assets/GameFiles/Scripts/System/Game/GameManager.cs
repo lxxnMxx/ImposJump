@@ -60,7 +60,8 @@ public class GameManager : Singleton<GameManager>
         
         else if (Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameContinues or GameState.Danger)
         {
-            LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount += 1;
+            if(!SceneHandler.Instance.IsCurrentSceneTutorial())
+                LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount += 1;
             ButtonManager.Instance.Reset();
         }
         
@@ -99,7 +100,8 @@ public class GameManager : Singleton<GameManager>
             
             case GameState.GameOver:
                 // set deathCount for each level
-                LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount += 1;
+                if(!SceneHandler.Instance.IsCurrentSceneTutorial())
+                    LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount += 1;
                 UnlockCursor();
                 OnGameOver?.Invoke();
                 break;

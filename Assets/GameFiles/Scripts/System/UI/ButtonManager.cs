@@ -45,7 +45,7 @@ public class ButtonManager : Singleton<ButtonManager>
     public void PlayTutorial(string sceneName)
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
-        SceneHandler.Instance.LoadLevel(sceneName);
+        SceneHandler.Instance.LoadTutorial(sceneName);
     }
 
     public void OpenSettings()

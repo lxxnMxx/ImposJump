@@ -106,18 +106,22 @@ public class UIManager : Singleton<UIManager>
     private void GameOver()
     {
         _gameOverPanel.SetActive(true);
-        _deathCountTxt.text = $"Deaths: {LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount}";
+        if (!_deathCountTxt && !SceneHandler.Instance.IsCurrentSceneTutorial())
+            _deathCountTxt.text = $"Deaths: {LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount}";
     }
 
     private void GameStart()
     {
-        if (!_deathCountTxt) _deathCountTxt = _elementHandler.GetText("#DeathCount");
-        _deathCountTxt.text = $"Deaths: {LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount}";
+        if (!_deathCountTxt && !SceneHandler.Instance.IsCurrentSceneTutorial())
+        {
+            _deathCountTxt = _elementHandler.GetText("#DeathCount");
+            _deathCountTxt.text = $"Deaths: {LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount}";
+        }
+        
     }
 
     private void LevelFinished()
     {
         _finishPanel.SetActive(true);
     }
-    
 }
