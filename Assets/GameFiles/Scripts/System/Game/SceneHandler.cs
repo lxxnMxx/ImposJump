@@ -8,30 +8,41 @@ using Task = System.Threading.Tasks.Task;
 
 public class SceneHandler : Singleton<SceneHandler>
 {
-    public List<string> levels;
     public List<string> tutorials;
     public event Action<string> OnSceneLoaded;
+    
+    private LevelManager _levelManager;
+    private int _levelIndex;
     
     private int _sceneIndex;
     private string _sceneName;
     private AsyncOperation _scene;
-    
+
+    private void Start()
+    {
+        _levelManager = LevelManager.Instance;
+    }
+
     // if this check is true, then the current scene is a level
     // .Any just iterates through the collection, and if the condition is true, return true, otherwise false
-    public bool IsCurrentSceneLevel() => levels.Any(lvl => lvl == SceneManager.GetActiveScene().name);
+    public bool IsCurrentSceneLevel() => _levelManager.levels.Any(lvl => lvl.name == SceneManager.GetActiveScene().name);
     public bool IsCurrentSceneTutorial() => tutorials.Any(tut => tut == SceneManager.GetActiveScene().name);
     
-    public bool IsSceneLevel(string sceneName) => levels.Any(lvl => lvl == sceneName);
+    public bool IsSceneLevel(string sceneName) => _levelManager.levels.Any(lvl => lvl.name == sceneName);
     public bool IsSceneTutorial(string sceneName) => tutorials.Any(tut => tut == sceneName);
 
     public async void LoadLevel(string sceneName)
     {
+        _levelIndex =_levelManager.levels.FindIndex(lvl => lvl.name == sceneName);
+        print(_levelManager.levels[_levelIndex].name);
+        _levelManager.levels[_levelIndex].isActive = true;
         await LoadScene(sceneName, LoadSceneMode.Single);
         await LoadScene("LevelUI", LoadSceneMode.Additive);
     }
 
     public async void LoadMainMenu()
     {
+        _levelManager.levels[_levelManager.GetActiveLevel()].isActive = false;
         await LoadScene("MainMenu", LoadSceneMode.Single);
     }
 

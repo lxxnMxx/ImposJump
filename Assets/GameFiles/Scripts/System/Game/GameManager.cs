@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>, IDataPersistence
+public class GameManager : Singleton<GameManager>
 {
     [field:  SerializeField] // expose to the Unity Inspector
     public int PlayerDeaths {set; get;} //TODO: find a better solution to store, set and access these type of Data
@@ -37,16 +37,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         SceneHandler.Instance.OnSceneLoaded -= OnSceneLoaded;
         OnGameStart -= GameStarted;
     }
-    
-    public void LoadData(GameData data)
-    {
-        PlayerDeaths = data.deathCount;
-    }
-
-    public void SaveData(ref GameData data)
-    {
-        data.deathCount = PlayerDeaths;
-    }
 
     private void OnSceneLoaded(string sceneName)
     {
@@ -70,7 +60,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
         
         else if (Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameContinues or GameState.Danger)
         {
-            PlayerDeaths += 1;
+            LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount += 1;
             ButtonManager.Instance.Reset();
         }
         
@@ -108,7 +98,8 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 break;
             
             case GameState.GameOver:
-                PlayerDeaths += 1;
+                // set deathCount for each level
+                LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount += 1;
                 UnlockCursor();
                 OnGameOver?.Invoke();
                 break;
