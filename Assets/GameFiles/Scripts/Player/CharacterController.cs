@@ -17,8 +17,19 @@ public class CharacterController : MonoBehaviour
     private int _gravityDirection;
     private float _moveDirection;
     private bool _isInverted;
-    private bool _isGrounded = true;
-    
+
+
+    private void OnEnable()
+    {
+        GameManager.Instance.OnLevelFinished += LevelFinished;
+        GameManager.Instance.OnGameStart += StartGame;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.Instance.OnLevelFinished -= LevelFinished;
+        GameManager.Instance.OnGameStart -= StartGame;
+    }
 
     void Start()
     {
@@ -43,9 +54,13 @@ public class CharacterController : MonoBehaviour
         
         if (Input.GetKey(KeyCode.Space) && IsGrounded() && _canMove)
         {
-            _isGrounded = false;
             _rb.AddForce(new Vector2(0, _playerCollider.gravityDirection) * _playerBase.GetBaseValues(CharacterStats.JumpForce), ForceMode2D.Impulse);
         }
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube((Vector2)transform.position - Vector2.down * castDistance, boxSize);
     }
 
     private bool IsGrounded()
@@ -57,19 +72,13 @@ public class CharacterController : MonoBehaviour
         return false;
     }
 
-    private void OnDrawGizmos()
+    private void LevelFinished()
     {
-        Gizmos.DrawWireCube((Vector2)transform.position - Vector2.down * castDistance, boxSize);
+        _canMove = false;
     }
 
-    // private void OnCollisionEnter2D(Collision2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform") && _rb.linearVelocityY <= 2)
-    //         _isGrounded = true;
-    // }
-    //
-    // private void OnCollisionExit2D(Collision2D other)
-    // {
-    //     if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("MovingPlatform")) _isGrounded = false;
-    // }
+    private void StartGame()
+    {
+        _canMove = true;
+    }
 }
