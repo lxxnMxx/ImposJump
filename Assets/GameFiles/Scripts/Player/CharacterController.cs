@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,7 +17,6 @@ public class CharacterController : MonoBehaviour
     private bool _canMove = true;
     private int _gravityDirection;
     private float _moveDirection;
-    private bool _isInverted;
 
 
     private void OnEnable()
@@ -52,7 +52,7 @@ public class CharacterController : MonoBehaviour
             transform.Translate(Vector3.right * _playerBase.GetBaseValues(CharacterStats.MoveSpeed) * Time.deltaTime);
         }
         
-        if (Input.GetKey(KeyCode.Space) && IsGrounded() && _canMove)
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && _canMove)
         {
             _rb.AddForce(new Vector2(0, _playerCollider.gravityDirection) * _playerBase.GetBaseValues(CharacterStats.JumpForce), ForceMode2D.Impulse);
         }
