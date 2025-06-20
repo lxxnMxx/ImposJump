@@ -3,28 +3,16 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public enum DecorationType
-{
-    Bird
-}
-
-// !!! the B or C behind Variables stands for birds or clouds !!!
-
 //TODO: IF THERE ARE ONLY DEACTIVATED OBJECTS, THEN THE SCRIPT DOESN'T FIND ANYTHING, FIX!!!!!!
 public class PoolingHandler : Singleton<PoolingHandler>
 {
-    private GameObject obj;
+    [SerializeField] private List<GameObject> pool;
     
-    public GameObject Spawn(DecorationType type, Vector3 position, Quaternion rotation)
+    private GameObject _obj;
+    
+    public GameObject Spawn(Vector3 position, Quaternion rotation)
     {
-        switch (type)
-        {
-            case DecorationType.Bird:
-                return FindActiveObjects(PoolingObjects.Instance.birdPool, position, rotation);
-            default:
-                Debug.LogError("NullPointerException: Can't find an object !!!!!!!!!!!!!!!!!");
-                return null;
-        }
+        return FindActiveObjects(pool, position, rotation);
     }
 
     public void Despawn(GameObject go)
