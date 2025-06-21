@@ -12,6 +12,7 @@ public class AlienMovement : MonoBehaviour
 
     private void OnEnable()
     {
+        SoundManager.Instance.Play(SoundType.AliensComing);
         StartCoroutine(Movement());
     }
     

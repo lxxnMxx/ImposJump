@@ -32,8 +32,8 @@ public class Laser : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Alien")) return;
-        if (other.gameObject.CompareTag("Ground")) print("laser hit the ground!!!");
         
+        SoundManager.Instance.Play(SoundType.LaserImpact);
         _ps = Instantiate(impactParticle, transform.position, Quaternion.identity);
         _component = _ps.gameObject.GetComponent<ParticleSystem>();
         gameObject.SetActive(false);

@@ -6,7 +6,10 @@ public enum SoundType
     ButtonClick,
     PlayerDeath,
     PlayerJumppad,
-    LevelFinished
+    LevelFinished,
+    LaserImpact,
+    AliensComing,
+    AlienShoots
 }
 
 [System.Serializable]

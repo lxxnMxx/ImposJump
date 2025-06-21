@@ -66,6 +66,21 @@ MonoBehaviour:
     volume: 0.55
     pitch: 1
     source: {fileID: 0}
+  - type: 4
+    clip: {fileID: 8300000, guid: aefbcea87f437f241a21fb54b6065312, type: 3}
+    volume: 0.6
+    pitch: 1
+    source: {fileID: 0}
+  - type: 5
+    clip: {fileID: 8300000, guid: daeb327407738a24a8bcf4c69faaf0f5, type: 3}
+    volume: 1
+    pitch: 1
+    source: {fileID: 0}
+  - type: 6
+    clip: {fileID: 8300000, guid: d89c2a36f33ecb1439696f3f2091878e, type: 3}
+    volume: 0.6
+    pitch: 0.9
+    source: {fileID: 0}
 --- !u!114 &-3070484773697202682
 MonoBehaviour:
   m_ObjectHideFlags: 0
