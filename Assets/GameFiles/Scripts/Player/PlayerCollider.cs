@@ -17,15 +17,15 @@ public class PlayerCollider : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Spike"))
-        {
-            GameManager.Instance.ChangeGameState(GameState.GameOver);
-        }
-        
         if (other.gameObject.CompareTag("JumpBoost") && _rb.linearVelocityY <= 0.1) // linearVelY means if the rb moves at thy y axe
         {
             SoundManager.Instance.Play(SoundType.PlayerJumppad);
             _rb.AddForce(Vector2.up * _playerBase.GetBaseValues(CharacterStats.JumpForce) * 1.2f * gravityDirection, ForceMode2D.Impulse);
+        }
+
+        if (other.gameObject.CompareTag("Spike") || other.gameObject.CompareTag("Alien"))
+        {
+            GameManager.Instance.ChangeGameState(GameState.GameOver);
         }
     }
     
@@ -42,5 +42,7 @@ public class PlayerCollider : MonoBehaviour
         {
             GameManager.Instance.ChangeGameState(GameState.LevelFinished);
         }
+        
+        if(other.gameObject.CompareTag("Laser")) GameManager.Instance.ChangeGameState(GameState.GameOver);
     }
 }

@@ -1,16 +1,29 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class AlienMovement : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform target;
+    
+    [SerializeField] private Vector2 distanceToPlayer;
+    [SerializeField] private float speed;
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnEnable()
     {
-        
+        StartCoroutine(Movement());
+    }
+    
+    IEnumerator Movement()
+    {
+        while (true)
+        {
+            if (Vector3.Distance(target.position, transform.position) < distanceToPlayer.x || Vector3.Distance(target.position, transform.position) > distanceToPlayer.x)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.position + new Vector3(distanceToPlayer.x, distanceToPlayer.y, 0), Time.deltaTime * speed);
+            }
+            yield return new WaitForEndOfFrame();
+        }
     }
 }

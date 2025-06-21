@@ -16,8 +16,11 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] private Vector2 yRange;
     
     [Space(7)]
-    
+    // particle system stuff
     [SerializeField] ParticleSystem playerDeathParticle;
+    private ParticleSystem _ps;
+    private ParticleSystem _component;
+    
     
     private void OnEnable()
     {
@@ -56,7 +59,12 @@ public class PlayerBase : MonoBehaviour
     private void Die()
     {
         SoundManager.Instance.Play(SoundType.PlayerDeath);
-        Instantiate(playerDeathParticle, transform.position, Quaternion.identity);
+        
+        // Ps stuff (instantiate and destroy)
+        _ps = Instantiate(playerDeathParticle, transform.position, Quaternion.identity);
+        _component = playerDeathParticle.GetComponent<ParticleSystem>();
+        Destroy(_ps.gameObject, _component.startLifetime + _component.main.duration);
+        
         gameObject.SetActive(false);
     }
 }

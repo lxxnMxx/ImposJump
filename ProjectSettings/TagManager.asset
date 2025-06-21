@@ -9,6 +9,8 @@ TagManager:
   - JumpBoost
   - GravityPad
   - MovingPlatform
+  - Laser
+  - Alien
   layers:
   - Default
   - TransparentFX
