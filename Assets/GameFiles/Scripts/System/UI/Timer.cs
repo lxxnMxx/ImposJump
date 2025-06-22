@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
 
     private Text _text;
     private double _seconds;
+    private int _minutes;
 
     private bool _isGameOver;
 
@@ -36,7 +37,8 @@ public class Timer : MonoBehaviour
         {
             time += Time.deltaTime;
             _seconds = Math.Round(time % 60, 2);
-            _text.text = $"{_seconds:f2}"; // the f2 means that the text doesn't get tinier if the number is tinier
+            _minutes = (int)Math.Round(time / 120, 0);
+            _text.text = $"{_minutes}:{_seconds:f2}"; // the f2 means that the text doesn't get tinier if the number is tinier
         }
     }
 
