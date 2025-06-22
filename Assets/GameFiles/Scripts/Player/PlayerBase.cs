@@ -21,10 +21,13 @@ public class PlayerBase : MonoBehaviour
     private ParticleSystem _ps;
     private ParticleSystem _component;
     
+    private Vector3 _playerStartPosition;
+    
     
     private void OnEnable()
     {
         GameManager.Instance.OnGameOver += Die;
+        GameManager.Instance.OnGameStart += GameStart;
         
         // Lock Cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -34,6 +37,12 @@ public class PlayerBase : MonoBehaviour
     private void OnDisable()
     {
         GameManager.Instance.OnGameOver -= Die;
+        GameManager.Instance.OnGameStart -= GameStart;
+    }
+
+    private void Start()
+    {
+        _playerStartPosition = transform.position;
     }
 
     private void Update()
@@ -66,5 +75,12 @@ public class PlayerBase : MonoBehaviour
         Destroy(_ps.gameObject, _component.startLifetime + _component.main.duration);
         
         gameObject.SetActive(false);
+    }
+
+    private void GameStart()
+    {
+        GetComponent<PlayerCollider>().gravityDirection = 1;
+        GetComponent<Rigidbody2D>().gravityScale = 2.7f;
+        transform.position = _playerStartPosition;
     }
 }

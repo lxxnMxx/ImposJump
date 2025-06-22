@@ -15,7 +15,6 @@ public class CharacterController : MonoBehaviour
     private PlayerCollider _playerCollider;
 
     private bool _canMove = true;
-    private int _gravityDirection;
     private float _moveDirection;
 
 
@@ -65,10 +64,7 @@ public class CharacterController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        if (Physics2D.BoxCast(transform.position, boxSize, 0, Vector2.down, castDistance, layerMask))
-        {
-            return true;
-        }
+        if (Physics2D.BoxCast(transform.position, boxSize, 0, Vector2.down, castDistance, layerMask)) return true;
         return false;
     }
 
