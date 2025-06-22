@@ -46,7 +46,7 @@ public class UIManager : Singleton<UIManager>
     private void OnSceneLoaded(string sceneName)
     {
         _elementHandler = UIElementHandler.Instance;
-        if (sceneName == "LevelUI")
+        if (sceneName == "LevelUI" || sceneName == "TutorialUI")
         {
             GameManager.Instance.ChangeGameState(GameState.StartGame);
             _timeLeftBadCloud = _elementHandler.GetSlider("#TimeLeftBadCloud");

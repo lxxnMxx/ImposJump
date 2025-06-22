@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : Singleton<ButtonManager>
 {
+    private int _nextTutorialIndex;
+    private string _previousTutorialIndex;
+    
     public void Reset()
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
@@ -34,6 +37,24 @@ public class ButtonManager : Singleton<ButtonManager>
     {
         SoundManager.Instance.Play(SoundType.ButtonClick);
         SceneHandler.Instance.LoadMainMenu();
+    }
+
+    public void NextTutorial()
+    {
+        _nextTutorialIndex = SceneHandler.Instance.tutorials.FindIndex(i => i == SceneManager.GetActiveScene().name);
+        if(_nextTutorialIndex <= 3) // prevent the index from being out of bounds
+            SceneHandler.Instance.LoadTutorial(SceneHandler.Instance.tutorials[_nextTutorialIndex+1]);
+        else // load main menu if the index gets out of bounds
+            SceneHandler.Instance.LoadMainMenu();
+    }
+
+    public void PreviousTutorial()
+    {
+        _nextTutorialIndex = SceneHandler.Instance.tutorials.FindIndex(i => i == SceneManager.GetActiveScene().name);
+        if(_nextTutorialIndex > 1) // prevent the index from being out of bounds
+            SceneHandler.Instance.LoadTutorial(SceneHandler.Instance.tutorials[_nextTutorialIndex-1]);
+        else // load main menu if the index gets out of bounds
+            SceneHandler.Instance.LoadMainMenu();
     }
 
     public void Quit()

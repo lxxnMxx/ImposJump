@@ -42,7 +42,7 @@ public class SceneHandler : Singleton<SceneHandler>
     public async void LoadTutorial(string sceneName)
     {
         await LoadScene(sceneName, LoadSceneMode.Single);
-        await LoadScene("LevelUI", LoadSceneMode.Additive);
+        await LoadScene("TutorialUI", LoadSceneMode.Additive);
     }
 
     public async void LoadMainMenu()
