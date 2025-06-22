@@ -3,12 +3,13 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-//TODO: IF THERE ARE ONLY DEACTIVATED OBJECTS, THEN THE SCRIPT DOESN'T FIND ANYTHING, FIX!!!!!!
+
 public class PoolingHandler : Singleton<PoolingHandler>
 {
     [SerializeField] private List<GameObject> pool;
     
     private GameObject _obj;
+    
     
     public GameObject Spawn(Vector3 position, Quaternion rotation)
     {

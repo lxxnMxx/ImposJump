@@ -12,7 +12,8 @@ public class GameData
         levels = new List<Level>(new []
         {
             new Level("Level1", true, 0),
-            new Level("Level2", false, 0)
+            new Level("Level2", false, 0),
+            new Level("Level2Reloaded", false, 0)
         });
     }
 }

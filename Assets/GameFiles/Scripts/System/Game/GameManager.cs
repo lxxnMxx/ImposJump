@@ -19,6 +19,7 @@ public class GameManager : Singleton<GameManager>
 
 
     private GameObject _player;
+    private Vector3 _playerStartPosition;
     
     
     private void OnEnable()
@@ -46,6 +47,7 @@ public class GameManager : Singleton<GameManager>
         if (SceneHandler.Instance.IsSceneTutorial(sceneName) || SceneHandler.Instance.IsSceneLevel(sceneName))
         {
             _player = GameObject.FindWithTag("Player");
+            _playerStartPosition = _player.transform.position;
         }
     }
     
@@ -114,8 +116,14 @@ public class GameManager : Singleton<GameManager>
     private void GameStarted()
     {
         LockCursor();
-        _player.SetActive(true);
         ChangeGameState(GameState.GameContinues);
+        
+        // I don't like the way how this is fixed ...
+        if(_player == null) return; // question mark didn't work here (specifically at the transform.position access)
+        _player.transform.position = _playerStartPosition;
+        _player.SetActive(true);
+        _player.GetComponent<PlayerCollider>().gravityDirection = 1;
+        _player.GetComponent<Rigidbody2D>().gravityScale = 2.7f;
     }
 
     private void GamePaused()

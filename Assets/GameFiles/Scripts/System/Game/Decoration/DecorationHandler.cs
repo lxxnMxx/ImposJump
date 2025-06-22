@@ -26,10 +26,10 @@ public class DecorationHandler : Singleton<DecorationHandler>
     private void Start()
     {
         if(SceneHandler.Instance.IsCurrentSceneLevel())
-            StartCoroutine(SpawnDecorationLvl1());
+            StartCoroutine(SpawnDecoration());
     }
 
-    private IEnumerator SpawnDecorationLvl1()
+    private IEnumerator SpawnDecoration()
     {
         while (true)
         {

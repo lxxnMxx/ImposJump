@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3086932969318980624}
   - component: {fileID: 2981261285609615343}
-  - component: {fileID: 5752260184576166637}
+  - component: {fileID: 4292580095384117772}
   m_Layer: 0
   m_Name: JumpBoost
   m_TagString: JumpBoost
@@ -89,8 +89,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &5752260184576166637
-PolygonCollider2D:
+--- !u!61 &4292580095384117772
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,13 +133,8 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.37502956, y: 0.12499213}
-      - {x: -0.5, y: -0.125}
-      - {x: 0.5, y: -0.125}
-      - {x: 0.3747611, y: 0.12509274}
-  m_UseDelaunayMesh: 0
+  m_Size: {x: 0.75, y: 0.25}
+  m_EdgeRadius: 0
 --- !u!1001 &341567885887354500
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7324,9 +7324,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
+      propertyPath: lifeTime
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
+      propertyPath: cameraDistance
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: cameraPosition
       value: 
       objectReference: {fileID: 519420032}
+    - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
+      propertyPath: spawnTimeRange.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
+      propertyPath: spawnTimeRange.y
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 3084959958726563417, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: m_Name
       value: DecorationHandler
@@ -7430,7 +7446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6316291152975674659, guid: 6958f947d4eb46e45ade268415ae2a15, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
