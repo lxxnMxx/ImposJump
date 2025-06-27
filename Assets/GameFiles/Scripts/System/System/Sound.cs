@@ -5,7 +5,9 @@ public enum SoundType
 {
     ButtonClick,
     PlayerDeath,
+    PlayerJump,
     PlayerJumppad,
+    GravityChange,
     LevelFinished,
     LaserImpact,
     AliensComing,

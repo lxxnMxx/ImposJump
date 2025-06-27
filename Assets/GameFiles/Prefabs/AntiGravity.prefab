@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3581525918272576538}
   - component: {fileID: 5391207065461033976}
   - component: {fileID: 1140475231378364610}
+  - component: {fileID: 3229022729568976620}
   m_Layer: 0
   m_Name: AntiGravity
   m_TagString: GravityPad
@@ -125,6 +126,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &3229022729568976620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135564827463417212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9888e7c71a8c5474da6de52e6f73bf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityDirection: 0
 --- !u!1001 &401197362713471568
 PrefabInstance:
   m_ObjectHideFlags: 0

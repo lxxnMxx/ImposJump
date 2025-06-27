@@ -33,9 +33,9 @@ public class PlayerCollider : MonoBehaviour
     {
         if (other.gameObject.CompareTag("GravityPad"))
         {
-            // check if the gravity is bigger or smaller than 0 - turn the gravityDire into the opposite Value 
-            if (gravityDirection is < 0 or > 0) gravityDirection = -gravityDirection;
-            _rb.gravityScale *= -1;
+            SoundManager.Instance.Play(SoundType.GravityChange);
+            gravityDirection = other.gameObject.GetComponent<GravityPad>().gravityDirection;
+            _rb.gravityScale = gravityDirection < 0 ? -2.7f : 2.7f;
         }
 
         if (other.gameObject.CompareTag("Finish"))
