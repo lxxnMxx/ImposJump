@@ -71,7 +71,9 @@ public class UIManager : Singleton<UIManager>
     {
         _timeLeftBadCloud.value = timeLeft;
     }
-    
+
+    #region EventFunctions
+
     private void PauseMenu(GameState state)
     {
         if (state != GameState.PauseMenu || !_pausePanel) return;
@@ -122,4 +124,7 @@ public class UIManager : Singleton<UIManager>
     {
         _finishPanel.SetActive(true);
     }
+
+    #endregion
+    
 }

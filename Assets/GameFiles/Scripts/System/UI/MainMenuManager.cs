@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuManager : Singleton<MenuManager>
+public class MainMenuManager : Singleton<MainMenuManager>
 {
     public int selectedLvlIndex = 0;
 

@@ -24,13 +24,13 @@ public class ButtonManager : Singleton<ButtonManager>
     public void SelectLevel(int index)
     {
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
-        MenuManager.Instance.SelectLevel(index);
+        MainMenuManager.Instance.SelectLevel(index);
     }
 
     public void Play()
     {
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
-        SceneHandler.Instance.LoadLevel(MenuManager.Instance.GetSelectedLevel());
+        SceneHandler.Instance.LoadLevel(MainMenuManager.Instance.GetSelectedLevel());
     }
 
     public void MainMenu()
