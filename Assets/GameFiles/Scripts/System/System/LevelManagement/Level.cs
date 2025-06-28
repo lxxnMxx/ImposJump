@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -6,14 +7,14 @@ using UnityEngine;
 public record Level
 {
     public string name;
-    public bool isUnlocked;
+    public SerializableDictionary<string, bool> coinsCollected;
     public bool isActive;
     public int deathCount;
 
-    public Level(string name, bool isUnlocked, int deathCount)
+    public Level(string name, SerializableDictionary<string, bool> collectedCoins, int deathCount)
     {
         this.name = name;
-        this.isUnlocked = isUnlocked;
+        coinsCollected = collectedCoins;
         this.deathCount = deathCount;
     }
 }

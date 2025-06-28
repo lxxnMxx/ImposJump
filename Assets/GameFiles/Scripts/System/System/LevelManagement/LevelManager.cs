@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -6,6 +7,9 @@ using UnityEngine;
 public class LevelManager : Singleton<LevelManager>, IDataPersistence
 {
     public List<Level> levels;
+    
+    private int _coins;
+    private int _coinsPerLevel;
 
     public void LoadData(GameData data)
     {
@@ -20,4 +24,35 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
 
     // just returns the index of the level that is activated
     public int GetActiveLevel() => levels.FindIndex(lvl => lvl.isActive);
+
+    public int GetAllCoins()
+    {
+        foreach (var lvl in levels)
+        {
+            foreach (var coin in lvl.coinsCollected)
+            {
+                if(coin.Value) _coins++;
+            }
+        }
+        return _coins;
+    }
+
+    public int GetCoinsForLevel(string levelName)
+    {
+        _coinsPerLevel = 0;
+        foreach (var lvl in levels)
+        {
+            if (lvl.name == levelName)
+            {
+                foreach(var coin in lvl.coinsCollected)
+                    if(coin.Value) _coinsPerLevel++;
+            }
+            else
+            {
+                Debug.LogError($"Level {levelName} doesn't exist in the GameData");
+                return 0;
+            }
+        }
+        return _coinsPerLevel;
+    }
 }
