@@ -27,7 +27,7 @@ public class AlienShooting : MonoBehaviour
         if (_canShoot)
         {
             _canShoot = false;
-            SoundManager.Instance.Play(SoundType.AlienShoots);
+            SoundManager.Instance.Play(SoundList.Alien, SoundType.AlienShoots);
             Shoot();
             StartCoroutine(ShootingTimer());
         }

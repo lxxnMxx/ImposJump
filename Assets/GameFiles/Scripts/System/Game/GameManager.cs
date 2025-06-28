@@ -153,6 +153,6 @@ public class GameManager : Singleton<GameManager>
 
     private void LevelFinished()
     {
-        SoundManager.Instance.Play(SoundType.LevelFinished);
+        SoundManager.Instance.Play(SoundList.Player, SoundType.LevelFinished);
     }
 }

@@ -33,7 +33,7 @@ public class Laser : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Alien")) return;
         
-        SoundManager.Instance.Play(SoundType.LaserImpact);
+        SoundManager.Instance.Play(SoundList.Alien, SoundType.LaserImpact);
         _ps = Instantiate(impactParticle, transform.position, Quaternion.identity);
         _component = _ps.gameObject.GetComponent<ParticleSystem>();
         gameObject.SetActive(false);

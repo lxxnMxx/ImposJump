@@ -45,20 +45,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d75754f9238884440ad34cc7f054f123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds:
+  uiSounds:
   - type: 0
     clip: {fileID: 8300000, guid: 56d3d7c03a4bc8346ac139e1e24b8056, type: 3}
-    volume: 0.35
+    volume: 0.3
     pitch: 1
     source: {fileID: 0}
+  playerSounds:
   - type: 1
     clip: {fileID: 8300000, guid: 60f072a13b9c4b34fa522f0765eed869, type: 3}
-    volume: 0.6
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - type: 2
     clip: {fileID: 8300000, guid: fa21b138277378443a9e41347852527f, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - type: 3
@@ -66,29 +67,30 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
-  - type: 5
-    clip: {fileID: 8300000, guid: 0af233bd36c3ec7408b6b6dc69209ee3, type: 3}
-    volume: 0.35
-    pitch: 1
-    source: {fileID: 0}
   - type: 4
     clip: {fileID: 8300000, guid: c952cb1755467a64796a7c2256475a0b, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
   - type: 5
-    clip: {fileID: 8300000, guid: daeb327407738a24a8bcf4c69faaf0f5, type: 3}
-    volume: 1
+    clip: {fileID: 8300000, guid: 0af233bd36c3ec7408b6b6dc69209ee3, type: 3}
+    volume: 0.3
     pitch: 1
     source: {fileID: 0}
+  alienSounds:
   - type: 6
-    clip: {fileID: 8300000, guid: d89c2a36f33ecb1439696f3f2091878e, type: 3}
-    volume: 0.3
-    pitch: 0.9
+    clip: {fileID: 8300000, guid: aefbcea87f437f241a21fb54b6065312, type: 3}
+    volume: 0.5
+    pitch: 1
+    source: {fileID: 0}
+  - type: 7
+    clip: {fileID: 8300000, guid: daeb327407738a24a8bcf4c69faaf0f5, type: 3}
+    volume: 0.5
+    pitch: 1
     source: {fileID: 0}
   - type: 8
     clip: {fileID: 8300000, guid: d89c2a36f33ecb1439696f3f2091878e, type: 3}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     source: {fileID: 0}
 --- !u!114 &-3070484773697202682

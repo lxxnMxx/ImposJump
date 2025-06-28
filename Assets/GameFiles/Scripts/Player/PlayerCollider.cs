@@ -19,7 +19,7 @@ public class PlayerCollider : MonoBehaviour
     {
         if (other.gameObject.CompareTag("JumpBoost") && _rb.linearVelocityY <= 0.1) // linearVelY means if the rb moves at thy y axe
         {
-            SoundManager.Instance.Play(SoundType.PlayerJumppad);
+            SoundManager.Instance.Play(SoundList.Player, SoundType.PlayerJumppad);
             _rb.AddForce(Vector2.up * _playerBase.GetBaseValues(CharacterStats.JumpForce) * 1.2f * gravityDirection, ForceMode2D.Impulse);
         }
 
@@ -33,7 +33,7 @@ public class PlayerCollider : MonoBehaviour
     {
         if (other.gameObject.CompareTag("GravityPad"))
         {
-            SoundManager.Instance.Play(SoundType.GravityChange);
+            SoundManager.Instance.Play(SoundList.Player, SoundType.GravityChange);
             gravityDirection = other.gameObject.GetComponent<GravityPad>().gravityDirection;
             _rb.gravityScale = gravityDirection < 0 ? -2.7f : 2.7f;
         }

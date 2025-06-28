@@ -53,7 +53,7 @@ public class CharacterController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && _canMove)
         {
-            SoundManager.Instance.Play(SoundType.PlayerJump);
+            SoundManager.Instance.Play(SoundList.Player, SoundType.PlayerJump);
             _rb.AddForce(new Vector2(0, _playerCollider.gravityDirection) * _playerBase.GetBaseValues(CharacterStats.JumpForce), ForceMode2D.Impulse);
         }
     }

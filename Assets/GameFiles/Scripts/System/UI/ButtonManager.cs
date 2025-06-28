@@ -8,7 +8,7 @@ public class ButtonManager : Singleton<ButtonManager>
     
     public void Reset()
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         UIManager.Instance.DeactivateGameOverPanel();
         UIManager.Instance.DeactivateFinishPanel();
         GameManager.Instance.ChangeGameState(GameState.StartGame);
@@ -16,26 +16,26 @@ public class ButtonManager : Singleton<ButtonManager>
 
     public void Resume()
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         UIManager.Instance.DeactivatePausePanel();
         GameManager.Instance.ChangeGameState(GameManager.Instance.lastGameState);
     }
 
     public void SelectLevel(int index)
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         MenuManager.Instance.SelectLevel(index);
     }
 
     public void Play()
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         SceneHandler.Instance.LoadLevel(MenuManager.Instance.GetSelectedLevel());
     }
 
     public void MainMenu()
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         SceneHandler.Instance.LoadMainMenu();
     }
 
@@ -59,40 +59,40 @@ public class ButtonManager : Singleton<ButtonManager>
 
     public void Quit()
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         Application.Quit();
     }
 
     public void PlayTutorial(string sceneName)
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         SceneHandler.Instance.LoadTutorial(sceneName);
     }
 
     public void OpenSettings()
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         UIElementHandler.Instance.GetCanvas("#Settings").gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(false);
     }
     
     public void OpenTutorial()
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         UIElementHandler.Instance.GetCanvas("#TutorialSelection").gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(false);
     }
 
     public void LeaveSettings()
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas("#Settings").gameObject.SetActive(false);
     }
     
     public void LeaveTutorial()
     {
-        SoundManager.Instance.Play(SoundType.ButtonClick);
+        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas("#TutorialSelection").gameObject.SetActive(false);
     }
