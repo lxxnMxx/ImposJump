@@ -12,7 +12,7 @@ public class Coin : MonoBehaviour
     private bool _shouldShow;
 
 
-    
+    // this is a change
     private void OnEnable()
     {
         gameObject.SetActive(!LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].coinsCollected.TryGetValue(id, out _isCollected));
