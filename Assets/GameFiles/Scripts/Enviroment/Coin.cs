@@ -14,7 +14,6 @@ public class Coin : MonoBehaviour
     private ParticleSystem _ps;
     private ParticleSystem _component;
     
-    
     private void OnEnable()
     {
         gameObject.SetActive(!LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].coinsCollected.TryGetValue(id, out _isCollected));
