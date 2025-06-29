@@ -47,11 +47,6 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
                 foreach(var coin in lvl.coinsCollected)
                     if(coin.Value) _coinsPerLevel++;
             }
-            else
-            {
-                Debug.LogError($"Level {levelName} doesn't exist in the GameData");
-                return 0;
-            }
         }
         return _coinsPerLevel;
     }

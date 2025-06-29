@@ -178,6 +178,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Coin_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d98766ec50de0b4e88e4825c1c7bec4
+      internalID: -1510757913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -195,6 +217,7 @@ TextureImporter:
       Coin_0: -3338749442709606003
       Coin_1: -1642408496
       Coin_2: 1895740022
+      Coin_3: -1510757913
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
