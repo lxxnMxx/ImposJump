@@ -363,6 +363,10 @@ PrefabInstance:
       propertyPath: id
       value: '#Level1_2'
       objectReference: {fileID: 0}
+    - target: {fileID: 950778157496361694, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2572864963314793027, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
       propertyPath: m_Name
       value: Coin (2)
@@ -408,7 +412,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2168326380946925099, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
@@ -3848,6 +3853,10 @@ PrefabInstance:
       propertyPath: id
       value: '#Level1_0'
       objectReference: {fileID: 0}
+    - target: {fileID: 950778157496361694, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2572864963314793027, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
       propertyPath: m_Name
       value: Coin
@@ -3893,7 +3902,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2168326380946925099, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
@@ -4770,6 +4780,10 @@ PrefabInstance:
       propertyPath: id
       value: '#Level1_1'
       objectReference: {fileID: 0}
+    - target: {fileID: 950778157496361694, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2572864963314793027, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
       propertyPath: m_Name
       value: Coin (1)
@@ -4815,7 +4829,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2168326380946925099, guid: f35f5da004159bf4981b4338a22a4782, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f35f5da004159bf4981b4338a22a4782, type: 3}

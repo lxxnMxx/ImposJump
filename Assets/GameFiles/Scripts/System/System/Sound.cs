@@ -4,11 +4,14 @@ using UnityEngine.Audio;
 public enum SoundType
 {
     ButtonClick,
+    
     PlayerDeath,
     PlayerJump,
     PlayerJumppad,
     GravityChange,
     LevelFinished,
+    CoinCollected,
+    
     LaserImpact,
     AliensComing,
     AlienShoots
