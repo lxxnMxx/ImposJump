@@ -161,3 +161,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
+  collectedParticles: {fileID: 7805674171651138037, guid: 45db7a9dd21b4d441aa64fc6b8430d89, type: 3}

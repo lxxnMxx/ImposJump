@@ -6,12 +6,14 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     [SerializeField] private string id;
+    [SerializeField] private ParticleSystem collectedParticles;
     
     private bool _isCollected;
-    private bool _isInCollection;
     private bool _shouldShow;
 
-
+    private ParticleSystem _ps;
+    private ParticleSystem _component;
+    
     
     private void OnEnable()
     {
@@ -22,6 +24,9 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            PlayParticles();
+            SoundManager.Instance.Play(SoundList.Player, SoundType.CoinCollected);
+            
             if(!_isCollected)
                 _isCollected = true;
             
@@ -37,5 +42,12 @@ public class Coin : MonoBehaviour
             
             gameObject.SetActive(false);
         }
+    }
+
+    async private void PlayParticles()
+    {
+        _ps = Instantiate(collectedParticles, transform.position, Quaternion.identity);
+        _component = _ps.gameObject.GetComponent<ParticleSystem>();
+        Destroy(_ps.gameObject,   _component.main.duration + _component.startLifetime);
     }
 }

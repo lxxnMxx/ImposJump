@@ -48,13 +48,13 @@ MonoBehaviour:
   uiSounds:
   - type: 0
     clip: {fileID: 8300000, guid: 56d3d7c03a4bc8346ac139e1e24b8056, type: 3}
-    volume: 0.3
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
   playerSounds:
   - type: 1
     clip: {fileID: 8300000, guid: 60f072a13b9c4b34fa522f0765eed869, type: 3}
-    volume: 0.5
+    volume: 0.55
     pitch: 1
     source: {fileID: 0}
   - type: 2
@@ -64,17 +64,22 @@ MonoBehaviour:
     source: {fileID: 0}
   - type: 3
     clip: {fileID: 8300000, guid: 2907c106f24175443be8fb8c551532a2, type: 3}
-    volume: 0.5
+    volume: 0.55
     pitch: 1
     source: {fileID: 0}
   - type: 4
-    clip: {fileID: 8300000, guid: c952cb1755467a64796a7c2256475a0b, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: 465a991bb8827ef49a6026ab199f6311, type: 3}
+    volume: 0.55
     pitch: 1
     source: {fileID: 0}
   - type: 5
     clip: {fileID: 8300000, guid: 0af233bd36c3ec7408b6b6dc69209ee3, type: 3}
-    volume: 0.3
+    volume: 0.4
+    pitch: 1
+    source: {fileID: 0}
+  - type: 6
+    clip: {fileID: 8300000, guid: f81f63346dd31004bac1fbf36255f723, type: 3}
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
   alienSounds:

@@ -37,6 +37,6 @@ public class Laser : MonoBehaviour
         _ps = Instantiate(impactParticle, transform.position, Quaternion.identity);
         _component = _ps.gameObject.GetComponent<ParticleSystem>();
         gameObject.SetActive(false);
-        Destroy(_ps.gameObject, _component.main.duration + _component.startLifetime);
+        Destroy(_ps.gameObject, _component.main.duration + _component.startLifetime);   
     }
 }
