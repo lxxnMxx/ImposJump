@@ -1,6 +1,3 @@
-using System;
-using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
