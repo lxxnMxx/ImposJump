@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
@@ -13,6 +14,9 @@ public class DecorationHandler : Singleton<DecorationHandler>
     [SerializeField] private Vector2 spawnRangeY;
     [SerializeField] private Vector2 spawnTimeRange;
     [SerializeField] private float cameraDistance; // standard is 20
+    
+    [Space(5)]
+    [SerializeField] private List<PoolingHandler> poolingHandlers;
 
     [Space(5)]
     [SerializeField] private float lifeTime;
@@ -20,6 +24,7 @@ public class DecorationHandler : Singleton<DecorationHandler>
     // Initializing (making the Cpu comfortable with this variable)
     private GameObject _object;
     private float rnd;
+    private int rndPooling;
     private int rndType;
     private Vector3 position;
     
@@ -34,16 +39,17 @@ public class DecorationHandler : Singleton<DecorationHandler>
         while (true)
         {
             rnd = Random.Range(spawnTimeRange.x, spawnTimeRange.y);
+            rndPooling = Random.Range(0, poolingHandlers.Count);
             yield return new WaitForSeconds(rnd);
             position = new Vector3(cameraPosition.position.x + cameraDistance, cameraPosition.position.y + Random.Range(spawnRangeY.x, spawnRangeY.y), 0);
-            _object = PoolingHandler.Instance.Spawn(position, Quaternion.identity);
-            StartCoroutine(Despawn(_object));
+            _object = poolingHandlers[rndPooling].Spawn(position, Quaternion.identity);
+            StartCoroutine(Despawn(_object, rndPooling));
         }
     }
     
-    private IEnumerator Despawn(GameObject go)
+    private IEnumerator Despawn(GameObject go, int poolingIndex)
     {
         yield return new WaitForSeconds(lifeTime);
-        PoolingHandler.Instance.Despawn(go);
+        poolingHandlers[poolingIndex].Despawn(go);
     }
 }

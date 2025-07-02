@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 687b8951c36226741a54f76d1c9ca764
+guid: b471f0289e0afbd488b05376f8e6d9ab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8853133812218231926
-    second: BlueBigFish_0
+      213: -5765190804398382605
+    second: Standard_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BlueBigFish_0
+      name: Standard_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 14
-        height: 12
+        width: 16
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,20 +128,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 67c744adb46acda70800000000000000
-      internalID: 8853133812218231926
+      spriteID: 3f16c79328dedffa0800000000000000
+      internalID: -5765190804398382605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlueBigFish_1
+      name: Standard_1
       rect:
         serializedVersion: 2
-        x: 14
+        x: 16
         y: 0
-        width: 14
-        height: 12
+        width: 16
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,8 +150,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd577399e3425d24c9089a4842a7d389
-      internalID: -1098039846
+      spriteID: 07108670d87d39548bbb4771828fec5f
+      internalID: -2118113531
       vertices: []
       indices: 
       edges: []
@@ -160,7 +160,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 188664989cede2a4db7ea0af043bffde
     internalID: 0
     vertices: []
     indices: 
@@ -170,8 +170,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BlueBigFish_0: 8853133812218231926
-      BlueBigFish_1: -1098039846
+      Standard_0: -5765190804398382605
+      Standard_1: -2118113531
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

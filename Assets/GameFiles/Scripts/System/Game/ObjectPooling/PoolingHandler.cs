@@ -1,16 +1,22 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 
-public class PoolingHandler : Singleton<PoolingHandler>
+public class PoolingHandler : MonoBehaviour
 {
+    public PoolingHandler Instance;
     [SerializeField] private List<GameObject> pool;
     
     private GameObject _obj;
-    
-    
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public GameObject Spawn(Vector3 position, Quaternion rotation)
     {
         return FindActiveObjects(pool, position, rotation);
