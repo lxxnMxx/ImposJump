@@ -1202,6 +1202,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DecorationHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 3084959958726563417, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5068449052782868754, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1399,7 +1403,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 490282228}
   smoothSpeed: 1.4
-  offset: {x: 4, y: 1.5, z: -10}
+  offset: {x: 4, y: 1, z: -10}
 --- !u!1001 &446019098
 PrefabInstance:
   m_ObjectHideFlags: 0
