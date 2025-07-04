@@ -8,7 +8,7 @@ public class FileDataHandler
     private string _dataFileName;
 
     private bool _useEncryption;
-    private readonly string _encryptionKey = "imposjumpiscool";
+    private readonly string _encryptionKey = "@1m9os@7ump!s3ool@";
 
     public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
     {
