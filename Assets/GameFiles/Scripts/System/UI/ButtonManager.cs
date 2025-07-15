@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class ButtonManager : Singleton<ButtonManager>
 {
     private int _nextTutorialIndex;
@@ -69,31 +70,43 @@ public class ButtonManager : Singleton<ButtonManager>
         SceneHandler.Instance.LoadTutorial(sceneName);
     }
 
-    public void OpenSettings()
+    public void OpenCanvas(string id)
     {
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
-        UIElementHandler.Instance.GetCanvas("#Settings").gameObject.SetActive(true);
-        UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(false);
-    }
-    
-    public void OpenTutorial()
-    {
-        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
-        UIElementHandler.Instance.GetCanvas("#TutorialSelection").gameObject.SetActive(true);
+        UIElementHandler.Instance.GetCanvas(id).gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(false);
     }
 
-    public void LeaveSettings()
+    public void BackToMainMenu(string leftId)
     {
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
-        UIElementHandler.Instance.GetCanvas("#Settings").gameObject.SetActive(false);
+        UIElementHandler.Instance.GetCanvas(leftId).gameObject.SetActive(false);
     }
-    
-    public void LeaveTutorial()
+
+    public void BuySkin(string productName) // productName has to match with the name of the actual button object
     {
-        SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
-        UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
-        UIElementHandler.Instance.GetCanvas("#TutorialSelection").gameObject.SetActive(false);
+        var coins = LevelManager.Instance.GetAllCoins();
+        GameObject skin = GameObject.Find(productName);
+        if (skin == null)
+        {
+            Debug.LogWarning($"The skin of name: {productName} does not exist!");
+            return;
+        }
+        
+        Skin skinScript = skin.GetComponent<Skin>();
+        if (coins >= skinScript.price)
+        {
+            if (!skinScript.isCollected)
+            {
+                skinScript.CollectSkin();
+                return;
+            }
+            skinScript.SelectSkin();
+        }
+        else
+        {
+            print("you can't buy this skin, get some more coins");
+        }
     }
 }

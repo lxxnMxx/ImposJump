@@ -18,7 +18,7 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        levels.ForEach(level => level.isActive = false); // loop through levels and set isActive in ever level false
+        levels.ForEach(level => level.isActive = false); // loop through levels and set isActive in every level false
         data.levels = levels;
     }
 
@@ -27,11 +27,12 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
 
     public int GetAllCoins()
     {
+        _coins = 0;
         foreach (var lvl in levels)
         {
             foreach (var coin in lvl.coinsCollected)
             {
-                if(coin.Value) _coins++;
+                if(coin.Value) _coins += 1;
             }
         }
         return _coins;

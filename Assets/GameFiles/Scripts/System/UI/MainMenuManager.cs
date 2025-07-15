@@ -21,7 +21,7 @@ public class MainMenuManager : Singleton<MainMenuManager>
     }
 
     public string GetSelectedLevel() => $"Level{selectedLvlIndex}";
-
+    
     private void ChangeBackground(int levelIndex)
     {
         // ensure that only one additive Scene is loaded; Unload a Scene if it's active
