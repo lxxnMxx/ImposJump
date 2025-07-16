@@ -8,10 +8,11 @@ public class Skin
     public bool isCollected;
     public Color color;
 
-    public Skin(string name, int price, bool isCollected)
+    public Skin(string name, int price, bool isCollected,  Color color)
     {
         this.name = name;
         this.price = price;
         this.isCollected = isCollected;
+        this.color = color;
     }
 }

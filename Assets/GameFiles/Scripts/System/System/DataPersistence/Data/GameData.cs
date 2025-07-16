@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public class GameData
@@ -10,7 +11,12 @@ public class GameData
     // values in constructor are all default values (when game has nothing to load)
     public GameData()
     {
-        skins = new List<Skin>();
+        skins = new List<Skin>(new []
+        {
+            new Skin("StandardSkin", 0, true, new Color(0.003921569f, 0.8078431f, 0.8509804f, 1)),
+            new Skin("GreenSkin", 3, false, new Color(0.009265613f,0.7987421f,0,1))
+        });
+        
         levels = new List<Level>(new []
         {
             new Level("Level1", new SerializableDictionary<string, bool>(),0),

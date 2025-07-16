@@ -10,14 +10,15 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
 
     [SerializeField] private GameObject playerPrefab;
     
+    
     public void LoadData(GameData data)
     {
-        print("Loading data in progress ...");
+        skins = data.skins;
     }
 
     public void SaveData(ref GameData data)
     {
-        print("Saving data in progress ...");
+        data.skins = skins;
     }
     
     public void CollectSkin(string skinName, Color color)
