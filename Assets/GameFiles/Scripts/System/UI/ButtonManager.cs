@@ -87,22 +87,17 @@ public class ButtonManager : Singleton<ButtonManager>
     public void BuySkin(string productName) // productName has to match with the name of the actual button object
     {
         var coins = LevelManager.Instance.GetAllCoins();
-        GameObject skin = GameObject.Find(productName);
-        if (skin == null)
-        {
-            Debug.LogWarning($"The skin of name: {productName} does not exist!");
-            return;
-        }
+        Skin currentSkin = SkinManager.Instance.GetSkin(productName);
+        print(currentSkin.name);
         
-        Skin skinScript = skin.GetComponent<Skin>();
-        if (coins >= skinScript.price)
+        if (coins >= currentSkin.price)
         {
-            if (!skinScript.isCollected)
+            if (!currentSkin.isCollected)
             {
-                skinScript.CollectSkin();
+                SkinManager.Instance.CollectSkin(productName, currentSkin.color);
                 return;
             }
-            skinScript.SelectSkin();
+            SkinManager.Instance.SelectSkin(currentSkin.color);
         }
         else
         {
