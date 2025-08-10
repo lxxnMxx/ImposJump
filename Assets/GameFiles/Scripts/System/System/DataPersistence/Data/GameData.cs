@@ -7,6 +7,7 @@ public class GameData
 {
     public List<Level> levels;
     public List<Skin> skins;
+    public Settings settings;
 
     // values in constructor are all default values (when game has nothing to load)
     public GameData()
@@ -25,5 +26,6 @@ public class GameData
             new Level("Level1Reloaded", new SerializableDictionary<string, bool>(),0),
             new Level("Level2Reloaded", new SerializableDictionary<string, bool>(),0)
         });
-    }
+        settings = new Settings();
+	}
 }

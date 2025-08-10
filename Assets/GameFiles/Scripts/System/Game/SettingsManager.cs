@@ -1,0 +1,51 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SettingsManager : Singleton<SettingsManager>, IDataPersistence
+{
+    public Settings settings;
+
+	[SerializeField] Slider sfxGlobal;
+	[SerializeField] Slider sfxUiGlobal;
+
+	void IDataPersistence.LoadData(GameData data)
+	{
+		settings = data.settings;
+		sfxGlobal.value = settings.sfxGloabalVolume;
+		sfxUiGlobal.value = settings.uiGloabalVolume;
+		SetVolume();
+	}
+
+	void IDataPersistence.SaveData(ref GameData data)
+	{
+		data.settings = settings;
+	}
+
+	public void SaveSettings()
+	{
+		settings.sfxGloabalVolume = sfxGlobal.value;
+		settings.uiGloabalVolume = sfxUiGlobal.value;
+		print("Settings saved");
+		SetVolume();
+	}
+
+	private void SetVolume()
+	{
+        if (SoundManager.Instance == null) return;
+        foreach(Sound s in SoundManager.Instance.uiSounds)
+        {
+            if (s.source != null)
+                s.source.volume = s.volume * settings.uiGloabalVolume;
+        }
+        foreach(Sound s in SoundManager.Instance.playerSounds)
+        {
+            if (s.source != null)
+                s.source.volume = s.volume * settings.sfxGloabalVolume;
+        }
+        foreach(Sound s in SoundManager.Instance.alienSounds)
+        {
+            if (s.source != null)
+                s.source.volume = s.volume * settings.sfxGloabalVolume;
+        }
+	}
+}

@@ -9,9 +9,9 @@ public class MainMenuManager : Singleton<MainMenuManager>
 
     [SerializeField] private string[] backgrounds;
 
-    private void Awake()
+    private void Start()
     {
-        SelectLevel(1);
+        SelectLevel(2);
     }
     
     public void SelectLevel(int levelIndex)

@@ -10,15 +10,15 @@ public enum SoundList
 
 public class SoundManager : Singleton<SoundManager>
 {
-    [SerializeField] private Sound[] uiSounds;
-    [SerializeField] private Sound[] playerSounds;
-    [SerializeField] private Sound[] alienSounds;
+    public Sound[] uiSounds;
+	public Sound[] playerSounds;
+    public Sound[] alienSounds;
 
     private Sound _s;
     
     void Awake()
     {
-        foreach (Sound s in uiSounds)
+		foreach (Sound s in uiSounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -66,4 +66,20 @@ public class SoundManager : Singleton<SoundManager>
         }
         _s.source.Play();
     }
+
+    public void SetVolume(Settings set)
+    {
+        foreach (Sound s in uiSounds)
+        {
+            s.source.volume = s.volume * set.uiGloabalVolume;
+		}
+		foreach(Sound s in playerSounds)
+		{
+			s.source.volume = s.volume * set.sfxGloabalVolume;
+		}
+		foreach(Sound s in alienSounds)
+		{
+			s.source.volume = s.volume * set.sfxGloabalVolume;
+		}
+	}
 }

@@ -1,5 +1,6 @@
 public enum GameState 
 {
+    LoadingGame,
     MainMenu,
     StartGame,
     GameContinues,

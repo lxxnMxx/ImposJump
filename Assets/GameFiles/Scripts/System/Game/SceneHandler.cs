@@ -45,23 +45,32 @@ public class SceneHandler : Singleton<SceneHandler>
         await LoadScene("TutorialUI", LoadSceneMode.Additive);
     }
 
-    public async void LoadMainMenu()
+    public async void LoadMainMenuFromLevel()
     {
         if(!IsCurrentSceneTutorial())
             _levelManager.levels[_levelManager.GetActiveLevel()].isActive = false;
-        await LoadScene("MainMenu", LoadSceneMode.Single);
-    }
+        LoadMainMenu();
+	}
 
     public async Task<int> LoadScene(string sceneName, LoadSceneMode mode)
     {
         _scene = SceneManager.LoadSceneAsync(sceneName, mode);
-        if(_scene == null) return 0; // have to return something because await
-        
+        if(_scene == null)
+        {
+            Debug.LogError($"Scene '{sceneName}' could not be loaded.");
+			return 0; // have to return something because await
+        }
         while (_scene.progress < 1f)
         {
             await Task.Yield();
         }
-        OnSceneLoaded?.Invoke(sceneName); // Invoke own OnSceneLoad event
+        print($"Scene '{sceneName}' loaded successfully.");
+		OnSceneLoaded?.Invoke(sceneName); // Invoke own OnSceneLoad event
         return 0;
     }
+
+	public async void LoadMainMenu()
+	{
+		await LoadScene("MainMenu", LoadSceneMode.Single);
+	}
 }

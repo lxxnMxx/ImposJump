@@ -1,18 +1,19 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    [field:  SerializeField] // expose to the Unity Inspector
-    public int PlayerDeaths {set; get;} //TODO: find a better solution to store, set and access these type of Data
-    
+    [field: SerializeField] // expose to the Unity Inspector
+    public int PlayerDeaths { set; get; } //TODO: find a better solution to store, set and access these type of Data
+
     public GameState gameState;
     public GameState lastGameState;
     public int tutorialIndex;
     public event Action<GameState> OnGameStateChange;
-    
+
     public event Action OnGameOver;
     public event Action OnGameStart;
     public event Action OnLevelFinished;
@@ -20,8 +21,8 @@ public class GameManager : Singleton<GameManager>
 
     private GameObject _player;
     private Vector3 _playerStartPosition;
-    
-    
+
+
     private void OnEnable()
     {
         OnGameStateChange += ResumeGame;
@@ -40,32 +41,38 @@ public class GameManager : Singleton<GameManager>
 
     private void OnSceneLoaded(string sceneName)
     {
-        if(sceneName == "MainMenu") ChangeGameState(GameState.MainMenu);
-        
+        if(sceneName == "MainMenu") 
+            ChangeGameState(GameState.MainMenu);
         //print(SceneHandler.Instance.IsCurrentSceneTutorial() || SceneHandler.Instance.IsCurrentSceneLevel());
         
-        if (SceneHandler.Instance.IsSceneTutorial(sceneName) || SceneHandler.Instance.IsSceneLevel(sceneName))
+        if(SceneHandler.Instance.IsSceneTutorial(sceneName) || SceneHandler.Instance.IsSceneLevel(sceneName))
         {
             _player = GameObject.FindWithTag("Player");
             _playerStartPosition = _player.transform.position;
         }
     }
-    
-    void Update()
+
+	private void Start()
+	{
+		if(SceneManager.GetActiveScene().name == "LoadingScene") ChangeGameState(GameState.LoadingGame);
+		if(SceneManager.GetActiveScene().name == "MainMenu") ChangeGameState(GameState.MainMenu);
+	}
+
+	void Update()
     {
         if(Input.GetKeyDown(KeyCode.Return) && gameState is GameState.PauseMenu) ButtonManager.Instance.Resume();
-        
+
         else if(Input.GetKeyDown(KeyCode.Escape) && gameState is GameState.GameContinues or GameState.Danger)
             ChangeGameState(GameState.PauseMenu);
-        
-        else if (Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameContinues or GameState.Danger)
+
+        else if(Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameContinues or GameState.Danger)
         {
             if(!SceneHandler.Instance.IsCurrentSceneTutorial())
                 LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount += 1;
             ButtonManager.Instance.Reset();
         }
-        
-        else if (Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameOver) ButtonManager.Instance.Reset();
+
+        else if(Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameOver) ButtonManager.Instance.Reset();
     }
 
     public void ChangeGameState(GameState state)
@@ -74,30 +81,34 @@ public class GameManager : Singleton<GameManager>
         gameState = state;
         print(gameState);
         OnGameStateChange?.Invoke(gameState);
-        
-        switch (state)
+
+        switch(state)
         {
+            case GameState.LoadingGame:
+                StartCoroutine(WaitForSceneLoaded("LoadingScene"));
+                break;
+
             case GameState.MainMenu:
                 UnlockCursor();
                 break;
-            
+
             case GameState.StartGame:
                 OnGameStart?.Invoke();
                 break;
-            
+
             case GameState.GameContinues:
                 LockCursor();
                 break;
-            
+
             case GameState.Danger:
                 LockCursor();
                 break;
-            
+
             case GameState.PauseMenu:
                 GamePaused();
                 UnlockCursor();
                 break;
-            
+
             case GameState.GameOver:
                 // set deathCount for each level
                 if(!SceneHandler.Instance.IsCurrentSceneTutorial())
@@ -105,7 +116,7 @@ public class GameManager : Singleton<GameManager>
                 UnlockCursor();
                 OnGameOver?.Invoke();
                 break;
-            
+
             case GameState.LevelFinished:
                 OnLevelFinished?.Invoke();
                 UnlockCursor();
@@ -117,7 +128,7 @@ public class GameManager : Singleton<GameManager>
     {
         LockCursor();
         ChangeGameState(GameState.GameContinues);
-        
+
         // I don't like the way how this is fixed ...
         if(_player == null) return; // question mark didn't work here (specifically at the transform.position access)
         _player.transform.position = _playerStartPosition;
@@ -155,4 +166,10 @@ public class GameManager : Singleton<GameManager>
     {
         SoundManager.Instance.Play(SoundList.Player, SoundType.LevelFinished);
     }
+
+    IEnumerator WaitForSceneLoaded(string sceneName)
+    {
+        yield return new WaitUntil(() => SceneManager.GetSceneByName(sceneName).isLoaded);
+		SceneHandler.Instance.LoadMainMenu();
+	}
 }

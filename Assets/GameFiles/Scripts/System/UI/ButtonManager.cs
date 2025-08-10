@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonManager : Singleton<ButtonManager>
 {
     private int _nextTutorialIndex;
-    private string _previousTutorialIndex;
+    public event Action<string> OnCanvasLoad;
     
     public void Reset()
     {
@@ -37,7 +38,7 @@ public class ButtonManager : Singleton<ButtonManager>
     public void MainMenu()
     {
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
-        SceneHandler.Instance.LoadMainMenu();
+        SceneHandler.Instance.LoadMainMenuFromLevel();
     }
 
     public void NextTutorial()
@@ -46,7 +47,7 @@ public class ButtonManager : Singleton<ButtonManager>
         if(_nextTutorialIndex <= 3) // prevent the index from being out of bounds
             SceneHandler.Instance.LoadTutorial(SceneHandler.Instance.tutorials[_nextTutorialIndex+1]);
         else // load main menu if the index gets out of bounds
-            SceneHandler.Instance.LoadMainMenu();
+            SceneHandler.Instance.LoadMainMenuFromLevel();
     }
 
     public void PreviousTutorial()
@@ -55,7 +56,7 @@ public class ButtonManager : Singleton<ButtonManager>
         if(_nextTutorialIndex > 1) // prevent the index from being out of bounds
             SceneHandler.Instance.LoadTutorial(SceneHandler.Instance.tutorials[_nextTutorialIndex-1]);
         else // load main menu if the index gets out of bounds
-            SceneHandler.Instance.LoadMainMenu();
+            SceneHandler.Instance.LoadMainMenuFromLevel();
     }
 
     public void Quit()
@@ -75,12 +76,17 @@ public class ButtonManager : Singleton<ButtonManager>
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         UIElementHandler.Instance.GetCanvas(id).gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(false);
-    }
+        OnCanvasLoad?.Invoke(id);
+	}
 
     public void BackToMainMenu(string leftId)
     {
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
-        UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
+        if(leftId == "#Settings")
+        {
+            SettingsManager.Instance.SaveSettings();
+		}
+		UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas(leftId).gameObject.SetActive(false);
     }
 
@@ -88,9 +94,15 @@ public class ButtonManager : Singleton<ButtonManager>
     {
         var coins = LevelManager.Instance.GetAllCoins();
         Skin currentSkin = SkinManager.Instance.GetSkin(productName);
-        print(currentSkin.name);
         
-        if (coins >= currentSkin.price)
+        if(currentSkin.isCollected)
+        {
+            SkinManager.Instance.SelectSkin(currentSkin.color);
+            print("you already own this skin, skin got collected");
+			return;
+		}
+
+		if (coins >= currentSkin.price)
         {
             if (!currentSkin.isCollected)
             {
