@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 64a2328d033e9f343a574643b88400f3
+guid: 05c355dea3d0ee14c894407290fe553b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3338749442709606003
-    second: Coin_0
+      213: -1199959443329451114
+    second: PlayerUI_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Coin_0
+      name: PlayerUI_hover
       rect:
         serializedVersion: 2
         x: 0
@@ -126,16 +126,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d81b24142116aa1d0800000000000000
-      internalID: -3338749442709606003
+      spriteID: 65f9eeecef4cd6742ac8c05a3d90530f
+      internalID: -1199959443329451114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coin_1
+      name: PlayerUI_selected
       rect:
         serializedVersion: 2
         x: 8
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4958874fa8999b4d85b0bdf2c24e45c
-      internalID: -1642408496
+      spriteID: fd2ce19780b2b2d4c92b3992a76d6c77
+      internalID: 550566219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Coin_2
+      name: PlayerUI_locked
       rect:
         serializedVersion: 2
         x: 16
@@ -172,52 +172,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b9a69df1593fb947bda82679f026d2a
-      internalID: 1895740022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Coin_3
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d98766ec50de0b4e88e4825c1c7bec4
-      internalID: -1510757913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Coin_hover
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 088d7ed7cb171a2498eebb551edf1f5f
-      internalID: 685636000
+      spriteID: 89aa5207b65e8c042b3afe3dfbd5a24b
+      internalID: 744552367
       vertices: []
       indices: 
       edges: []
@@ -226,7 +182,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7f26752e7fa0a8a408648b9509f8b0ca
+    spriteID: 41f5468583c416f42bbfcfc8167aaa37
     internalID: 0
     vertices: []
     indices: 
@@ -236,11 +192,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Coin_0: -3338749442709606003
-      Coin_1: -1642408496
-      Coin_2: 1895740022
-      Coin_3: -1510757913
-      Coin_hover: 685636000
+      PlayerUI_hover: -1199959443329451114
+      PlayerUI_locked: 744552367
+      PlayerUI_selected: 550566219
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

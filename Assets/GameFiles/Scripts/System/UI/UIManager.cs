@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
+    public event Action<string> OnCanvasLoad;
+    
     private UIElementHandler _elementHandler;
     
     private GameObject _gameOverPanel;
@@ -70,6 +72,11 @@ public class UIManager : Singleton<UIManager>
     public void SetTimeLeftBadCloud(float timeLeft)
     {
         _timeLeftBadCloud.value = timeLeft;
+    }
+
+    public void CallOnCanvasLoaded(string cnvsName)
+    {
+        OnCanvasLoad?.Invoke(cnvsName);
     }
 
     #region EventFunctions

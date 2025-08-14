@@ -20,7 +20,7 @@ public class MainMenuManager : Singleton<MainMenuManager>
         ChangeBackground(levelIndex);   
     }
 
-    public string GetSelectedLevel() => $"Level{selectedLvlIndex}";
+    public string GetSelectedLevel() => $"Level{selectedLvlIndex-1}";
     
     private void ChangeBackground(int levelIndex)
     {

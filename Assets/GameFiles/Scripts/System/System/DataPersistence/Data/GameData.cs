@@ -12,10 +12,12 @@ public class GameData
     // values in constructor are all default values (when game has nothing to load)
     public GameData()
     {
-        skins = new List<Skin>(new []
+        skins = new List<Skin>(new[]
         {
-            new Skin("StandardSkin", 0, true, new Color(0.003921569f, 0.8078431f, 0.8509804f, 1)),
-            new Skin("GreenSkin", 3, false, new Color(0.009265613f,0.7987421f,0,1))
+            new Skin("StandardSkin", 0, true, new Color(0.003921569f, 0.8078431f, 0.8509804f, 1), true),
+            new Skin("GreenSkin", 3, false, new Color(0.009265613f,0.7987421f,0 , 1), false),
+            new Skin("OrangeSkin", 6, false, new Color(0.898f, 0.459f, 0.000f, 1), false),
+            new Skin("PurpleSkin", 9, false, new Color(0.898f, 0.000f, 0.710f, 1), false)
         });
         
         levels = new List<Level>(new []

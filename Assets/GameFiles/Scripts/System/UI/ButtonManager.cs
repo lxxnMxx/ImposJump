@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class ButtonManager : Singleton<ButtonManager>
 {
     private int _nextTutorialIndex;
-    public event Action<string> OnCanvasLoad;
     
     public void Reset()
     {
@@ -76,7 +76,7 @@ public class ButtonManager : Singleton<ButtonManager>
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         UIElementHandler.Instance.GetCanvas(id).gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(false);
-        OnCanvasLoad?.Invoke(id);
+        UIManager.Instance.CallOnCanvasLoaded(id);
 	}
 
     public void BackToMainMenu(string leftId)
@@ -97,8 +97,8 @@ public class ButtonManager : Singleton<ButtonManager>
         
         if(currentSkin.isCollected)
         {
-            SkinManager.Instance.SelectSkin(currentSkin.color);
-            print("you already own this skin, skin got collected");
+            SkinManager.Instance.SelectSkin(currentSkin);
+            print("you already own this skin");
 			return;
 		}
 
@@ -106,10 +106,11 @@ public class ButtonManager : Singleton<ButtonManager>
         {
             if (!currentSkin.isCollected)
             {
-                SkinManager.Instance.CollectSkin(productName, currentSkin.color);
+                SkinManager.Instance.CollectSkin(productName);
+                print("You collected this skin");
                 return;
             }
-            SkinManager.Instance.SelectSkin(currentSkin.color);
+            SkinManager.Instance.SelectSkin(currentSkin);
         }
         else
         {
