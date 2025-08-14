@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,14 +6,22 @@ public class SettingsManager : Singleton<SettingsManager>, IDataPersistence
 {
     public Settings settings;
 
-	[SerializeField] Slider sfxGlobal;
-	[SerializeField] Slider sfxUiGlobal;
+	private Slider _sfxGlobal;
+	private Slider _sfxUiGlobal;
+
+
+	private void OnEnable()
+	{
+		UIManager.Instance.OnCanvasLoad += SetSlider;
+	}
+	private void OnDisable()
+	{
+		UIManager.Instance.OnCanvasLoad -= SetSlider;
+	}
 
 	void IDataPersistence.LoadData(GameData data)
 	{
 		settings = data.settings;
-		sfxGlobal.value = settings.sfxGloabalVolume;
-		sfxUiGlobal.value = settings.uiGloabalVolume;
 		SetVolume();
 	}
 
@@ -20,13 +29,29 @@ public class SettingsManager : Singleton<SettingsManager>, IDataPersistence
 	{
 		data.settings = settings;
 	}
-
+	
 	public void SaveSettings()
 	{
-		settings.sfxGloabalVolume = sfxGlobal.value;
-		settings.uiGloabalVolume = sfxUiGlobal.value;
+		settings.sfxGloabalVolume = _sfxGlobal.value;
+		settings.uiGloabalVolume = _sfxUiGlobal.value;
 		print("Settings saved");
 		SetVolume();
+	}
+	
+	private void SetSlider(string cnvsName)
+	{
+		if (cnvsName == "#Settings")
+		{
+			_sfxGlobal = UIElementHandler.Instance.GetSlider("#sfxGlobal");
+			_sfxUiGlobal = UIElementHandler.Instance.GetSlider("#sfxUi");
+			LoadSettings();
+		}
+	}
+
+	private void LoadSettings()
+	{
+		_sfxGlobal.value = settings.sfxGloabalVolume;
+		_sfxUiGlobal.value = settings.uiGloabalVolume;
 	}
 
 	private void SetVolume()

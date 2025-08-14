@@ -46,6 +46,7 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
     {
         var skinObject = GameObject.Find(skinName); 
         skinObject.GetComponent<Image>().sprite = selectedSkin;
+        skinObject.transform.GetChild(0).gameObject.SetActive(false);
         Skin skin = GetSkin(skinName);
         skin.isCollected = true;
         print($"skin {skinName} got collected");
@@ -66,7 +67,6 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
 
         GameObject currentSkin = GameObject.Find(skin.name);
         currentSkin.GetComponent<Image>().sprite = selectedSkin;
-        currentSkin.transform.GetChild(0).gameObject.SetActive(false);
         skin.isSelected = true;
         
         print($"skin got selected with (R: {skin.color.r}, G: {skin.color.g}, B: {skin.color.b}, A: {skin.color.a}) color");
