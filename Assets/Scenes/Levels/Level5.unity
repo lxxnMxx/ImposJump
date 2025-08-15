@@ -2556,6 +2556,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c12cabfca071724cb6647c241fa58cf, type: 3}
+--- !u!114 &526334100 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3083233902317361285, guid: 2c12cabfca071724cb6647c241fa58cf, type: 3}
+  m_PrefabInstance: {fileID: 364867182}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2544fdf4bec1ed14cbd452c25ab026c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &534227052
 GameObject:
   m_ObjectHideFlags: 0
@@ -6702,12 +6713,20 @@ PrefabInstance:
       objectReference: {fileID: 534227054}
     - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: spawnTimeRange.x
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: spawnTimeRange.y
-      value: 35
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
+      propertyPath: poolingHandlers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
+      propertyPath: 'poolingHandlers.Array.data[0]'
+      value: 
+      objectReference: {fileID: 526334100}
     - target: {fileID: 3084959958726563417, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: m_Name
       value: DecorationHandler

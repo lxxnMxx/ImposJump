@@ -21,6 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuBackground/Level3Bg.unity
     guid: 6adeb4081d9c5644fbc3622ff47b784b
   - enabled: 1
+    path: Assets/Scenes/MainMenuBackground/Level1ReloadBg.unity
+    guid: 567c496e1b6f77c4abba8a21d1aa2a11
+  - enabled: 1
+    path: Assets/Scenes/MainMenuBackground/Level2ReloadBg.unity
+    guid: 6019c434f4705a34da178b8120e0a443
+  - enabled: 1
     path: Assets/Scenes/Tutorial/Tutorial1.unity
     guid: e80e1b0851b19bf45bbf740d6793e57c
   - enabled: 1
@@ -51,10 +57,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level3.unity
     guid: 5622526b771875e488556eecfe211c89
   - enabled: 1
-    path: Assets/Scenes/Levels/Level1Reloaded.unity
+    path: Assets/Scenes/Levels/Level4.unity
     guid: 3922ec1df1f30e24e9bd7dcd4a62acd7
   - enabled: 1
-    path: Assets/Scenes/Levels/Level2Reloaded.unity
+    path: Assets/Scenes/Levels/Level5.unity
     guid: f62256c2d23f80444af739770d5cdc0a
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

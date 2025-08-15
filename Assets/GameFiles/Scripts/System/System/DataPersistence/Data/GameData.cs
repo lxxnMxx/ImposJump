@@ -25,8 +25,8 @@ public class GameData
             new Level("Level1", new SerializableDictionary<string, bool>(),0),
             new Level("Level2", new SerializableDictionary<string, bool>(),0),
             new Level("Level3", new SerializableDictionary<string, bool>(),0),
-            new Level("Level1Reloaded", new SerializableDictionary<string, bool>(),0),
-            new Level("Level2Reloaded", new SerializableDictionary<string, bool>(),0)
+            new Level("Level4", new SerializableDictionary<string, bool>(),0),
+            new Level("Level5", new SerializableDictionary<string, bool>(),0)
         });
         settings = new Settings();
 	}
