@@ -802,7 +802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 693985661184428366, guid: 112659859eb751741ab189e1c532951a, type: 3}
       propertyPath: levelName
-      value: Level2Reloaded
+      value: Level5
       objectReference: {fileID: 0}
     - target: {fileID: 693985661184428366, guid: 112659859eb751741ab189e1c532951a, type: 3}
       propertyPath: m_Enabled
@@ -1795,7 +1795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2078763059234320176, guid: 73e7e2eca015a074abb0f006fcf2e3fe, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3761,6 +3761,10 @@ PrefabInstance:
     - target: {fileID: 7925296561876734991, guid: 165a3106b1a08074ea0a8f0ffe27fdb1, type: 3}
       propertyPath: m_Name
       value: ButtonManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7925296561876734991, guid: 165a3106b1a08074ea0a8f0ffe27fdb1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
