@@ -6111,6 +6111,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
+      propertyPath: despawnEffect
+      value: 
+      objectReference: {fileID: 4644415388579646680, guid: 9803da228b926924eb636d65b3141f40, type: 3}
+    - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: spawnRangeY.x
       value: 8
       objectReference: {fileID: 0}
@@ -6128,11 +6132,11 @@ PrefabInstance:
       objectReference: {fileID: 534227054}
     - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: spawnTimeRange.x
-      value: 22.5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: spawnTimeRange.y
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: poolingHandlers.Array.size

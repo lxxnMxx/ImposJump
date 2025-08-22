@@ -1,9 +1,12 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+    [SerializeField] private EnemyType type;
+    
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime;
     
@@ -32,11 +35,23 @@ public class Laser : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Alien")) return;
-        
-        SoundManager.Instance.Play(SoundList.Alien, SoundType.LaserImpact);
-        _ps = Instantiate(impactParticle, transform.position, Quaternion.identity);
-        _component = _ps.gameObject.GetComponent<ParticleSystem>();
-        gameObject.SetActive(false);
-        Destroy(_ps.gameObject, _component.main.duration + _component.startLifetime);   
+
+        switch (type)
+        {
+            case EnemyType.Alien: SoundManager.Instance.Play(SoundList.Alien, SoundType.LaserImpact);
+                break;
+            case EnemyType.Cloud: 
+                print("Implementing");
+                break;
+        }
+
+        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Player") ||
+            other.gameObject.CompareTag("MovingPlatform"))
+        {
+            _ps = Instantiate(impactParticle, transform.position, Quaternion.identity);
+            _component = _ps.gameObject.GetComponent<ParticleSystem>();
+            gameObject.SetActive(false);
+            Destroy(_ps.gameObject, _component.main.duration + _component.startLifetime); 
+        }
     }
 }

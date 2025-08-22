@@ -2,8 +2,15 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+public enum EnemyType
+{
+    Alien,
+    Cloud
+}
+
 public class AlienMovement : MonoBehaviour
 {
+    [SerializeField] private EnemyType type;
     [SerializeField] private Transform target;
     
     [SerializeField] private Vector2 distanceToPlayer;
@@ -12,7 +19,16 @@ public class AlienMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        SoundManager.Instance.Play(SoundList.Alien, SoundType.AliensComing);
+        switch (type) 
+        {
+            case EnemyType.Alien: SoundManager.Instance.Play(SoundList.Alien, SoundType.AliensComing);
+                break;
+            case EnemyType.Cloud: 
+                break;
+            default: 
+                print("Type not found"); break;
+        }
+        
         StartCoroutine(Movement());
     }
     

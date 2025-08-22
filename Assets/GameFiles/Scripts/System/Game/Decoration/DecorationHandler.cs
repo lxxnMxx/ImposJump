@@ -9,16 +9,17 @@ using Random = UnityEngine.Random;
 public class DecorationHandler : Singleton<DecorationHandler>
 {
     [SerializeField] private Transform cameraPosition;
+    [SerializeField] private ParticleSystem despawnEffect;
     
-    [Space(5)]
+    [Space(7)]
     [SerializeField] private Vector2 spawnRangeY;
     [SerializeField] private Vector2 spawnTimeRange;
     [SerializeField] private float cameraDistance; // standard is 20
     
-    [Space(5)]
+    [Space(7)]
     [SerializeField] private List<PoolingHandler> poolingHandlers;
 
-    [Space(5)]
+    [Space(7)]
     [SerializeField] private float lifeTime;
     
     // Initializing (making the Cpu comfortable with this variable)
@@ -27,6 +28,9 @@ public class DecorationHandler : Singleton<DecorationHandler>
     private int rndPooling;
     private int rndType;
     private Vector3 position;
+    
+    private ParticleSystem _ps;
+    private ParticleSystem _component;
     
     private void Start()
     {
@@ -50,6 +54,13 @@ public class DecorationHandler : Singleton<DecorationHandler>
     private IEnumerator Despawn(GameObject go, int poolingIndex)
     {
         yield return new WaitForSeconds(lifeTime);
+        if (despawnEffect != null)
+        {
+            _ps = Instantiate(despawnEffect, go.transform.position, go.transform.rotation);
+            _component = _ps.gameObject.GetComponent<ParticleSystem>();
+            gameObject.SetActive(false);
+            Destroy(_ps.gameObject, _component.main.duration + _component.startLifetime);   
+        }
         poolingHandlers[poolingIndex].Despawn(go);
     }
 }

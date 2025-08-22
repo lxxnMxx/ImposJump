@@ -7,15 +7,9 @@ using UnityEngine;
 
 public class PoolingHandler : MonoBehaviour
 {
-    public PoolingHandler Instance;
     [SerializeField] private List<GameObject> pool;
     
     private GameObject _obj;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
 
     public GameObject Spawn(Vector3 position, Quaternion rotation)
     {

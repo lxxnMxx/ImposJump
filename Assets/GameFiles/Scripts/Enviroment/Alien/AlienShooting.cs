@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class AlienShooting : MonoBehaviour
 {
+    [SerializeField] private EnemyType type;
+    
     [SerializeField] private Transform target;
     [SerializeField] private float shootTime;
     [SerializeField] private List<GameObject> laserPool;
@@ -27,7 +29,10 @@ public class AlienShooting : MonoBehaviour
         if (_canShoot)
         {
             _canShoot = false;
-            SoundManager.Instance.Play(SoundList.Alien, SoundType.AlienShoots);
+            if(type is EnemyType.Alien)
+                SoundManager.Instance.Play(SoundList.Alien, SoundType.AlienShoots);
+            else
+                print("Implementing");
             Shoot();
             StartCoroutine(ShootingTimer());
         }
