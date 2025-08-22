@@ -98,6 +98,17 @@ MonoBehaviour:
     volume: 0.5
     pitch: 1
     source: {fileID: 0}
+  badCloudSounds:
+  - type: 11
+    clip: {fileID: 8300000, guid: 9cafecfb3cadc1c4f89f882f7ca2e245, type: 3}
+    volume: 0.55
+    pitch: 1
+    source: {fileID: 0}
+  - type: 10
+    clip: {fileID: 8300000, guid: 8935bf13a94522e44bd63d4ca938d394, type: 3}
+    volume: 0.55
+    pitch: 1
+    source: {fileID: 0}
 --- !u!114 &-3070484773697202682
 MonoBehaviour:
   m_ObjectHideFlags: 0

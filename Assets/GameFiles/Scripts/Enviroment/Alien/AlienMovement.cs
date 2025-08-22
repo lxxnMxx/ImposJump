@@ -23,7 +23,8 @@ public class AlienMovement : MonoBehaviour
         {
             case EnemyType.Alien: SoundManager.Instance.Play(SoundList.Alien, SoundType.AliensComing);
                 break;
-            case EnemyType.Cloud: 
+            case EnemyType.Cloud:
+                SoundManager.Instance.Play(SoundList.BadCloud, SoundType.BadCloudsComing);
                 break;
             default: 
                 print("Type not found"); break;

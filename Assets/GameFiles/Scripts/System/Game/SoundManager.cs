@@ -5,6 +5,7 @@ public enum SoundList
 {
     Player,
     Alien,
+    BadCloud,
     UI
 }
 
@@ -13,6 +14,7 @@ public class SoundManager : Singleton<SoundManager>
     public Sound[] uiSounds;
 	public Sound[] playerSounds;
     public Sound[] alienSounds;
+    public Sound[]  badCloudSounds;
 
     private Sound _s;
     
@@ -39,6 +41,13 @@ public class SoundManager : Singleton<SoundManager>
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
         }
+        foreach (Sound s in badCloudSounds)
+        {
+            s.source = gameObject.AddComponent<AudioSource>();
+            s.source.clip = s.clip;
+            s.source.volume = s.volume;
+            s.source.pitch = s.pitch;
+        }
     }
 
     async public void Play(SoundList list, SoundType soundtype)
@@ -50,6 +59,9 @@ public class SoundManager : Singleton<SoundManager>
                 break;
             case SoundList.Alien:
                 _s = Array.Find(alienSounds, sound => sound.type == soundtype);
+                break;
+            case SoundList.BadCloud:
+                _s = Array.Find(badCloudSounds, sound => sound.type == soundtype);
                 break;
             case SoundList.UI:
                 _s = Array.Find(uiSounds, sound => sound.type == soundtype);
@@ -81,5 +93,9 @@ public class SoundManager : Singleton<SoundManager>
 		{
 			s.source.volume = s.volume * set.sfxGloabalVolume;
 		}
+        foreach(Sound s in badCloudSounds)
+        {
+            s.source.volume = s.volume * set.sfxGloabalVolume;
+        }
 	}
 }

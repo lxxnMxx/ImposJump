@@ -14,7 +14,10 @@ public enum SoundType
     
     LaserImpact,
     AliensComing,
-    AlienShoots
+    AlienShoots,
+    
+    BadCloudShoots,
+    BadCloudsComing
 }
 
 [System.Serializable]

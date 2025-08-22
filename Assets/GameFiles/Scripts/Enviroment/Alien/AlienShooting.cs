@@ -32,7 +32,7 @@ public class AlienShooting : MonoBehaviour
             if(type is EnemyType.Alien)
                 SoundManager.Instance.Play(SoundList.Alien, SoundType.AlienShoots);
             else
-                print("Implementing");
+                SoundManager.Instance.Play(SoundList.BadCloud, SoundType.BadCloudShoots);
             Shoot();
             StartCoroutine(ShootingTimer());
         }
