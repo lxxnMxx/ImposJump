@@ -58,7 +58,6 @@ public class DecorationHandler : Singleton<DecorationHandler>
         {
             _ps = Instantiate(despawnEffect, go.transform.position, go.transform.rotation);
             _component = _ps.gameObject.GetComponent<ParticleSystem>();
-            gameObject.SetActive(false);
             Destroy(_ps.gameObject, _component.main.duration + _component.startLifetime);   
         }
         poolingHandlers[poolingIndex].Despawn(go);
