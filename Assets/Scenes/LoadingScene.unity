@@ -436,6 +436,16 @@ MonoBehaviour:
     isCollected: 0
     color: {r: 0.8980392, g: 0, b: 0.7095049, a: 0}
     isSelected: 0
+  - name: DarkBlueSkin
+    price: 12
+    isCollected: 0
+    color: {r: 0, g: 0.09019608, b: 0.8980392, a: 0}
+    isSelected: 0
+  - name: RedSkin
+    price: 15
+    isCollected: 0
+    color: {r: 1, g: 0.11353712, b: 0, a: 0}
+    isSelected: 0
   playerPrefab: {fileID: 8046510341218364528, guid: d27f996d434bbbb49866daaabf512fed, type: 3}
   normalSkin: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   selectedSkin: {fileID: 550566219, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
