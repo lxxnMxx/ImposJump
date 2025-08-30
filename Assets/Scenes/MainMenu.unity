@@ -2035,7 +2035,7 @@ GameObject:
   - component: {fileID: 496981154}
   - component: {fileID: 496981153}
   m_Layer: 5
-  m_Name: DarkBlue
+  m_Name: DarkBlueSkin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3158,7 +3158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.71565, y: 0.485}
   m_AnchorMax: {x: 0.71565, y: 0.485}
-  m_AnchoredPosition: {x: -0.000015258789, y: -0.000009536743}
+  m_AnchoredPosition: {x: 0, y: -0.000009536743}
   m_SizeDelta: {x: 1144.9741, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &692257794
@@ -4893,7 +4893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1105199958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5813,7 +5813,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 290.732, y: 148.09}
+  m_SizeDelta: {x: 231.1328, y: 148.09}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1440890751
 GameObject:
@@ -7576,7 +7576,7 @@ GameObject:
   - component: {fileID: 1860426217}
   - component: {fileID: 1860426216}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: SkinView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7600,7 +7600,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 606.7, y: 148.0887}
+  m_SizeDelta: {x: 677.6869, y: 148.0887}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1860426216
 MonoBehaviour:
@@ -7645,7 +7645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.6289307, g: 0.6289307, b: 0.6289307, a: 0.11372549}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7661,7 +7661,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.3
 --- !u!222 &1860426218
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8852,7 +8852,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2080342200
 MonoBehaviour:
   m_ObjectHideFlags: 0
