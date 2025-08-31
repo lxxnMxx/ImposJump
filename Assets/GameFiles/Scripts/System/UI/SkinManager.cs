@@ -13,7 +13,7 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
 {
     public List<Skin> skins;
 
-    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private PlayerColor playerColor;
     
     [Header("Sprites")]
 	[SerializeField] private Sprite normalSkin;
@@ -58,7 +58,6 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
     {
 	    var isMainMenu =  await WaitForMainMenu();
         skin.color.a = 1; // not 255 because these values represent the percentages of each color part (1 is the maximum)
-        playerPrefab.GetComponent<SpriteRenderer>().color = skin.color;
 
         Skin selectedSkinObj = skins.Find(s => s.isSelected);
         if (selectedSkinObj != null)
@@ -69,6 +68,7 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
 	        
 	        var skinobj = GameObject.Find(skin.name); 
 	        skin.isSelected = true;
+	        playerColor.playerColor = skin.color;
 	        if(skinobj != null)
 		        skinobj.GetComponent<Image>().sprite = selectedSkin;
 	        else print("something went wrong SkinManager Ln 73");

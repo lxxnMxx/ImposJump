@@ -15,6 +15,9 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private Vector2 yRange;
     
+    [Header("-- Player Color --")]
+    [SerializeField] private PlayerColor playerColor;
+    
     [Space(7)]
     // particle system stuff
     [SerializeField] ParticleSystem playerDeathParticle;
@@ -25,6 +28,8 @@ public class PlayerBase : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.OnGameOver += Die;
+        
+        GetComponent<SpriteRenderer>().color = playerColor.playerColor;
         
         // Lock Cursor
         Cursor.lockState = CursorLockMode.Locked;

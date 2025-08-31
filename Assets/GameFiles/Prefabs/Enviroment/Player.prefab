@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
-  m_Color: {r: 0.009265613, g: 0.7987421, b: 0, a: 1}
+  m_Color: {r: 0.003921569, g: 0.8078431, b: 0.8509804, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
   jumpForce: 55
   moveSpeed: 5.5
   yRange: {x: 0, y: 0}
+  playerColor: {fileID: 11400000, guid: ef288e60f4e0bc746bc3e5d6db465e90, type: 2}
   playerDeathParticle: {fileID: 8072699219730614820, guid: 9919389b796bf3c4480dedb40b26d589, type: 3}
 --- !u!114 &7156819997693204957
 MonoBehaviour:
