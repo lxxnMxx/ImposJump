@@ -1,10 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using System.Linq;
 
 public class DataPersistence : Singleton<DataPersistence>
 {
+    public event Action OnAfterGameDataReset;
+    
     [Header("File Stuff")]
     [SerializeField] private string fileName;
     [SerializeField] private bool useEncryption;
@@ -55,6 +58,14 @@ public class DataPersistence : Singleton<DataPersistence>
         }
         
         _dataHandler.Save(_gameData);
+    }
+
+    public void DeleteGameData()
+    {
+        SaveGame();
+        File.Delete($@"{Application.persistentDataPath}/{fileName}");
+        LoadGame();
+        OnAfterGameDataReset?.Invoke();
     }
 
     private List<IDataPersistence> FindAllDataPersistenceObjects()

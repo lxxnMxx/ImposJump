@@ -13,6 +13,7 @@ public class SettingsManager : Singleton<SettingsManager>, IDataPersistence
 	private void OnEnable()
 	{
 		UIManager.Instance.OnCanvasLoad += SetSlider;
+		
 	}
 	private void OnDisable()
 	{

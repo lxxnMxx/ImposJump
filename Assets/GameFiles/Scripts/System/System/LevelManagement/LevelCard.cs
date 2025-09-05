@@ -13,8 +13,10 @@ public class LevelCard : MonoBehaviour
 
     private int _coinsToShowCount;
 
-    private void Start()
+    
+    private void OnEnable()
     {
+        print("Hello world");
         _coinsToShowCount = LevelManager.Instance.GetCoinsForLevel(levelName);
         for (int i = 0; i < _coinsToShowCount; i++)
         {

@@ -131,5 +131,7 @@ public class ButtonManager : Singleton<ButtonManager>
     public void ContinueResetGameData()
     {
         print("Deleting Game data ...");
+        DataPersistence.Instance.DeleteGameData();
+        UIManager.Instance.HideResetGameDataDialog();
     }
 }

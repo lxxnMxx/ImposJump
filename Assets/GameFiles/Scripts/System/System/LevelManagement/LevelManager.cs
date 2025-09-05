@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
 
     public void LoadData(GameData data)
     {
+        _coins = 0;
+        _coinsPerLevel = 0;
         levels = data.levels;
     }
 
@@ -41,13 +44,10 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
     public int GetCoinsForLevel(string levelName)
     {
         _coinsPerLevel = 0;
-        foreach (var lvl in levels)
+        foreach (var coin in from lvl in levels where lvl.name == levelName 
+                 from coin in lvl.coinsCollected where coin.Value select coin)
         {
-            if (lvl.name == levelName)
-            {
-                foreach(var coin in lvl.coinsCollected)
-                    if(coin.Value) _coinsPerLevel++;
-            }
+            _coinsPerLevel++;
         }
         return _coinsPerLevel;
     }
