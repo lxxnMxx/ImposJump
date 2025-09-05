@@ -44,6 +44,12 @@ public class UIManager : Singleton<UIManager>
         SceneHandler.Instance.OnSceneLoaded -= OnSceneLoaded;
     }
 
+    // for experimental purpose
+    private void Start()
+    {
+        _elementHandler = UIElementHandler.Instance;
+    }
+
     // Initialization of UI Elements
     private void OnSceneLoaded(string sceneName)
     {
@@ -78,6 +84,10 @@ public class UIManager : Singleton<UIManager>
     {
         OnCanvasLoad?.Invoke(cnvsName);
     }
+    
+    public void ShowResetGameDataDialog() => _elementHandler.GetPanel("#ResetGameDataDialogPanel").SetActive(true);
+    public void HideResetGameDataDialog() => _elementHandler.GetPanel("#ResetGameDataDialogPanel").SetActive(false);
+    
 
     #region EventFunctions
 

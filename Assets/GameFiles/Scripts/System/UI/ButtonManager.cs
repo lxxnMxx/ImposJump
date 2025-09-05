@@ -117,4 +117,19 @@ public class ButtonManager : Singleton<ButtonManager>
             print("you can't buy this skin, get some more coins");
         }
     }
+
+    public void ResetGameData()
+    {
+        UIManager.Instance.ShowResetGameDataDialog();
+    }
+
+    public void CancelResetGameData()
+    {
+        UIManager.Instance.HideResetGameDataDialog();
+    }
+
+    public void ContinueResetGameData()
+    {
+        print("Deleting Game data ...");
+    }
 }
