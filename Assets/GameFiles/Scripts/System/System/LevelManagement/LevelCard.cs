@@ -19,6 +19,11 @@ public class LevelCard : MonoBehaviour
     {
         _coinsToShowCount = LevelManager.Instance.GetCoinsForLevel(levelName);
         var hasCoins = _coinsToShowCount > 0;
-        foreach(var coin in coins) coin.sprite = hasCoins ? fullCoinSprite : emptyCoinSprite;
+        var i = 0;
+        foreach (var coin in coins)
+        {
+            coin.sprite = hasCoins && i < _coinsToShowCount ? fullCoinSprite : emptyCoinSprite;
+            i++;
+        }
     }
 }

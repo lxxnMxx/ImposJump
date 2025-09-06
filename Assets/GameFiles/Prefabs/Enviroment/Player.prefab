@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castDistance: 0
-  boxSize: {x: 1, y: 1.26}
+  boxSize: {x: 1.05, y: 1.27}
   layerMask:
     serializedVersion: 2
     m_Bits: 64
