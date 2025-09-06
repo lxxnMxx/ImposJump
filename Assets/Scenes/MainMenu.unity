@@ -808,6 +808,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 693985661184428366, guid: 112659859eb751741ab189e1c532951a, type: 3}
+      propertyPath: emptyCoinSprite
+      value: 
+      objectReference: {fileID: -1510757913, guid: 64a2328d033e9f343a574643b88400f3, type: 3}
     - target: {fileID: 1058263509796957555, guid: 112659859eb751741ab189e1c532951a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -1825,7 +1829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1.008, y: 0.84}
   m_AnchorMax: {x: 1.008, y: 0.84}
-  m_AnchoredPosition: {x: -0.0000037401915, y: -0.000019133091}
+  m_AnchoredPosition: {x: 0, y: -0.000019073486}
   m_SizeDelta: {x: 11.860397, y: 7.8203125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &427234845
@@ -3617,6 +3621,10 @@ PrefabInstance:
       propertyPath: levelName
       value: Level2
       objectReference: {fileID: 0}
+    - target: {fileID: 693985661184428366, guid: 112659859eb751741ab189e1c532951a, type: 3}
+      propertyPath: emptyCoinSprite
+      value: 
+      objectReference: {fileID: -1510757913, guid: 64a2328d033e9f343a574643b88400f3, type: 3}
     - target: {fileID: 1058263509796957555, guid: 112659859eb751741ab189e1c532951a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -4689,6 +4697,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 693985661184428366, guid: 112659859eb751741ab189e1c532951a, type: 3}
+      propertyPath: emptyCoinSprite
+      value: 
+      objectReference: {fileID: -1510757913, guid: 64a2328d033e9f343a574643b88400f3, type: 3}
     - target: {fileID: 1058263509796957555, guid: 112659859eb751741ab189e1c532951a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -6995,7 +7007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.089, y: 0.018}
   m_AnchorMax: {x: 0.089, y: 0.018}
-  m_AnchoredPosition: {x: 0.0000019669533, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 139.34052, y: 13.174}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555966658
@@ -9546,6 +9558,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 693985661184428366, guid: 112659859eb751741ab189e1c532951a, type: 3}
+      propertyPath: emptyCoinSprite
+      value: 
+      objectReference: {fileID: -1510757913, guid: 64a2328d033e9f343a574643b88400f3, type: 3}
     - target: {fileID: 1058263509796957555, guid: 112659859eb751741ab189e1c532951a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9
@@ -10086,6 +10102,10 @@ PrefabInstance:
       propertyPath: levelName
       value: Level1
       objectReference: {fileID: 0}
+    - target: {fileID: 693985661184428366, guid: 112659859eb751741ab189e1c532951a, type: 3}
+      propertyPath: emptyCoinSprite
+      value: 
+      objectReference: {fileID: -1510757913, guid: 64a2328d033e9f343a574643b88400f3, type: 3}
     - target: {fileID: 1058263509796957555, guid: 112659859eb751741ab189e1c532951a, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9

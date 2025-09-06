@@ -10,17 +10,15 @@ public class LevelCard : MonoBehaviour
     [Header("Coin")]
     [SerializeField] private List<Image> coins;
     [SerializeField] private Sprite fullCoinSprite;
+    [SerializeField] private Sprite emptyCoinSprite;
 
     private int _coinsToShowCount;
 
     
     private void OnEnable()
     {
-        print("Hello world");
         _coinsToShowCount = LevelManager.Instance.GetCoinsForLevel(levelName);
-        for (int i = 0; i < _coinsToShowCount; i++)
-        {
-            coins[i].sprite = fullCoinSprite;
-        }
+        var hasCoins = _coinsToShowCount > 0;
+        foreach(var coin in coins) coin.sprite = hasCoins ? fullCoinSprite : emptyCoinSprite;
     }
 }
