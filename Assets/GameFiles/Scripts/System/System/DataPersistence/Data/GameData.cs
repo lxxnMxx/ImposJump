@@ -24,11 +24,11 @@ public class GameData
         
         levels = new List<Level>(new []
         {
-            new Level("Level1", new SerializableDictionary<string, bool>(),0),
-            new Level("Level2", new SerializableDictionary<string, bool>(),0),
-            new Level("Level3", new SerializableDictionary<string, bool>(),0),
-            new Level("Level4", new SerializableDictionary<string, bool>(),0),
-            new Level("Level5", new SerializableDictionary<string, bool>(),0)
+            new Level("Level1", new SerializableDictionary<string, bool>(),0, 0f),
+            new Level("Level2", new SerializableDictionary<string, bool>(),0, 0f),
+            new Level("Level3", new SerializableDictionary<string, bool>(),0, 0f),
+            new Level("Level4", new SerializableDictionary<string, bool>(),0, 0f),
+            new Level("Level5", new SerializableDictionary<string, bool>(),0, 0f)
         });
         settings = new Settings();
 	}

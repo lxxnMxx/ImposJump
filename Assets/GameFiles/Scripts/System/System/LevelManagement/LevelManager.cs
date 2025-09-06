@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [System.Serializable]
@@ -26,7 +26,7 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
     }
 
     // just returns the index of the level that is activated
-    public int GetActiveLevel() => levels.FindIndex(lvl => lvl.isActive);
+    public Level GetActiveLevel() => levels[levels.FindIndex(lvl => lvl.isActive)];
 
     public int GetAllCoins()
     {
@@ -50,5 +50,12 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
             _coinsPerLevel++;
         }
         return _coinsPerLevel;
+    }
+
+    public void SetBestTime()
+    {
+        var time = Timer.Instance.GetTime();
+        var bestTime = GetActiveLevel().bestTime;
+        if (bestTime == 0 || time <= bestTime) GetActiveLevel().bestTime = time;
     }
 }

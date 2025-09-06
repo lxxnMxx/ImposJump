@@ -1,16 +1,24 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
+    public static Timer Instance;
+    
     [SerializeField] private float time;
 
     private Text _text;
     private double _seconds;
     private int _minutes;
 
-    private bool _isGameOver;
+    private bool _isCounting;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void OnEnable()
     {
@@ -33,7 +41,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (!_isGameOver)
+        if (!_isCounting)
         {
             time += Time.deltaTime;
             _seconds = Math.Round(time % 60, 2);
@@ -42,11 +50,13 @@ public class Timer : MonoBehaviour
         }
     }
 
+    public float GetTime() => time;
+
     private void ResetTimer() 
     {
-        _isGameOver = false;
+        _isCounting = false;
         time = 0;
     }
     
-    private void StopCounting() => _isGameOver = true;
+    private void StopCounting() => _isCounting = true;
 }

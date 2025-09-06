@@ -95,6 +95,8 @@ public class UIManager : Singleton<UIManager>
     {
         if (state != GameState.PauseMenu || !_pausePanel) return;
         _pausePanel.SetActive(true);
+        var time = LevelManager.Instance.GetActiveLevel().bestTime;
+        _elementHandler.GetText("#BestTimePause").text = $"Best Time {(int)Math.Round(time/120,0)}:{Math.Round(time%60,2):f2}";
         
         // show the bar here that the player can see how much time he got left on this platform
         if (GameManager.Instance.lastGameState == GameState.Danger)
@@ -126,7 +128,7 @@ public class UIManager : Singleton<UIManager>
     {
         _gameOverPanel.SetActive(true);
         if (!_deathCountTxt || SceneHandler.Instance.IsCurrentSceneLevel())
-            _deathCountTxt.text = $"Deaths: {LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount}";
+            _deathCountTxt.text = $"Deaths: {LevelManager.Instance.GetActiveLevel().deathCount}";
     }
 
     private void GameStart()
@@ -134,14 +136,16 @@ public class UIManager : Singleton<UIManager>
         if (!_deathCountTxt)
             _deathCountTxt = _elementHandler.GetText("#DeathCount");
         if (SceneHandler.Instance.IsCurrentSceneLevel())
-            _deathCountTxt.text = $"Deaths: {LevelManager.Instance.levels[LevelManager.Instance.GetActiveLevel()].deathCount}";
+            _deathCountTxt.text = $"Deaths: {LevelManager.Instance.GetActiveLevel().deathCount}";
     }
 
     private void LevelFinished()
     {
         _finishPanel.SetActive(true);
+        LevelManager.Instance.SetBestTime();
+        var time = LevelManager.Instance.GetActiveLevel().bestTime;
+        _elementHandler.GetText("#BestTimeFinish").text = $"Best Time {(int)Math.Round(time/120,0)}:{Math.Round(time%60,2):f2}";
     }
 
     #endregion
-    
 }

@@ -48,7 +48,7 @@ public class SceneHandler : Singleton<SceneHandler>
     public async void LoadMainMenuFromLevel()
     {
         if(!IsCurrentSceneTutorial())
-            _levelManager.levels[_levelManager.GetActiveLevel()].isActive = false;
+            _levelManager.GetActiveLevel().isActive = false;
         LoadMainMenu();
 	}
 
