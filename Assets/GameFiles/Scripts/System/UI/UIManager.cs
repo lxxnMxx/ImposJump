@@ -99,7 +99,7 @@ public class UIManager : Singleton<UIManager>
         _elementHandler.GetText("#BestTimePause").text = $"Best Time {(int)Math.Round(time/120,0)}:{Math.Round(time%60,2):f2}";
         
         // show the bar here that the player can see how much time he got left on this platform
-        if (GameManager.Instance.lastGameState == GameState.Danger)
+        if (GameManager.Instance.LastGameState == GameState.Danger)
             _timeLeftBadCloud.gameObject.SetActive(true);
     }
 
@@ -113,7 +113,7 @@ public class UIManager : Singleton<UIManager>
         }
         
         // return here cause when not, it would get deactivated in the pauseMenu
-        if(GameManager.Instance.lastGameState == GameState.Danger && state == GameState.PauseMenu || !_timeLeftBadCloud) 
+        if(GameManager.Instance.LastGameState == GameState.Danger && state == GameState.PauseMenu || !_timeLeftBadCloud) 
             return;
         _timeLeftBadCloud.gameObject.SetActive(false);
     }

@@ -9,8 +9,8 @@ public class GameManager : Singleton<GameManager>
     [field: SerializeField] // expose to the Unity Inspector
     public int PlayerDeaths { set; get; } //TODO: find a better solution to store, set and access these type of Data
 
-    public GameState gameState;
-    public GameState lastGameState;
+    public GameState GameState { get; private set; }
+    public GameState LastGameState { get; private set; }
     public int tutorialIndex;
     public event Action<GameState> OnGameStateChange;
 
@@ -43,7 +43,6 @@ public class GameManager : Singleton<GameManager>
     {
         if(sceneName == "MainMenu") 
             ChangeGameState(GameState.MainMenu);
-        //print(SceneHandler.Instance.IsCurrentSceneTutorial() || SceneHandler.Instance.IsCurrentSceneLevel());
         
         if(SceneHandler.Instance.IsSceneTutorial(sceneName) || SceneHandler.Instance.IsSceneLevel(sceneName))
         {
@@ -60,27 +59,27 @@ public class GameManager : Singleton<GameManager>
 
 	void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Return) && gameState is GameState.PauseMenu) ButtonManager.Instance.Resume();
+        if(GameState is GameState.PauseMenu && Input.GetKeyDown(KeyCode.Return)) ButtonManager.Instance.Resume();
 
-        else if(Input.GetKeyDown(KeyCode.Escape) && gameState is GameState.GameContinues or GameState.Danger)
+        else if(GameState is GameState.GameContinues or GameState.Danger && Input.GetKeyDown(KeyCode.Escape))
             ChangeGameState(GameState.PauseMenu);
 
-        else if(Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameContinues or GameState.Danger)
+        else if(GameState is GameState.GameContinues or GameState.Danger && Input.GetKeyDown(KeyCode.Return))
         {
             if(!SceneHandler.Instance.IsCurrentSceneTutorial())
                 LevelManager.Instance.GetActiveLevel().deathCount += 1;
             ButtonManager.Instance.Reset();
         }
 
-        else if(Input.GetKeyDown(KeyCode.Return) && gameState is GameState.GameOver) ButtonManager.Instance.Reset();
+        else if(Input.GetKeyDown(KeyCode.Return) && GameState is GameState.GameOver) ButtonManager.Instance.Reset();
     }
 
     public void ChangeGameState(GameState state)
     {
-        lastGameState = gameState;
-        gameState = state;
-        print(gameState);
-        OnGameStateChange?.Invoke(gameState);
+        LastGameState = GameState;
+        GameState = state;
+        print(GameState);
+        OnGameStateChange?.Invoke(GameState);
 
         switch(state)
         {
@@ -170,6 +169,6 @@ public class GameManager : Singleton<GameManager>
     IEnumerator WaitForSceneLoaded(string sceneName)
     {
         yield return new WaitUntil(() => SceneManager.GetSceneByName(sceneName).isLoaded);
-		SceneHandler.Instance.LoadMainMenu();
-	}
+        SceneHandler.Instance.LoadMainMenu();
+    }
 }

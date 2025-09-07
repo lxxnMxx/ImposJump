@@ -6,8 +6,12 @@ public class PlayerCollider : MonoBehaviour
 {
     public int gravityDirection;
     
+    [SerializeField] private ParticleSystem finishEffect;
+    
     private Rigidbody2D _rb;
     private PlayerBase _playerBase;
+    private ParticleSystem _component;
+    private ParticleSystem _ps;
 
     private void Start()
     {
@@ -40,6 +44,9 @@ public class PlayerCollider : MonoBehaviour
 
         if (other.gameObject.CompareTag("Finish"))
         {
+            _ps = Instantiate(finishEffect, transform.position, Quaternion.identity);
+            _component = _ps.gameObject.GetComponent<ParticleSystem>();
+            Destroy(_ps.gameObject, _component.main.duration + _component.startLifetime);
             GameManager.Instance.ChangeGameState(GameState.LevelFinished);
         }
         

@@ -64,7 +64,7 @@ public class TimerPlatform : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             _player = null;
-            if(GameManager.Instance.gameState != GameState.GameOver)
+            if(GameManager.Instance.GameState != GameState.GameOver)
                 GameManager.Instance.ChangeGameState(GameState.GameContinues);
         }
     }

@@ -119,7 +119,7 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
 
 	private async Task<bool> WaitForMainMenu()
 	{
-		while (GameManager.Instance.gameState != GameState.MainMenu)
+		while (GameManager.Instance.GameState != GameState.MainMenu)
 		{
 			await Task.Yield();
 		}

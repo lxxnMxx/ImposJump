@@ -20,7 +20,7 @@ public class ButtonManager : Singleton<ButtonManager>
     {
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
         UIManager.Instance.DeactivatePausePanel();
-        GameManager.Instance.ChangeGameState(GameManager.Instance.lastGameState);
+        GameManager.Instance.ChangeGameState(GameManager.Instance.LastGameState);
     }
 
     public void SelectLevel(int index)

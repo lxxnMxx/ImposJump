@@ -212,3 +212,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityDirection: 1
+  finishEffect: {fileID: 3361502584967513894, guid: 82b138521ab69934fa04fec0fe85677f, type: 3}
