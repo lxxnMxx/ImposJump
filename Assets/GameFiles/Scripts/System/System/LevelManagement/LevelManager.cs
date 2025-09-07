@@ -21,40 +21,59 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
 
     public void SaveData(ref GameData data)
     {
-        levels.ForEach(level => level.isActive = false); // loop through levels and set isActive in every level false
+        levels.ForEach(level => level.isActive = false);
         data.levels = levels;
     }
-
-    // just returns the index of the level that is activated
+    
+    /// <summary>
+    /// Iterates through the levels list and returns the active level
+    /// </summary>
+    /// <returns>A Level Object</returns>
     public Level GetActiveLevel() => levels[levels.FindIndex(lvl => lvl.isActive)];
-
+    
+    /// <summary>
+    /// Counts every coin in every level that the player ever has collected.
+    /// </summary>
+    /// <returns>an integer of all collected coins</returns>
     public int GetAllCoins()
     {
         _coins = 0;
-        foreach (var lvl in levels)
+        foreach (var coin in 
+                 from lvl in levels 
+                 from coin in lvl.coinsCollected 
+                 where coin.Value select coin)
         {
-            foreach (var coin in lvl.coinsCollected)
-            {
-                if(coin.Value) _coins += 1;
-            }
+            _coins += 1;
         }
         return _coins;
     }
 
+    /// <summary>
+    /// Counts every collected coin in the given level and returns this count.
+    /// </summary>
+    /// <param name="levelName">the name of the level</param>
+    /// <returns>an integer of all collected coins in the given level</returns>
     public int GetCoinsForLevel(string levelName)
     {
         _coinsPerLevel = 0;
-        foreach (var coin in from lvl in levels where lvl.name == levelName 
-                 from coin in lvl.coinsCollected where coin.Value select coin)
+        foreach (var coin in 
+                 from lvl in levels 
+                 where lvl.name == levelName 
+                 from coin in lvl.coinsCollected 
+                 where coin.Value select coin)
         {
             _coinsPerLevel++;
         }
+
         return _coinsPerLevel;
     }
 
+    /// <summary>
+    /// This method just sets the best time of the current level.
+    /// </summary>
     public void SetBestTime()
     {
-        var time = Timer.Instance.GetTime();
+        var time = Timer.Instance.Time;
         var bestTime = GetActiveLevel().bestTime;
         if (bestTime == 0 || time <= bestTime) GetActiveLevel().bestTime = time;
     }

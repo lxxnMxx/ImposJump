@@ -2,21 +2,13 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public enum CharacterStats
-{
-    MoveSpeed,
-    JumpForce
-}
 
 public class PlayerBase : MonoBehaviour
 {
-    [Header("=== Values ===")] 
-    [SerializeField] private float jumpForce;
-    [SerializeField] private float moveSpeed;
     [SerializeField] private Vector2 yRange;
     
-    [Header("-- Player Color --")]
-    [SerializeField] private PlayerColor playerColor;
+    [Header("=== Player Data ===")]
+    [SerializeField] private PlayerData playerData;
     
     [Space(7)]
     // particle system stuff
@@ -29,7 +21,7 @@ public class PlayerBase : MonoBehaviour
     {
         GameManager.Instance.OnGameOver += Die;
         
-        GetComponent<SpriteRenderer>().color = playerColor.playerColor;
+        GetComponent<SpriteRenderer>().color = playerData.playerColor;
         
         // Lock Cursor
         Cursor.lockState = CursorLockMode.Locked;
@@ -45,20 +37,6 @@ public class PlayerBase : MonoBehaviour
     {
         if(transform.position.y <= yRange.x || transform.position.y >= yRange.y)
             GameManager.Instance.ChangeGameState(GameState.GameOver);
-    }
-    
-    public float GetBaseValues(CharacterStats value)
-    {
-        switch (value)
-        {
-            case CharacterStats.JumpForce:
-                return jumpForce;
-            case CharacterStats.MoveSpeed:
-                return moveSpeed;
-            default:
-                Debug.LogError("This CharacterStat Type doesn't exist! Check your Input!");
-                return 0;
-        }
     }
 
     private void Die()

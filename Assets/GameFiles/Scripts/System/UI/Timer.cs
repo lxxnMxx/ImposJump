@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 {
     public static Timer Instance;
     
-    [SerializeField] private float time;
+    public float Time {get; private set;}
 
     private Text _text;
     private double _seconds;
@@ -43,19 +43,17 @@ public class Timer : MonoBehaviour
     {
         if (!_isCounting)
         {
-            time += Time.deltaTime;
-            _seconds = Math.Round(time % 60, 2);
-            _minutes = (int)Math.Round(time / 120, 0);
+            Time += UnityEngine.Time.deltaTime;
+            _seconds = Math.Round(Time % 60, 2);
+            _minutes = (int)Math.Round(Time / 120, 0);
             _text.text = $"{_minutes}:{_seconds:f2}"; // the f2 means that the text doesn't get tinier if the number is tinier
         }
     }
-
-    public float GetTime() => time;
-
+    
     private void ResetTimer() 
     {
         _isCounting = false;
-        time = 0;
+        Time = 0;
     }
     
     private void StopCounting() => _isCounting = true;

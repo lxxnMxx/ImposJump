@@ -7,12 +7,12 @@ public class LevelLoadingHandler : MonoBehaviour
 {
     [SerializeField] private Vector2 renderingRange;
     [SerializeField] private Camera cam;
+    [SerializeField] private float movementThreshold = 1f;
     
     [SerializeField] private List<GameObject> chunks;
-    
-    private Vector3 _lastCamPosition;
-    [SerializeField] private float movementThreshold = 1f;
 
+    private Vector3 _lastCamPosition;
+    
     // caching variables
     private float _camX;
     private float _minX;
@@ -28,11 +28,9 @@ public class LevelLoadingHandler : MonoBehaviour
 
     void LateUpdate()
     {
-        if (Mathf.Abs(cam.transform.position.x - _lastCamPosition.x) > movementThreshold)
-        {
-            _lastCamPosition = cam.transform.position;
-            UpdateChunks();
-        }
+        if (!(Mathf.Abs(cam.transform.position.x - _lastCamPosition.x) > movementThreshold)) return;
+        _lastCamPosition = cam.transform.position;
+        UpdateChunks();
     }
 
     void UpdateChunks()

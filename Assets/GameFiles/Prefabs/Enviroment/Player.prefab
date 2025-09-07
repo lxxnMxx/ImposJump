@@ -177,10 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a30357b3bfc1c64ea012625a19f5abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 55
-  moveSpeed: 5.5
   yRange: {x: 0, y: 0}
-  playerColor: {fileID: 11400000, guid: ef288e60f4e0bc746bc3e5d6db465e90, type: 2}
+  playerData: {fileID: 11400000, guid: ef288e60f4e0bc746bc3e5d6db465e90, type: 2}
   playerDeathParticle: {fileID: 8072699219730614820, guid: 9919389b796bf3c4480dedb40b26d589, type: 3}
 --- !u!114 &7156819997693204957
 MonoBehaviour:
@@ -199,6 +197,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 64
+  playerData: {fileID: 11400000, guid: ef288e60f4e0bc746bc3e5d6db465e90, type: 2}
 --- !u!114 &6575291925137975125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,3 +212,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityDirection: 1
   finishEffect: {fileID: 3361502584967513894, guid: 82b138521ab69934fa04fec0fe85677f, type: 3}
+  playerData: {fileID: 11400000, guid: ef288e60f4e0bc746bc3e5d6db465e90, type: 2}

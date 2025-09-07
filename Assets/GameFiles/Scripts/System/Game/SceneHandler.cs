@@ -23,7 +23,6 @@ public class SceneHandler : Singleton<SceneHandler>
         _levelManager = LevelManager.Instance;
     }
 
-    // if this check is true, then the current scene is a level
     // .Any just iterates through the collection, and if the condition is true, return true, otherwise false
     public bool IsCurrentSceneLevel() => _levelManager.levels.Any(lvl => lvl.name == SceneManager.GetActiveScene().name);
     public bool IsCurrentSceneTutorial() => tutorials.Any(tut => tut == SceneManager.GetActiveScene().name);
@@ -31,6 +30,7 @@ public class SceneHandler : Singleton<SceneHandler>
     public bool IsSceneLevel(string sceneName) => _levelManager.levels.Any(lvl => lvl.name == sceneName);
     public bool IsSceneTutorial(string sceneName) => tutorials.Any(tut => tut == sceneName);
 
+    
     public async void LoadLevel(string sceneName)
     {
         _levelIndex =_levelManager.levels.FindIndex(lvl => lvl.name == sceneName);
@@ -58,14 +58,14 @@ public class SceneHandler : Singleton<SceneHandler>
         if(_scene == null)
         {
             Debug.LogError($"Scene '{sceneName}' could not be loaded.");
-			return 0; // have to return something because await
+			return 0;
         }
-        while (_scene.progress < 1f)
+        while (_scene.progress < 1f) // wait til scene's loaded
         {
             await Task.Yield();
         }
         print($"Scene '{sceneName}' loaded successfully.");
-		OnSceneLoaded?.Invoke(sceneName); // Invoke own OnSceneLoad event
+		OnSceneLoaded?.Invoke(sceneName);
         return 0;
     }
 

@@ -23,16 +23,16 @@ public class ButtonManager : Singleton<ButtonManager>
         GameManager.Instance.ChangeGameState(GameManager.Instance.LastGameState);
     }
 
-    public void SelectLevel(int index)
+    public void SelectLevel(string levelName)
     {
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
-        MainMenuManager.Instance.SelectLevel(index);
+        MainMenuManager.Instance.SelectLevel(levelName);
     }
 
     public void Play()
     {
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
-        SceneHandler.Instance.LoadLevel(MainMenuManager.Instance.GetSelectedLevel());
+        SceneHandler.Instance.LoadLevel(MainMenuManager.Instance.SelectedLevelName);
     }
 
     public void MainMenu()
@@ -53,9 +53,9 @@ public class ButtonManager : Singleton<ButtonManager>
     public void PreviousTutorial()
     {
         _nextTutorialIndex = SceneHandler.Instance.tutorials.FindIndex(i => i == SceneManager.GetActiveScene().name);
-        if(_nextTutorialIndex > 1) // prevent the index from being out of bounds
+        if(_nextTutorialIndex > 1)
             SceneHandler.Instance.LoadTutorial(SceneHandler.Instance.tutorials[_nextTutorialIndex-1]);
-        else // load main menu if the index gets out of bounds
+        else
             SceneHandler.Instance.LoadMainMenuFromLevel();
     }
 

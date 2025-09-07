@@ -30,6 +30,7 @@ public class UIManager : Singleton<UIManager>
         GameManager.Instance.OnLevelFinished += LevelFinished;
         
         SceneHandler.Instance.OnSceneLoaded += OnSceneLoaded;
+        OnCanvasLoad += SetShopCoinView;
     }
 
     private void OnDisable()
@@ -42,6 +43,7 @@ public class UIManager : Singleton<UIManager>
         GameManager.Instance.OnLevelFinished -= LevelFinished;
         
         SceneHandler.Instance.OnSceneLoaded -= OnSceneLoaded;
+        OnCanvasLoad -= SetShopCoinView;
     }
 
     // for experimental purpose
@@ -145,6 +147,15 @@ public class UIManager : Singleton<UIManager>
         LevelManager.Instance.SetBestTime();
         var time = LevelManager.Instance.GetActiveLevel().bestTime;
         _elementHandler.GetText("#BestTimeFinish").text = $"Best Time {(int)Math.Round(time/120,0)}:{Math.Round(time%60,2):f2}";
+    }
+    
+    private void SetShopCoinView(string cnvsName)
+    {
+        if (cnvsName == "#Shop")
+        {
+            Text text = UIElementHandler.Instance.GetText("#CoinView");
+            text.text = LevelManager.Instance.GetAllCoins().ToString();
+        }
     }
 
     #endregion

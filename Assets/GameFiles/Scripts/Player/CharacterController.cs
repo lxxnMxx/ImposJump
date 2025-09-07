@@ -6,9 +6,11 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float castDistance;
     [SerializeField] private Vector2 boxSize;
     [SerializeField] private LayerMask layerMask;
+
+    [Space(7)]
+    [SerializeField] private PlayerData playerData;
     
     private Rigidbody2D _rb;
-    private PlayerBase _playerBase;
     private PlayerCollider _playerCollider;
 
     private bool _canMove = true;
@@ -30,7 +32,6 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _playerBase = GetComponent<PlayerBase>();
         _playerCollider = GetComponent<PlayerCollider>();
     }
     
@@ -40,18 +41,18 @@ public class CharacterController : MonoBehaviour
         _moveDirection = Input.GetAxis("Horizontal");
         
         if (_moveDirection < 0 && _canMove)
-        { 
-            transform.Translate(Vector3.left * _playerBase.GetBaseValues(CharacterStats.MoveSpeed) * Time.deltaTime);
+        {  
+            transform.Translate(Vector3.left * playerData.moveSpeed * Time.deltaTime);
         } 
         if (_moveDirection > 0 && _canMove) 
         { 
-            transform.Translate(Vector3.right * _playerBase.GetBaseValues(CharacterStats.MoveSpeed) * Time.deltaTime);
+            transform.Translate(Vector3.right * playerData.moveSpeed * Time.deltaTime);
         }
         
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && _canMove)
         {
             SoundManager.Instance.Play(SoundList.Player, SoundType.PlayerJump);
-            _rb.AddForce(new Vector2(0, _playerCollider.gravityDirection) * _playerBase.GetBaseValues(CharacterStats.JumpForce), ForceMode2D.Impulse);
+            _rb.AddForce(new Vector2(0, _playerCollider.gravityDirection) * playerData.jumpForce, ForceMode2D.Impulse);
         }
     }
     

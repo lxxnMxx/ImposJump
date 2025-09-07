@@ -13,7 +13,7 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
 {
     public List<Skin> skins;
 
-    [SerializeField] private PlayerColor playerColor;
+    [SerializeField] private PlayerData playerData;
     
     [Header("Sprites")]
 	[SerializeField] private Sprite normalSkin;
@@ -68,7 +68,7 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
 	        
 	        var skinobj = GameObject.Find(skin.name); 
 	        skin.isSelected = true;
-	        playerColor.playerColor = skin.color;
+	        playerData.playerColor = skin.color;
 	        if(skinobj != null)
 		        skinobj.GetComponent<Image>().sprite = selectedSkin;
 	        else print("something went wrong SkinManager Ln 73");
