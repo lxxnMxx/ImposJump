@@ -17,7 +17,6 @@ public class UIManager : Singleton<UIManager>
     private Text _deathCountTxt;
 
     private Slider _timeLeftBadCloud;
-
     
     
     private void OnEnable()
@@ -105,7 +104,6 @@ public class UIManager : Singleton<UIManager>
             _timeLeftBadCloud.gameObject.SetActive(true);
     }
 
-    // if the player is in Danger
     private void Danger(GameState state)
     {
         // if the last GameState was pauseMenu then let the bar still active
@@ -130,7 +128,7 @@ public class UIManager : Singleton<UIManager>
     {
         _gameOverPanel.SetActive(true);
         if (!_deathCountTxt || SceneHandler.Instance.IsCurrentSceneLevel())
-            _deathCountTxt.text = $"Deaths: {LevelManager.Instance.GetActiveLevel().deathCount}";
+            _deathCountTxt.text = $"Tries: {LevelManager.Instance.GetActiveLevel().deathCount}";
     }
 
     private void GameStart()
@@ -138,7 +136,7 @@ public class UIManager : Singleton<UIManager>
         if (!_deathCountTxt)
             _deathCountTxt = _elementHandler.GetText("#DeathCount");
         if (SceneHandler.Instance.IsCurrentSceneLevel())
-            _deathCountTxt.text = $"Deaths: {LevelManager.Instance.GetActiveLevel().deathCount}";
+            _deathCountTxt.text = $"Tries: {LevelManager.Instance.GetActiveLevel().deathCount}";
     }
 
     private void LevelFinished()

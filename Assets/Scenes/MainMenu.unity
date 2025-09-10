@@ -5254,7 +5254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1105199958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8956,7 +8956,7 @@ MonoBehaviour:
     isCollected: 0
     color: {r: 1, g: 0.11353712, b: 0, a: 0}
     isSelected: 0
-  playerColor: {fileID: 0}
+  playerData: {fileID: 0}
   normalSkin: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   selectedSkin: {fileID: 550566219, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
   lockedSkin: {fileID: 744552367, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
@@ -9859,7 +9859,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2080342200
 MonoBehaviour:
   m_ObjectHideFlags: 0

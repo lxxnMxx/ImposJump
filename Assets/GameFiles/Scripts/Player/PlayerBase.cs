@@ -15,8 +15,7 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] ParticleSystem playerDeathParticle;
     private ParticleSystem _ps;
     private ParticleSystem _component;
-    
-    
+
     private void OnEnable()
     {
         GameManager.Instance.OnGameOver += Die;
