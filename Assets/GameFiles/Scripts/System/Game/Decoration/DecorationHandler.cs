@@ -20,7 +20,7 @@ public class DecorationHandler : Singleton<DecorationHandler>
     [Space(7)]
     [SerializeField] private float lifeTime;
     
-    // Initializing (making the Cpu comfortable with this variable)
+    // Initializing
     private GameObject _object;
     private float rnd;
     private int rndPooling;

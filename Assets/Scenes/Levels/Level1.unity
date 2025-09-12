@@ -6908,14 +6908,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1590851650924926007, guid: cd82a4b0c7c674a4ab3a88c8b16dccf7, type: 3}
-      propertyPath: randomSizeRange.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1590851650924926007, guid: cd82a4b0c7c674a4ab3a88c8b16dccf7, type: 3}
-      propertyPath: randomSizeRange.y
-      value: 0.85
-      objectReference: {fileID: 0}
     - target: {fileID: 4837503694884383978, guid: cd82a4b0c7c674a4ab3a88c8b16dccf7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28.24
