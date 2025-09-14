@@ -49,7 +49,7 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
         skinObject.GetComponent<Image>().sprite = selectedSkin;
         skinObject.transform.GetChild(0).gameObject.SetActive(false);
         Skin skin = GetSkin(skinName);
-        skin.isCollected = true;
+        skin.isUnlocked = true;
         print($"skin {skinName} got collected");
 		SelectSkin(skin);
     }
@@ -73,7 +73,7 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
 		        skinobj.GetComponent<Image>().sprite = selectedSkin;
 	        else print("something went wrong SkinManager Ln 73");
         }
-		else Debug.LogWarning("Selected skin not found (Line 70 SkinManager.cs)");
+		else Debug.LogWarning("Selected skin not found (SelectSkin Method)");
         
         print($"skin got selected with (R: {skin.color.r}, G: {skin.color.g}, B: {skin.color.b}, A: {skin.color.a}) color");
     }
@@ -88,31 +88,25 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
 		foreach(Skin skin in skins)
 		{
 			GameObject skinObj = GameObject.Find(skin.name);
-			if(!skin.isCollected)
+			if(!skin.isUnlocked)
 			{
 				print(skin.name);
 				skinObj.GetComponent<Image>().sprite = lockedSkin;
 				skinObj.transform.GetChild(0).gameObject.SetActive(true);
 			}
 
-			if (skin.isCollected)
+			if (skin.isUnlocked)
 			{
 				print($"{skin.name} is already collected");
 				
-				if (skin.isSelected)
-					skinObj.GetComponent<Image>().sprite = selectedSkin;
-				else
-					skinObj.GetComponent<Image>().sprite = normalSkin;
+				skinObj.GetComponent<Image>().sprite = skin.isSelected ? selectedSkin : normalSkin;
 				
 				if(skinObj.name != "StandardSkin")
 					skinObj.transform.GetChild(0).gameObject.SetActive(false);
 			}
 			else
 			{
-				if (skin.name == "StandardSkin")
-					print($"Skip standard skin");
-				else
-					print($"no skin with name {skin.name} found!");
+				print(skin.name == "StandardSkin" ? $"Skip standard skin" : $"no skin with name {skin.name} found!");
 			}
 		}
 	}
@@ -120,10 +114,7 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
 	private async Task<bool> WaitForMainMenu()
 	{
 		while (GameManager.Instance.GameState != GameState.MainMenu)
-		{
 			await Task.Yield();
-		}
-
 		return true;
 	}
 }

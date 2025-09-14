@@ -1296,6 +1296,7 @@ GameObject:
   - component: {fileID: 230188779}
   - component: {fileID: 230188782}
   - component: {fileID: 230188781}
+  - component: {fileID: 230188783}
   - component: {fileID: 230188780}
   m_Layer: 5
   m_Name: OrangeSkin
@@ -1419,6 +1420,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230188778}
   m_CullTransparentMesh: 1
+--- !u!114 &230188783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230188778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+    name: 
+    price: 0
+    isCollected: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    isSelected: 0
 --- !u!1 &239346221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,6 +2143,7 @@ GameObject:
   - component: {fileID: 496981152}
   - component: {fileID: 496981155}
   - component: {fileID: 496981154}
+  - component: {fileID: 496981156}
   - component: {fileID: 496981153}
   m_Layer: 5
   m_Name: DarkBlueSkin
@@ -2247,6 +2267,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 496981151}
   m_CullTransparentMesh: 1
+--- !u!114 &496981156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496981151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+    name: 
+    price: 0
+    isCollected: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    isSelected: 0
 --- !u!1 &531324274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,6 +2539,7 @@ GameObject:
   - component: {fileID: 611376404}
   - component: {fileID: 611376407}
   - component: {fileID: 611376406}
+  - component: {fileID: 611376408}
   - component: {fileID: 611376405}
   m_Layer: 5
   m_Name: PurpleSkin
@@ -2624,6 +2663,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 611376403}
   m_CullTransparentMesh: 1
+--- !u!114 &611376408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611376403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+    name: 
+    price: 0
+    isCollected: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    isSelected: 0
 --- !u!1 &633456507
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,6 +2742,7 @@ GameObject:
   - component: {fileID: 634631118}
   - component: {fileID: 634631121}
   - component: {fileID: 634631120}
+  - component: {fileID: 634631122}
   - component: {fileID: 634631119}
   m_Layer: 5
   m_Name: RedSkin
@@ -2808,6 +2866,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 634631117}
   m_CullTransparentMesh: 1
+--- !u!114 &634631122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634631117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+    name: 
+    price: 0
+    isCollected: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    isSelected: 0
 --- !u!1 &652424853
 GameObject:
   m_ObjectHideFlags: 0
@@ -4871,6 +4947,7 @@ GameObject:
   - component: {fileID: 1067260241}
   - component: {fileID: 1067260244}
   - component: {fileID: 1067260243}
+  - component: {fileID: 1067260245}
   - component: {fileID: 1067260242}
   m_Layer: 5
   m_Name: StandardSkin
@@ -4992,6 +5069,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1067260240}
   m_CullTransparentMesh: 1
+--- !u!114 &1067260245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067260240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+    name: 
+    price: 0
+    isCollected: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    isSelected: 0
 --- !u!1 &1077842956
 GameObject:
   m_ObjectHideFlags: 0
@@ -8281,6 +8376,7 @@ GameObject:
   - component: {fileID: 1732448985}
   - component: {fileID: 1732448987}
   - component: {fileID: 1732448986}
+  - component: {fileID: 1732448989}
   - component: {fileID: 1732448988}
   m_Layer: 5
   m_Name: GreenSkin
@@ -8404,6 +8500,24 @@ MonoBehaviour:
           m_StringArgument: GreenSkin
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1732448989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732448984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin:
+    name: 
+    price: 0
+    isCollected: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    isSelected: 0
 --- !u!1 &1780708989
 GameObject:
   m_ObjectHideFlags: 0

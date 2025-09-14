@@ -95,7 +95,7 @@ public class ButtonManager : Singleton<ButtonManager>
         var coins = LevelManager.Instance.GetAllCoins();
         Skin currentSkin = SkinManager.Instance.GetSkin(productName);
         
-        if(currentSkin.isCollected)
+        if(currentSkin.isUnlocked)
         {
             SkinManager.Instance.SelectSkin(currentSkin);
             print("you already own this skin");
@@ -104,7 +104,7 @@ public class ButtonManager : Singleton<ButtonManager>
 
 		if (coins >= currentSkin.price)
         {
-            if (!currentSkin.isCollected)
+            if (!currentSkin.isUnlocked)
             {
                 SkinManager.Instance.CollectSkin(productName);
                 print("You collected this skin");

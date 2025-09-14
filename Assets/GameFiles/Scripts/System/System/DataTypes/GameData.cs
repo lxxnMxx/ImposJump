@@ -18,8 +18,8 @@ public class GameData
             new Skin("GreenSkin", 3, false, new Color(0.009265613f,0.7987421f,0 , 1), false),
             new Skin("OrangeSkin", 6, false, new Color(0.898f, 0.459f, 0.000f, 1), false),
             new Skin("PurpleSkin", 9, false, new Color(0.898f, 0.000f, 0.710f, 1), false),
-            new Skin("DarkBlueSkin", 9, false, new Color(0, 0.09019608f, 0.8980392f, 1), false),
-            new Skin("RedSkin", 9, false, new Color(1, 0.1135371f, 0, 1), false)
+            new Skin("DarkBlueSkin", 12, false, new Color(0, 0.09019608f, 0.8980392f, 1), false),
+            new Skin("RedSkin", 15, false, new Color(1, 0.1135371f, 0, 1), false)
         });
         
         levels = new List<Level>(new []
