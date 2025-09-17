@@ -82,40 +82,19 @@ public class ButtonManager : Singleton<ButtonManager>
     public void BackToMainMenu(string leftId)
     {
         SoundManager.Instance.Play(SoundList.UI, SoundType.ButtonClick);
+        
         if(leftId == "#Settings")
-        {
             SettingsManager.Instance.SaveSettings();
-		}
+        // else if(leftId == "#Shop")
+        //     SkinManager.Instance.SaveSkins();
+        
 		UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas(leftId).gameObject.SetActive(false);
     }
 
-    public void BuySkin(string productName) // productName has to match with the name of the actual button object
+    public void BuySkin(SkinCard skin)
     {
-        var coins = LevelManager.Instance.GetAllCoins();
-        Skin currentSkin = SkinManager.Instance.GetSkin(productName);
-        
-        if(currentSkin.isUnlocked)
-        {
-            SkinManager.Instance.SelectSkin(currentSkin);
-            print("you already own this skin");
-			return;
-		}
-
-		if (coins >= currentSkin.price)
-        {
-            if (!currentSkin.isUnlocked)
-            {
-                SkinManager.Instance.CollectSkin(productName);
-                print("You collected this skin");
-                return;
-            }
-            SkinManager.Instance.SelectSkin(currentSkin);
-        }
-        else
-        {
-            print("you can't buy this skin, get some more coins");
-        }
+        skin.UpdateSkinState((int)skin.skinCard.Skin.state == 0 ? SkinState.Unlocked : SkinState.Selected);
     }
 
     public void ResetGameData()

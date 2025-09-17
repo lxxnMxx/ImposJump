@@ -119,6 +119,70 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &242907111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 242907114}
+  - component: {fileID: 242907113}
+  - component: {fileID: 242907112}
+  m_Layer: 0
+  m_Name: SkinManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &242907112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242907111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e7c5c26c44bdc4e81f14288c4e33dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &242907113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242907111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbf74b8a43b410f98256671f9c6f5f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skinCards:
+  - {fileID: 11400000, guid: 7d5e51d81a1537e43b70d49d3b54eabc, type: 2}
+  - {fileID: 11400000, guid: 53252d63902cc2a408db7e8dc28f62c8, type: 2}
+  - {fileID: 11400000, guid: 7d2e45565a575554db3e66c95f1b5967, type: 2}
+  - {fileID: 11400000, guid: 734490293a015f64b93e069395f7dfa8, type: 2}
+  - {fileID: 11400000, guid: 888dedbc05705c34e9c23b23956c9737, type: 2}
+  - {fileID: 11400000, guid: 48d67d2a26f091e4287ac418bc5118c4, type: 2}
+--- !u!4 &242907114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242907111}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &862876190
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,103 +437,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73e7e2eca015a074abb0f006fcf2e3fe, type: 3}
---- !u!1 &2032824018
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2032824021}
-  - component: {fileID: 2032824020}
-  - component: {fileID: 2032824019}
-  m_Layer: 0
-  m_Name: SkinManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2032824019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032824018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4e7c5c26c44bdc4e81f14288c4e33dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2032824020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032824018}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a589556c18c0445e8b93a8239d5ddc02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skins:
-  - name: StandardSkin
-    price: 0
-    isCollected: 1
-    color: {r: 0.003921569, g: 0.80784315, b: 0.8509804, a: 0}
-    isSelected: 1
-  - name: GreenSkin
-    price: 3
-    isCollected: 0
-    color: {r: 0.009265613, g: 0.7987421, b: 0, a: 0}
-    isSelected: 0
-  - name: OrangeSkin
-    price: 6
-    isCollected: 0
-    color: {r: 0.899371, g: 0.46064252, b: 0, a: 0}
-    isSelected: 0
-  - name: PurpleSkin
-    price: 9
-    isCollected: 0
-    color: {r: 0.8980392, g: 0, b: 0.7095049, a: 0}
-    isSelected: 0
-  - name: DarkBlueSkin
-    price: 12
-    isCollected: 0
-    color: {r: 0, g: 0.09019608, b: 0.8980392, a: 0}
-    isSelected: 0
-  - name: RedSkin
-    price: 15
-    isCollected: 0
-    color: {r: 1, g: 0.11353712, b: 0, a: 0}
-    isSelected: 0
-  playerData: {fileID: 11400000, guid: ef288e60f4e0bc746bc3e5d6db465e90, type: 2}
-  normalSkin: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
-  selectedSkin: {fileID: 550566219, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
-  lockedSkin: {fileID: 744552367, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
---- !u!4 &2032824021
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2032824018}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 862876194}
   - {fileID: 1602437332}
-  - {fileID: 2032824021}
   - {fileID: 1223758866}
+  - {fileID: 242907114}

@@ -5,16 +5,14 @@ public class Skin
 {
     public string name;
     public int price;
-    public bool isUnlocked;
     public Color color;
-    public bool isSelected;
+    public SkinState state;
 
-	public Skin(string name, int price, bool isUnlocked, Color color, bool isSelected)
+	public Skin(string name, int price, bool isUnlocked, Color color, bool isSelected, SkinState state)
     {
         this.name = name;
         this.price = price;
-        this.isUnlocked = isUnlocked;
         this.color = color;
-        this.isSelected = isSelected;
-	}
+        this.state = state;
+    }
 }
