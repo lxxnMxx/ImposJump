@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    [field: SerializeField] // expose to the Unity Inspector
-    public int PlayerDeaths { set; get; } //TODO: find a better solution to store, set and access these type of Data
-
+    [SerializeField] private PlayerData playerData;
+    
     public GameState GameState { get; private set; }
     public GameState LastGameState { get; private set; }
     public int tutorialIndex;
@@ -132,7 +131,7 @@ public class GameManager : Singleton<GameManager>
         if(_player == null) return; // question mark didn't work here (specifically at the transform.position access)
         _player.transform.position = _playerStartPosition;
         _player.SetActive(true);
-        _player.GetComponent<PlayerCollider>().gravityDirection = 1;
+        playerData.gravityDirection = 1;
         _player.GetComponent<Rigidbody2D>().gravityScale = 2.7f;
     }
 

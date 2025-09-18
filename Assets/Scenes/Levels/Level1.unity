@@ -351,11 +351,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1437120280}
   - {fileID: 1705703349}
   - {fileID: 1243219280}
   - {fileID: 4085438534628051251}
   - {fileID: 2064057185}
+  - {fileID: 1964509303}
   m_Father: {fileID: 756043155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &190082606
@@ -1080,7 +1080,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 823603725}
+    m_TransformParent: {fileID: 181553634}
     m_Modifications:
     - target: {fileID: 3229022729568976620, guid: d44f4503c8e85684a92df9912e96f166, type: 3}
       propertyPath: gravityDirection
@@ -1088,7 +1088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3581525918272576538, guid: d44f4503c8e85684a92df9912e96f166, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.899994
+      value: -8.100006
       objectReference: {fileID: 0}
     - target: {fileID: 3581525918272576538, guid: d44f4503c8e85684a92df9912e96f166, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2702,7 +2702,7 @@ Transform:
   - {fileID: 1436833899}
   - {fileID: 308227961}
   - {fileID: 229921360}
-  - {fileID: 1964509303}
+  - {fileID: 1437120280}
   m_Father: {fileID: 756043155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &831220758 stripped
@@ -2880,7 +2880,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 181553634}
+    m_TransformParent: {fileID: 823603725}
     m_Modifications:
     - target: {fileID: 3229022729568976620, guid: d44f4503c8e85684a92df9912e96f166, type: 3}
       propertyPath: gravityDirection
@@ -2888,7 +2888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3581525918272576538, guid: d44f4503c8e85684a92df9912e96f166, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.81
+      value: 7.1900024
       objectReference: {fileID: 0}
     - target: {fileID: 3581525918272576538, guid: d44f4503c8e85684a92df9912e96f166, type: 3}
       propertyPath: m_LocalPosition.y

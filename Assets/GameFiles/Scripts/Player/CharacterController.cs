@@ -3,15 +3,10 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     [Header("IsGrounded Raycast stuff")]
-    [SerializeField] private float castDistance;
-    [SerializeField] private Vector2 boxSize;
-    [SerializeField] private LayerMask layerMask;
-
     [Space(7)]
     [SerializeField] private PlayerData playerData;
     
     private Rigidbody2D _rb;
-    private PlayerCollider _playerCollider;
 
     private bool _canMove = true;
     private float _moveDirection;
@@ -32,7 +27,6 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        _playerCollider = GetComponent<PlayerCollider>();
     }
     
     // if the Player falls of a Platform - dies (Code is in CameraFollowControl.cs)
@@ -42,30 +36,30 @@ public class CharacterController : MonoBehaviour
         
         if (_moveDirection < 0 && _canMove)
         {  
-            transform.Translate(Vector3.left * playerData.moveSpeed * Time.deltaTime);
+            transform.Translate(Vector3.left * playerData.MoveSpeed * Time.deltaTime);
         } 
         if (_moveDirection > 0 && _canMove) 
         { 
-            transform.Translate(Vector3.right * playerData.moveSpeed * Time.deltaTime);
+            transform.Translate(Vector3.right * playerData.MoveSpeed * Time.deltaTime);
         }
         
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && _canMove)
         {
             SoundManager.Instance.Play(SoundList.Player, SoundType.PlayerJump);
-            _rb.AddForce(new Vector2(0, _playerCollider.gravityDirection) * playerData.jumpForce, ForceMode2D.Impulse);
+            _rb.AddForce(new Vector2(0, playerData.gravityDirection) * playerData.JumpForce, ForceMode2D.Impulse);
         }
     }
     
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube((Vector2)transform.position - Vector2.down * castDistance, boxSize);
+        Gizmos.DrawWireCube((Vector2)transform.position - Vector2.down * 
+            playerData.CastDistance, playerData.BoxSize);
     }
 
-    private bool IsGrounded()
-    {
-        if (Physics2D.BoxCast(transform.position, boxSize, 0, Vector2.down, castDistance, layerMask)) return true;
-        return false;
-    }
+    private bool IsGrounded() => Physics2D.BoxCast
+    (transform.position, playerData.BoxSize, 0,
+            Vector2.down, playerData.CastDistance, playerData.LayerMask);
+    
 
     private void LevelFinished()
     {

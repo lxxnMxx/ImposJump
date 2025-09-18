@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da73cfce7c6af744896a070592c7b0d6, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  jumpForce: 55
-  moveSpeed: 5.5
+  <JumpForce>k__BackingField: 55
+  <MoveSpeed>k__BackingField: 5.5
   playerColor: {r: 0.003921569, g: 0.80784315, b: 0.8509804, a: 0}
+  gravityDirection: 0
+  <CastDistance>k__BackingField: 0
+  <BoxSize>k__BackingField: {x: 1.05, y: 1.27}
+  <LayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64

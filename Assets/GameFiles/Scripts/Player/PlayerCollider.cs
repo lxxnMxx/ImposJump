@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerCollider : MonoBehaviour
 {
-    public int gravityDirection;
-    
     [SerializeField] private ParticleSystem finishEffect;
     [SerializeField] private PlayerData playerData;
     
@@ -23,7 +21,7 @@ public class PlayerCollider : MonoBehaviour
         if (other.gameObject.CompareTag("JumpBoost") && _rb.linearVelocityY <= 0.1) // linearVelY means if the rb moves at thy y axe
         {
             SoundManager.Instance.Play(SoundList.Player, SoundType.PlayerJumppad);
-            _rb.AddForce(Vector2.up * playerData.jumpForce * 1.2f * gravityDirection, ForceMode2D.Impulse);
+            _rb.AddForce(Vector2.up * playerData.JumpForce * 1.2f * playerData.gravityDirection, ForceMode2D.Impulse);
         }
 
         if (other.gameObject.CompareTag("Spike") || other.gameObject.CompareTag("Alien"))
@@ -37,8 +35,8 @@ public class PlayerCollider : MonoBehaviour
         if (other.gameObject.CompareTag("GravityPad"))
         {
             SoundManager.Instance.Play(SoundList.Player, SoundType.GravityChange);
-            gravityDirection = other.gameObject.GetComponent<GravityPad>().gravityDirection;
-            _rb.gravityScale = gravityDirection < 0 ? -2.7f : 2.7f;
+            playerData.gravityDirection = other.gameObject.GetComponent<GravityPad>().gravityDirection;
+            _rb.gravityScale = playerData.gravityDirection < 0 ? -2.7f : 2.7f;
         }
 
         if (other.gameObject.CompareTag("Finish"))
