@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ButtonManager : Singleton<ButtonManager>
 {
+    [SerializeField] private PlayerData playerData;
+    
     private int _nextTutorialIndex;
     
     public void Reset()
@@ -92,9 +94,24 @@ public class ButtonManager : Singleton<ButtonManager>
 
     public void BuySkin(SkinCard skin)
     {
-        var oldSkin = SkinManager.Instance.GetCurrentSelectedSkin();
-        oldSkin.Skin.state = SkinState.Unlocked;
-        skin.UpdateSkinState((int)skin.SkinCardScriptableObject.Skin.state == 0 ? SkinState.Unlocked : SkinState.Selected);
+        switch ((int)skin.SkinCardScriptableObject.Skin.state)
+        {
+            case 0:
+                // get all Coins and compare them with skin price
+                if(LevelManager.Instance.GetAllCoins() >= skin.SkinCardScriptableObject.Skin.price)
+                {skin.UpdateSkinState(SkinState.Unlocked);}
+                return;
+            case >= 0:
+            {
+                // get skin that was selected before button press, deselect and update it
+                var oldSkin = SkinManager.Instance.GetCurrentSelectedSkin();
+                oldSkin.Skin.state = SkinState.Unlocked;
+                oldSkin.TriggerOnSkinChanged();
+            
+                skin.UpdateSkinState(SkinState.Selected);
+                break;
+            }
+        }
     }
 
     public void ResetGameData()

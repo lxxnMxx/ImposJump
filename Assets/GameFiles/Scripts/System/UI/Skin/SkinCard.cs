@@ -46,7 +46,7 @@ public class SkinCard : MonoBehaviour
                 spriteRenderer.sprite = lockedSkin;
                 break;
             case SkinState.Unlocked:
-                Unlock((int)SkinCardScriptableObject.Skin.state > (int)SkinState.Locked);
+                Unlock(true);
                 break;
             case SkinState.Selected:
                 SelectSkin();

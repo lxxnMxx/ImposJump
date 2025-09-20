@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a511b5ee2c2e42e38abd0c1807ec86a5, type: 3}
   m_Name: PurpleSkin
   m_EditorClassIdentifier: 
-  skin:
+  <Skin>k__BackingField:
     name: PurpleSkin
-    price: 9
-    color: {r: 0.89411765, g: 0, b: 0.70980394, a: 1}
-    state: 0
+    price: 3
+    color: {r: 0.898, g: 0, b: 0.71, a: 1}
+    state: 1

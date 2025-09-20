@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a511b5ee2c2e42e38abd0c1807ec86a5, type: 3}
   m_Name: OrangeSkin
   m_EditorClassIdentifier: 
-  skin:
+  <Skin>k__BackingField:
     name: OrangeSkin
-    price: 6
-    color: {r: 0.89411765, g: 0.45882353, b: 0, a: 1}
-    state: 0
+    price: 2
+    color: {r: 0.898, g: 0.459, b: 0, a: 1}
+    state: 1
