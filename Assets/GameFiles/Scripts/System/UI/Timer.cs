@@ -43,8 +43,7 @@ public class Timer : MonoBehaviour
     {
         if (_isCounting) return;
         Time += UnityEngine.Time.deltaTime;
-        _seconds = Math.Round(Time % 60, 2);
-        _minutes = (int)Math.Round(Time / 120, 0);
+        (_minutes, _seconds) = TimeConversioner.GetConvertedTime(Time);
         _text.text = $"{_minutes}:{_seconds:f2}"; // the f2 means that the text doesn't get tinier if the number is tinier
     }
     

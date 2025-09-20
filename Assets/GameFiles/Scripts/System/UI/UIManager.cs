@@ -143,17 +143,16 @@ public class UIManager : Singleton<UIManager>
     {
         _finishPanel.SetActive(true);
         LevelManager.Instance.SetBestTime();
-        var time = LevelManager.Instance.GetActiveLevel().bestTime;
-        _elementHandler.GetText("#BestTimeFinish").text = $"Best Time {(int)Math.Round(time/120,0)}:{Math.Round(time%60,2):f2}";
+        
+        var (minutes, seconds) = TimeConversioner.GetConvertedTime(LevelManager.Instance.GetActiveLevel().bestTime);
+        _elementHandler.GetText("#BestTimeFinish").text = $"Best Time: {minutes}:{seconds:f2}";
     }
     
     private void SetShopCoinView(string cnvsName)
     {
-        if (cnvsName == "#Shop")
-        {
-            Text text = UIElementHandler.Instance.GetText("#CoinView");
-            text.text = LevelManager.Instance.GetAllCoins().ToString();
-        }
+        if (cnvsName != "#Shop") return;
+        var text = UIElementHandler.Instance.GetText("#CoinView");
+        text.text = LevelManager.Instance.GetAllCoins().ToString();
     }
 
     #endregion
