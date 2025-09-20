@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: ef288e60f4e0bc746bc3e5d6db465e90, type: 2}
-  tutorialIndex: 0
+  gameManagerDataScriptableObject: {fileID: 11400000, guid: 1134e084459a8f3498589b4ba56014ff, type: 2}

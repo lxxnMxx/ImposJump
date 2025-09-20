@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : Singleton<GameManager>, IDataPersistence
 {
     [SerializeField] private PlayerData playerData;
+    [SerializeField] private GameManagerDataScriptableObject gameManagerDataScriptableObject;
     
     public GameState GameState { get; private set; }
     public GameState LastGameState { get; private set; }
-    public int tutorialIndex;
     public event Action<GameState> OnGameStateChange;
 
     public event Action OnGameOver;
@@ -21,7 +21,11 @@ public class GameManager : Singleton<GameManager>
     private GameObject _player;
     private Vector3 _playerStartPosition;
 
-
+    private new void Awake()
+    {
+        gameManagerDataScriptableObject.gameManagerData.isFirstStart = false;
+    }
+    
     private void OnEnable()
     {
         OnGameStateChange += ResumeGame;
@@ -42,35 +46,53 @@ public class GameManager : Singleton<GameManager>
     {
         if(sceneName == "MainMenu") 
             ChangeGameState(GameState.MainMenu);
-        
-        if(SceneHandler.Instance.IsSceneTutorial(sceneName) || SceneHandler.Instance.IsSceneLevel(sceneName))
-        {
-            _player = GameObject.FindWithTag("Player");
-            _playerStartPosition = _player.transform.position;
-        }
+
+        if (!SceneHandler.Instance.IsSceneTutorial(sceneName) && !SceneHandler.Instance.IsSceneLevel(sceneName)) return;
+        _player = GameObject.FindWithTag("Player");
+        _playerStartPosition = _player.transform.position;
     }
 
 	private void Start()
 	{
-		if(SceneManager.GetActiveScene().name == "LoadingScene") ChangeGameState(GameState.LoadingGame);
-		if(SceneManager.GetActiveScene().name == "MainMenu") ChangeGameState(GameState.MainMenu);
+		if(SceneManager.GetActiveScene().name == "LoadingScene") 
+            ChangeGameState(GameState.LoadingGame);
+		if(SceneManager.GetActiveScene().name == "MainMenu") 
+            ChangeGameState(GameState.MainMenu);
 	}
 
 	void Update()
     {
-        if(GameState is GameState.PauseMenu && Input.GetKeyDown(KeyCode.Return)) ButtonManager.Instance.Resume();
-
-        else if(GameState is GameState.GameContinues or GameState.Danger && Input.GetKeyDown(KeyCode.Escape))
-            ChangeGameState(GameState.PauseMenu);
-
-        else if(GameState is GameState.GameContinues or GameState.Danger && Input.GetKeyDown(KeyCode.Return))
+        switch (GameState)
         {
-            if(!SceneHandler.Instance.IsCurrentSceneTutorial())
-                LevelManager.Instance.GetActiveLevel().deathCount += 1;
-            ButtonManager.Instance.Reset();
+            case GameState.PauseMenu when Input.GetKeyDown(KeyCode.Return):
+                ButtonManager.Instance.Resume();
+                break;
+            case GameState.GameContinues or GameState.Danger when Input.GetKeyDown(KeyCode.Escape):
+                ChangeGameState(GameState.PauseMenu);
+                break;
+            case GameState.GameContinues or GameState.Danger when Input.GetKeyDown(KeyCode.Return):
+            {
+                if(!SceneHandler.Instance.IsCurrentSceneTutorial())
+                    LevelManager.Instance.GetActiveLevel().deathCount += 1;
+                ButtonManager.Instance.Reset();
+                break;
+            }
+            default:
+            {
+                if(Input.GetKeyDown(KeyCode.Return) && GameState is GameState.GameOver) ButtonManager.Instance.Reset();
+                break;
+            }
         }
+    }
+    
+    public void LoadData(GameData data)
+    {
+        gameManagerDataScriptableObject.gameManagerData = data.gameManagerData;
+    }
 
-        else if(Input.GetKeyDown(KeyCode.Return) && GameState is GameState.GameOver) ButtonManager.Instance.Reset();
+    public void SaveData(ref GameData data)
+    {
+        data.gameManagerData = gameManagerDataScriptableObject.gameManagerData;
     }
 
     public void ChangeGameState(GameState state)

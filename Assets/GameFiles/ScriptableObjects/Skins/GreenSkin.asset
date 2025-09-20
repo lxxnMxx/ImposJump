@@ -10,12 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a511b5ee2c2e42e38abd0c1807ec86a5, type: 3}
-  m_Name: OrangeSkin
+  m_Name: GreenSkin
   m_EditorClassIdentifier: 
-  <Skin>k__BackingField:
-    name: OrangeSkin
-    price: 6
-    isUnlocked: 0
-    color: {r: 0.89411765, g: 0.45882353, b: 0, a: 1}
-    isSelected: 0
-  <SkinState>k__BackingField: 0
+  skin:
+    name: GreenSkin
+    price: 3
+    color: {r: 0.007843138, g: 0.8, b: 0, a: 1}
+    state: 0

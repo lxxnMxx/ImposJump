@@ -1356,7 +1356,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -1199959443329451114, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
+    m_HighlightedSprite: {fileID: -1413233211, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -1433,7 +1433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinCard: {fileID: 11400000, guid: 7d2e45565a575554db3e66c95f1b5967, type: 2}
+  <SkinCardScriptableObject>k__BackingField: {fileID: 11400000, guid: 7d2e45565a575554db3e66c95f1b5967, type: 2}
   selectedSkin: {fileID: -1380921829, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   normalSkin: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   lockedSkin: {fileID: 110691885, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
@@ -2048,7 +2048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2078763059234320176, guid: 73e7e2eca015a074abb0f006fcf2e3fe, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2260,7 +2260,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -1199959443329451114, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
+    m_HighlightedSprite: {fileID: -1413233211, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -2337,7 +2337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinCard: {fileID: 11400000, guid: 888dedbc05705c34e9c23b23956c9737, type: 2}
+  <SkinCardScriptableObject>k__BackingField: {fileID: 11400000, guid: 888dedbc05705c34e9c23b23956c9737, type: 2}
   selectedSkin: {fileID: -1380921829, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   normalSkin: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   lockedSkin: {fileID: 110691885, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
@@ -2713,7 +2713,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -1199959443329451114, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
+    m_HighlightedSprite: {fileID: -1413233211, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -2790,7 +2790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinCard: {fileID: 11400000, guid: 734490293a015f64b93e069395f7dfa8, type: 2}
+  <SkinCardScriptableObject>k__BackingField: {fileID: 11400000, guid: 734490293a015f64b93e069395f7dfa8, type: 2}
   selectedSkin: {fileID: -1380921829, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   normalSkin: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   lockedSkin: {fileID: 110691885, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
@@ -2973,7 +2973,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -1199959443329451114, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
+    m_HighlightedSprite: {fileID: -1413233211, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -3050,7 +3050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinCard: {fileID: 11400000, guid: 48d67d2a26f091e4287ac418bc5118c4, type: 2}
+  <SkinCardScriptableObject>k__BackingField: {fileID: 11400000, guid: 48d67d2a26f091e4287ac418bc5118c4, type: 2}
   selectedSkin: {fileID: -1380921829, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   normalSkin: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   lockedSkin: {fileID: 110691885, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
@@ -5233,7 +5233,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -1199959443329451114, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
+    m_HighlightedSprite: {fileID: -1413233211, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -5310,7 +5310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinCard: {fileID: 11400000, guid: 7d5e51d81a1537e43b70d49d3b54eabc, type: 2}
+  <SkinCardScriptableObject>k__BackingField: {fileID: 11400000, guid: 7d5e51d81a1537e43b70d49d3b54eabc, type: 2}
   selectedSkin: {fileID: -1380921829, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   normalSkin: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   lockedSkin: {fileID: 110691885, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
@@ -8759,7 +8759,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: -1199959443329451114, guid: 05c355dea3d0ee14c894407290fe553b, type: 3}
+    m_HighlightedSprite: {fileID: -1413233211, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
@@ -8798,7 +8798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27dd6d41c53e7084a86a114dbaf4b097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinCard: {fileID: 11400000, guid: 53252d63902cc2a408db7e8dc28f62c8, type: 2}
+  <SkinCardScriptableObject>k__BackingField: {fileID: 11400000, guid: 53252d63902cc2a408db7e8dc28f62c8, type: 2}
   selectedSkin: {fileID: -1380921829, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   normalSkin: {fileID: -2311659948842064771, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}
   lockedSkin: {fileID: 110691885, guid: 52491ebc784dba44bb365ede1f447a3f, type: 3}

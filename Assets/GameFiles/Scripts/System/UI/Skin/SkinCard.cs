@@ -1,4 +1,3 @@
-
 using System;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -7,7 +6,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(SpriteRenderer))]
 public class SkinCard : MonoBehaviour
 {
-    public SkinCardScriptableObject skinCard;
+    [field:SerializeField]
+    public SkinCardScriptableObject SkinCardScriptableObject { get; private set; }
     
     [Header("Sprites")]
     [SerializeField, Tooltip("Selecting sprite")]
@@ -30,7 +30,12 @@ public class SkinCard : MonoBehaviour
 
     private void OnEnable()
     {
-        UpdateSkinState(skinCard.Skin.state);
+        SkinCardScriptableObject.OnSkinPropertyChanged += OnSkinChanged;
+        UpdateSkinState(SkinCardScriptableObject.Skin.state);
+    }
+    private void OnDisable()
+    {
+        SkinCardScriptableObject.OnSkinPropertyChanged -= OnSkinChanged;
     }
 
     public void UpdateSkinState(SkinState newState)
@@ -41,7 +46,7 @@ public class SkinCard : MonoBehaviour
                 spriteRenderer.sprite = lockedSkin;
                 break;
             case SkinState.Unlocked:
-                Unlock(skinCard.Skin.state > SkinState.Locked);
+                Unlock((int)SkinCardScriptableObject.Skin.state > (int)SkinState.Locked);
                 break;
             case SkinState.Selected:
                 SelectSkin();
@@ -49,7 +54,14 @@ public class SkinCard : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        skinCard.Skin.state = newState;
+        SkinCardScriptableObject.Skin.state = newState;
+    }
+
+    private void OnSkinChanged(Skin skin)
+    {
+        print("Event works!");
+        if (skin.name != SkinCardScriptableObject.Skin.name) return;
+        UpdateSkinState(SkinCardScriptableObject.Skin.state);
     }
 
     private void SetSkinSprite(Sprite sprite) { spriteRenderer.sprite = sprite; }
@@ -57,7 +69,8 @@ public class SkinCard : MonoBehaviour
     private void SelectSkin()
     {
         SetSkinSprite(selectedSkin);
-        playerData.playerColor = skinCard.Skin.color;
+        playerData.playerColor = SkinCardScriptableObject.Skin.color;
+        if (lockObject) lockObject.SetActive(false);
     }
     
     private void Unlock(bool hasToUnlock)

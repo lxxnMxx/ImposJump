@@ -85,8 +85,6 @@ public class ButtonManager : Singleton<ButtonManager>
         
         if(leftId == "#Settings")
             SettingsManager.Instance.SaveSettings();
-        // else if(leftId == "#Shop")
-        //     SkinManager.Instance.SaveSkins();
         
 		UIElementHandler.Instance.GetCanvas("#MainMenu").gameObject.SetActive(true);
         UIElementHandler.Instance.GetCanvas(leftId).gameObject.SetActive(false);
@@ -94,7 +92,9 @@ public class ButtonManager : Singleton<ButtonManager>
 
     public void BuySkin(SkinCard skin)
     {
-        skin.UpdateSkinState((int)skin.skinCard.Skin.state == 0 ? SkinState.Unlocked : SkinState.Selected);
+        var oldSkin = SkinManager.Instance.GetCurrentSelectedSkin();
+        oldSkin.Skin.state = SkinState.Unlocked;
+        skin.UpdateSkinState((int)skin.SkinCardScriptableObject.Skin.state == 0 ? SkinState.Unlocked : SkinState.Selected);
     }
 
     public void ResetGameData()

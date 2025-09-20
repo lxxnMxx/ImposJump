@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
+    public GameManagerData gameManagerData;
     public List<Level> levels;
     public List<Skin> skins;
     public Settings settings;
@@ -12,6 +13,8 @@ public class GameData
     // values in constructor are all default values (when game has nothing to load)
     public GameData()
     {
+        gameManagerData = new GameManagerData(true);
+        
         skins = new List<Skin>(new[]
         {
             new Skin("StandardSkin", 0, true, 
@@ -41,6 +44,7 @@ public class GameData
             new Level("Level4", new SerializableDictionary<string, bool>(),0, 0f),
             new Level("Level5", new SerializableDictionary<string, bool>(),0, 0f)
         });
+        
         settings = new Settings();
 	}
 }
