@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Scriptable Objects/PlayerData")]
@@ -6,8 +7,20 @@ public class PlayerData : ScriptableObject
     [Header("Stats")]
     [field: SerializeField] public float JumpForce { get; private set; }
     [field: SerializeField] public float MoveSpeed { get; private set; }
-    public Color playerColor;
     public int gravityDirection;
+    
+    public event Action OnPlayerColorChanged;
+    
+    private Color _playerColor;
+    public Color PlayerColor
+    {
+        get => _playerColor;
+        set
+        {
+            _playerColor = value;
+            OnPlayerColorChanged?.Invoke();
+        }
+    }
     
     [field:Header("JumpingStuff")]
     [field: SerializeField] public float CastDistance { get; private set; }

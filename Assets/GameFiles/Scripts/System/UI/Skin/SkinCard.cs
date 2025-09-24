@@ -40,7 +40,8 @@ public class SkinCard : MonoBehaviour
 
     public void UpdateSkinState(SkinState newState)
     {
-        switch (newState)
+        SkinCardScriptableObject.Skin.state = newState;
+        switch (SkinCardScriptableObject.Skin.state)
         {
             case SkinState.Locked:
                 spriteRenderer.sprite = lockedSkin;
@@ -54,7 +55,6 @@ public class SkinCard : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        SkinCardScriptableObject.Skin.state = newState;
     }
 
     private void OnSkinChanged(Skin skin)
@@ -69,7 +69,7 @@ public class SkinCard : MonoBehaviour
     private void SelectSkin()
     {
         SetSkinSprite(selectedSkin);
-        playerData.playerColor = SkinCardScriptableObject.Skin.color;
+        playerData.PlayerColor = SkinCardScriptableObject.Skin.color;
         if (lockObject) lockObject.SetActive(false);
     }
     

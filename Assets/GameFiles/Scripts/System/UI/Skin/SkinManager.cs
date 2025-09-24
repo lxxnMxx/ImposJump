@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SkinManager : Singleton<SkinManager>, IDataPersistence
 {
+    [SerializeField] private PlayerData playerData;
     [SerializeField]
     private List<SkinCardScriptableObject> skinCards;
 
@@ -15,8 +16,7 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
         {
             skinCards[i].Skin = data.skins[i];
         }
-        
-        skinCards.Find(skin => skin.Skin.name == "StandardSkin").Skin.state = SkinState.Selected;
+        SelectStandardSkin();
     }
     
     public void SaveData(ref GameData data)
@@ -34,4 +34,11 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
     
     public SkinCardScriptableObject GetCurrentSelectedSkin()
         => skinCards.Find(skin => skin.Skin.state == SkinState.Selected);
+
+    private void SelectStandardSkin()
+    {
+        var standardSkin = skinCards.Find(skin => skin.Skin.name == "StandardSkin").Skin;
+        standardSkin.state = SkinState.Selected;
+        playerData.PlayerColor =  standardSkin.color;
+    }
 }

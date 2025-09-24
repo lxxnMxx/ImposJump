@@ -19,23 +19,28 @@ public class PlayerBase : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.OnGameOver += Die;
-        
-        GetComponent<SpriteRenderer>().color = playerData.playerColor;
-        
-        // Lock Cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        playerData.OnPlayerColorChanged += SetPlayerColor;
+        SetPlayerColor(); // if the player directly loads into a level without opening the shop the set the player color
     }
 
     private void OnDisable()
     {
         GameManager.Instance.OnGameOver -= Die;
+        playerData.OnPlayerColorChanged -= SetPlayerColor;
     }
 
     private void Update()
     {
         if(transform.position.y <= yRange.x || transform.position.y >= yRange.y)
             GameManager.Instance.ChangeGameState(GameState.GameOver);
+    }
+
+    private void SetPlayerColor()
+    {
+        print("This still works");
+        print(gameObject.GetInstanceID());
+        var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer.color = playerData.PlayerColor;
     }
 
     private void Die()

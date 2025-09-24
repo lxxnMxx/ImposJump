@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbf74b8a43b410f98256671f9c6f5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: ef288e60f4e0bc746bc3e5d6db465e90, type: 2}
   skinCards:
   - {fileID: 11400000, guid: 7d5e51d81a1537e43b70d49d3b54eabc, type: 2}
   - {fileID: 11400000, guid: 53252d63902cc2a408db7e8dc28f62c8, type: 2}

@@ -100,6 +100,10 @@ public class ButtonManager : Singleton<ButtonManager>
                 // get all Coins and compare them with skin price
                 if(LevelManager.Instance.GetAllCoins() >= skin.SkinCardScriptableObject.Skin.price)
                 {skin.UpdateSkinState(SkinState.Unlocked);}
+                else
+                {
+                    print("TODO"); // TODO implement an effect that tells the player that he can't buy this one
+                }
                 return;
             case >= 0:
             {
