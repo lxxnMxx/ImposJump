@@ -102,7 +102,7 @@ public class ButtonManager : Singleton<ButtonManager>
                 {skin.UpdateSkinState(SkinState.Unlocked);}
                 else
                 {
-                    print("TODO"); // TODO implement an effect that tells the player that he can't buy this one
+                    SkinManager.Instance.CanNotCollectSkin();
                 }
                 return;
             case >= 0:

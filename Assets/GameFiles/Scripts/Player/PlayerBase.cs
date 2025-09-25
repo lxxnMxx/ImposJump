@@ -37,8 +37,6 @@ public class PlayerBase : MonoBehaviour
 
     private void SetPlayerColor()
     {
-        print("This still works");
-        print(gameObject.GetInstanceID());
         var spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.color = playerData.PlayerColor;
     }

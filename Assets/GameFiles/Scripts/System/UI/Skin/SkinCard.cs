@@ -59,7 +59,6 @@ public class SkinCard : MonoBehaviour
 
     private void OnSkinChanged(Skin skin)
     {
-        print("Event works!");
         if (skin.name != SkinCardScriptableObject.Skin.name) return;
         UpdateSkinState(SkinCardScriptableObject.Skin.state);
     }

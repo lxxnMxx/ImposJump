@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using FirstGearGames.SmoothCameraShaker;
 using Unity.Scenes.Editor;
 using UnityEngine;
 
 public class SkinManager : Singleton<SkinManager>, IDataPersistence
 {
     [SerializeField] private PlayerData playerData;
-    [SerializeField]
-    private List<SkinCardScriptableObject> skinCards;
+    [SerializeField] private ShakeData shakeData;
+    
+    [Header("Skin cards")]
+    [SerializeField] private List<SkinCardScriptableObject> skinCards;
 
     public void LoadData(GameData data)
     {
@@ -34,6 +37,8 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
     
     public SkinCardScriptableObject GetCurrentSelectedSkin()
         => skinCards.Find(skin => skin.Skin.state == SkinState.Selected);
+
+    public void CanNotCollectSkin() { CameraShakerHandler.Shake(shakeData);}
 
     private void SelectStandardSkin()
     {
