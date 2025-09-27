@@ -3570,8 +3570,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.71565, y: 0.485}
   m_AnchorMax: {x: 0.71565, y: 0.485}
-  m_AnchoredPosition: {x: 0, y: -0.000009536743}
-  m_SizeDelta: {x: 1144.9741, y: 130}
+  m_AnchoredPosition: {x: 0, y: -12.2918}
+  m_SizeDelta: {x: 1144.9741, y: 154.5836}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &692257794
 MonoBehaviour:
@@ -7521,7 +7521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0015, y: 0.005}
   m_AnchorMax: {x: 0.1755, y: 0.03}
-  m_AnchoredPosition: {x: 0, y: 0.0000039041}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0.000011444}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555966658
@@ -10744,22 +10744,6 @@ PrefabInstance:
     - target: {fileID: 4604860474734253976, guid: 112659859eb751741ab189e1c532951a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Level1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6804544059521119822, guid: 112659859eb751741ab189e1c532951a, type: 3}
-      propertyPath: m_Color.a
-      value: 0.23529412
-      objectReference: {fileID: 0}
-    - target: {fileID: 6804544059521119822, guid: 112659859eb751741ab189e1c532951a, type: 3}
-      propertyPath: m_Color.b
-      value: 0.4528302
-      objectReference: {fileID: 0}
-    - target: {fileID: 6804544059521119822, guid: 112659859eb751741ab189e1c532951a, type: 3}
-      propertyPath: m_Color.g
-      value: 0.4528302
-      objectReference: {fileID: 0}
-    - target: {fileID: 6804544059521119822, guid: 112659859eb751741ab189e1c532951a, type: 3}
-      propertyPath: m_Color.r
-      value: 0.4528302
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
