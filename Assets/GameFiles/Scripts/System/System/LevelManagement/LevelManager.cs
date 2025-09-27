@@ -32,6 +32,13 @@ public class LevelManager : Singleton<LevelManager>, IDataPersistence
     public Level GetActiveLevel() => levels[levels.FindIndex(lvl => lvl.isActive)];
     
     /// <summary>
+    /// Get any level
+    /// </summary>
+    /// <param name="lvlName">the name of the level to get</param>
+    /// <returns></returns>
+    public Level GetLevel(string lvlName) => levels.Find(lvl => lvl.name == lvlName);
+    
+    /// <summary>
     /// Counts every coin in every level that the player ever has collected.
     /// </summary>
     /// <returns>an integer of all collected coins</returns>
