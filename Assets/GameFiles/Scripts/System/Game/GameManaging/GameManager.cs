@@ -99,7 +99,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     {
         LastGameState = GameState;
         GameState = state;
-        print(GameState);
         OnGameStateChange?.Invoke(GameState);
 
         switch(state)

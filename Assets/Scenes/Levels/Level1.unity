@@ -2499,8 +2499,10 @@ Transform:
   - {fileID: 251689086}
   - {fileID: 1358995195}
   - {fileID: 1739287264}
+  - {fileID: 291314856}
   - {fileID: 1057778837}
   - {fileID: 1800677259}
+  - {fileID: 531525463}
   - {fileID: 1070063050}
   - {fileID: 823603725}
   - {fileID: 181553634}
@@ -2578,7 +2580,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1070063050}
+    m_TransformParent: {fileID: 756043155}
     m_Modifications:
     - target: {fileID: 1491898955691129390, guid: c56e640d2bacdd14b9398bde25007f39, type: 3}
       propertyPath: startTime
@@ -2586,7 +2588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3342668545929700038, guid: c56e640d2bacdd14b9398bde25007f39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.623184
+      value: 124.376816
       objectReference: {fileID: 0}
     - target: {fileID: 3342668545929700038, guid: c56e640d2bacdd14b9398bde25007f39, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3262,7 +3264,6 @@ Transform:
   - {fileID: 2088853241}
   - {fileID: 345150314}
   - {fileID: 300359026}
-  - {fileID: 291314856}
   - {fileID: 1196162353}
   m_Father: {fileID: 756043155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3295,7 +3296,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 531525463}
   - {fileID: 1781869461}
   m_Father: {fileID: 756043155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7525,7 +7525,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1057778837}
+    m_TransformParent: {fileID: 756043155}
     m_Modifications:
     - target: {fileID: 1491898955691129390, guid: c56e640d2bacdd14b9398bde25007f39, type: 3}
       propertyPath: startTime
@@ -7533,7 +7533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3342668545929700038, guid: c56e640d2bacdd14b9398bde25007f39, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.7129745
+      value: 94.712975
       objectReference: {fileID: 0}
     - target: {fileID: 3342668545929700038, guid: c56e640d2bacdd14b9398bde25007f39, type: 3}
       propertyPath: m_LocalPosition.y

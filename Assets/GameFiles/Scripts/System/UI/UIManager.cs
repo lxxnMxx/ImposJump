@@ -148,8 +148,9 @@ public class UIManager : Singleton<UIManager>
     private void LevelFinished()
     {
         _finishPanel.SetActive(true);
-        LevelManager.Instance.SetBestTime();
+        if (!SceneHandler.Instance.IsCurrentSceneLevel()) return;
         
+        LevelManager.Instance.SetBestTime();
         var (minutes, seconds) = TimeConversioner.GetConvertedTime(LevelManager.Instance.GetActiveLevel().bestTime);
         _elementHandler.GetText("#BestTimeFinish").text = $"Best Time: {minutes}:{seconds:f2}";
     }

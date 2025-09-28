@@ -64,7 +64,6 @@ public class SceneHandler : Singleton<SceneHandler>
         {
             await Task.Yield();
         }
-        print($"Scene '{sceneName}' loaded successfully.");
 		OnSceneLoaded?.Invoke(sceneName);
         return 0;
     }

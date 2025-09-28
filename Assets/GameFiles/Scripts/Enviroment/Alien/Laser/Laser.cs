@@ -45,13 +45,11 @@ public class Laser : MonoBehaviour
                 break;
         }
 
-        if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Player") ||
-            other.gameObject.CompareTag("MovingPlatform"))
-        {
-            _ps = Instantiate(impactParticle, transform.position, Quaternion.identity);
-            _component = _ps.gameObject.GetComponent<ParticleSystem>();
-            gameObject.SetActive(false);
-            Destroy(_ps.gameObject, _component.main.duration + _component.startLifetime); 
-        }
+        if (!other.gameObject.CompareTag("Ground") && !other.gameObject.CompareTag("Player") &&
+            !other.gameObject.CompareTag("MovingPlatform")) return;
+        _ps = Instantiate(impactParticle, transform.position, Quaternion.identity);
+        _component = _ps.gameObject.GetComponent<ParticleSystem>();
+        gameObject.SetActive(false);
+        Destroy(_ps.gameObject, _component.main.duration + _component.startLifetime);
     }
 }

@@ -59,17 +59,17 @@ MonoBehaviour:
     source: {fileID: 0}
   - type: 2
     clip: {fileID: 8300000, guid: fa21b138277378443a9e41347852527f, type: 3}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     source: {fileID: 0}
   - type: 3
     clip: {fileID: 8300000, guid: 2907c106f24175443be8fb8c551532a2, type: 3}
-    volume: 0.55
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
   - type: 4
     clip: {fileID: 8300000, guid: 465a991bb8827ef49a6026ab199f6311, type: 3}
-    volume: 0.55
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
   - type: 5
@@ -85,28 +85,28 @@ MonoBehaviour:
   alienSounds:
   - type: 7
     clip: {fileID: 8300000, guid: aefbcea87f437f241a21fb54b6065312, type: 3}
-    volume: 0.5
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
   - type: 8
     clip: {fileID: 8300000, guid: daeb327407738a24a8bcf4c69faaf0f5, type: 3}
-    volume: 0.5
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
   - type: 9
     clip: {fileID: 8300000, guid: d89c2a36f33ecb1439696f3f2091878e, type: 3}
-    volume: 0.5
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
   badCloudSounds:
   - type: 11
     clip: {fileID: 8300000, guid: 9cafecfb3cadc1c4f89f882f7ca2e245, type: 3}
-    volume: 0.55
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
   - type: 10
     clip: {fileID: 8300000, guid: 8935bf13a94522e44bd63d4ca938d394, type: 3}
-    volume: 0.55
+    volume: 0.4
     pitch: 1
     source: {fileID: 0}
 --- !u!114 &-3070484773697202682
