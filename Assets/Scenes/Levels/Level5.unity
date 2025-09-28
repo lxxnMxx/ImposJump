@@ -6151,11 +6151,11 @@ PrefabInstance:
       objectReference: {fileID: 534227054}
     - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: spawnTimeRange.x
-      value: 10
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: spawnTimeRange.y
-      value: 10
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2019495672634125530, guid: 76a2ba1df4aa26a49a73fa366cf69acf, type: 3}
       propertyPath: poolingHandlers.Array.size

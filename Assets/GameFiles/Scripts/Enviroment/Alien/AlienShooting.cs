@@ -26,16 +26,14 @@ public class AlienShooting : MonoBehaviour
 
     void Update()
     {
-        if (_canShoot)
-        {
-            _canShoot = false;
-            if(type is EnemyType.Alien)
-                SoundManager.Instance.Play(SoundList.Alien, SoundType.AlienShoots);
-            else
-                SoundManager.Instance.Play(SoundList.BadCloud, SoundType.BadCloudShoots);
-            Shoot();
-            StartCoroutine(ShootingTimer());
-        }
+        if (!_canShoot) return;
+        _canShoot = false;
+        if(type is EnemyType.Alien)
+            SoundManager.Instance.Play(SoundList.Alien, SoundType.AlienShoots);
+        else
+            SoundManager.Instance.Play(SoundList.BadCloud, SoundType.BadCloudShoots);
+        Shoot();
+        StartCoroutine(ShootingTimer());
     }
 
     // shooting with pooling logic
@@ -54,10 +52,7 @@ public class AlienShooting : MonoBehaviour
             _laser.SetActive(true);
         }
         else
-        {
             Debug.LogError("Haven't found any laser Objects!!!!!!!!!!!!!!!!");
-            return;
-        }
     }
 
     private Vector3 GetLaserRotation()

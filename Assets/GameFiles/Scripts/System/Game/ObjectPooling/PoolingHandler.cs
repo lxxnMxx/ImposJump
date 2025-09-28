@@ -24,7 +24,6 @@ public class PoolingHandler : MonoBehaviour
     GameObject FindActiveObjects(List<GameObject> gameObjects, Vector3 position, Quaternion rotation)
     {
         GameObject go = null;
-        // for loop and if Statement in one expression
         foreach (var obj in gameObjects.Where(obj => obj.activeInHierarchy == false))
         {
             go = obj;

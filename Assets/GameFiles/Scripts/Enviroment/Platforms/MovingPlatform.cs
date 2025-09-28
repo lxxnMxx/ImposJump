@@ -2,18 +2,20 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+[Tooltip("For normal platforms")]
 public class MovingPlatform : MonoBehaviour
 {
     [Header("Platform Settings")] 
-    [SerializeField] Transform[] points;
-    [SerializeField] int startingIndex;
+    [SerializeField] private Transform[] points;
+    [SerializeField] private int startingIndex;
     
-    [SerializeField] float speed;
+    [SerializeField] private float speed;
 
-    Vector3 _direction;
-    bool _hasChild;
-    int _i;
-    float _angle;
+    // caching
+    private Vector3 _direction;
+    private bool _hasChild;
+    private int _i;
+    private float _angle;
     
     void OnEnable()
     {
@@ -21,6 +23,10 @@ public class MovingPlatform : MonoBehaviour
         StartCoroutine(Move());
     }
 
+    /// <summary>
+    /// For normal Platforms
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Move()
     {
         while (true)
@@ -41,7 +47,6 @@ public class MovingPlatform : MonoBehaviour
         if (!other.gameObject.CompareTag("Player")) return;
         if (transform.position.y < other.transform.position.y || transform.position.y > other.transform.position.y)
             other.transform.SetParent(gameObject.transform);
-            
     }
 
     private void OnCollisionExit2D(Collision2D other)

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
+[Tooltip("For turning platforms")]
 public class MovingPlatformAdaption : MonoBehaviour
 {
     [Header("Platform Settings")] 
@@ -10,6 +11,7 @@ public class MovingPlatformAdaption : MonoBehaviour
     
     [SerializeField] float speed;
 
+    // caching
     private Vector3 _direction;
     private bool _hasChild;
     private int _i;
@@ -21,6 +23,9 @@ public class MovingPlatformAdaption : MonoBehaviour
         StartCoroutine(Move());
     }
 
+    /// <summary>
+    /// Only for platforms their turning
+    /// </summary>
     IEnumerator Move()
     {
         while (true)
@@ -40,11 +45,10 @@ public class MovingPlatformAdaption : MonoBehaviour
             {
                 if (transform.GetChild(0)) 
                     transform.GetChild(0).transform.rotation = Quaternion.EulerAngles(0,0,0);
-                
             }
             catch
             {
-                print("");
+                print("No Child found");
             }
             
             transform.position = Vector3.MoveTowards(transform.position, points[_i].position, speed * Time.deltaTime);

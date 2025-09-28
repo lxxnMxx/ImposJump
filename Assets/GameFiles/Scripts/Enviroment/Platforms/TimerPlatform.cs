@@ -14,11 +14,13 @@ public class TimerPlatform : MonoBehaviour
     private void OnEnable()
     {
         GameManager.Instance.OnGameStart += GameStarted;
+        GameManager.Instance.OnGameOver += ResetTimer;
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.OnGameStart += GameStarted;
+        GameManager.Instance.OnGameStart -= GameStarted;
+        GameManager.Instance.OnGameOver -= ResetTimer;
     }
 
     private void Start()
@@ -28,22 +30,23 @@ public class TimerPlatform : MonoBehaviour
 
     private void Update()
     {
-        if (_player && _timer > 0)
+        if (!_player || !(_timer > 0)) return;
+        _timer -= Time.deltaTime;
+        UIManager.Instance.SetTimeLeftBadCloud(_timer);
+        if (_timer <= 0)
         {
-            _timer -= Time.deltaTime;
-            UIManager.Instance.SetTimeLeftBadCloud(_timer);
-            if (_timer <= 0)
-            {
-                GameManager.Instance.ChangeGameState(GameState.GameOver);
-            }
+            GameManager.Instance.ChangeGameState(GameState.GameOver);
         }
     }
 
     private void GameStarted()
     {
-        _timer = startTime;
+        ResetTimer();
         _isFirstCollision = true;
-    } 
+    }
+
+    private void ResetTimer()
+    { _timer = startTime; }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -52,20 +55,17 @@ public class TimerPlatform : MonoBehaviour
             UIManager.Instance.SetTimeLeftBadCloudMaxValue(startTime);
             _isFirstCollision = false;
         }
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            _player = collision.gameObject;
-            GameManager.Instance.ChangeGameState(GameState.Danger);
-        }
+
+        if (!collision.gameObject.CompareTag("Player")) return;
+        _player = collision.gameObject;
+        GameManager.Instance.ChangeGameState(GameState.Danger);
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            _player = null;
-            if(GameManager.Instance.GameState != GameState.GameOver)
-                GameManager.Instance.ChangeGameState(GameState.GameContinues);
-        }
+        if (!collision.gameObject.CompareTag("Player")) return;
+        _player = null;
+        if(GameManager.Instance.GameState != GameState.GameOver)
+            GameManager.Instance.ChangeGameState(GameState.GameContinues);
     }
 }

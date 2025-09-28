@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    [Header("IsGrounded Raycast stuff")]
-    [Space(7)]
+    [Header("Player data")]
     [SerializeField] private PlayerData playerData;
+    
+    [Header("Game data")]
+    [SerializeField] private GameManagerDataScriptableObject gameManagerData;
     
     private Rigidbody2D _rb;
 
@@ -34,20 +36,21 @@ public class CharacterController : MonoBehaviour
     {
         _moveDirection = Input.GetAxis("Horizontal");
         
-        if (_moveDirection < 0 && _canMove)
-        {  
-            transform.Translate(Vector3.left * playerData.MoveSpeed * Time.deltaTime);
-        } 
-        if (_moveDirection > 0 && _canMove) 
-        { 
-            transform.Translate(Vector3.right * playerData.MoveSpeed * Time.deltaTime);
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded() && _canMove)
+        switch (_moveDirection)
         {
-            SoundManager.Instance.Play(SoundList.Player, SoundType.PlayerJump);
-            _rb.AddForce(new Vector2(0, playerData.gravityDirection) * playerData.JumpForce, ForceMode2D.Impulse);
+            case < 0 when _canMove:
+                transform.Translate(Vector3.left * playerData.MoveSpeed * Time.deltaTime);
+                break;
+            case > 0 when _canMove:
+                transform.Translate(Vector3.right * playerData.MoveSpeed * Time.deltaTime);
+                break;
         }
+
+        if (!Input.GetKeyDown(KeyCode.Space) || !IsGrounded() || !_canMove ||
+            GameManager.Instance.GameState == GameState.PauseMenu) return;
+        
+        SoundManager.Instance.Play(SoundList.Player, SoundType.PlayerJump);
+        _rb.AddForce(new Vector2(0, playerData.gravityDirection) * playerData.JumpForce, ForceMode2D.Impulse);
     }
     
     private void OnDrawGizmos()
