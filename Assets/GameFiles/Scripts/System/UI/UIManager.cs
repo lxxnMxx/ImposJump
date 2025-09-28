@@ -96,8 +96,14 @@ public class UIManager : Singleton<UIManager>
     {
         if (state != GameState.PauseMenu || !_pausePanel) return;
         _pausePanel.SetActive(true);
-        var time = LevelManager.Instance.GetActiveLevel().bestTime;
-        _elementHandler.GetText("#BestTimePause").text = $"Best Time {(int)Math.Round(time/120,0)}:{Math.Round(time%60,2):f2}";
+        
+        if (SceneHandler.Instance.IsCurrentSceneLevel())
+        {
+            (int, double) time = (0, 0.0);
+            time = TimeConversioner.GetConvertedTime(LevelManager.Instance.GetActiveLevel().bestTime);
+            _elementHandler.GetText("#BestTimePause").text = $"Best Time {time.Item1}:{time.Item2:f2}";
+        }
+        
         
         // show the bar here that the player can see how much time he got left on this platform
         if (GameManager.Instance.LastGameState == GameState.Danger)
