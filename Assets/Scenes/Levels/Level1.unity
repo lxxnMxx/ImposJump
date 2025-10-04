@@ -177,7 +177,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1070063050}
+    m_TransformParent: {fileID: 756043155}
     m_Modifications:
     - target: {fileID: 3350607984506390282, guid: 5da608a4e63c9e84b95f9b1251691a19, type: 3}
       propertyPath: points.Array.size
@@ -197,7 +197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3399878785677856949, guid: 5da608a4e63c9e84b95f9b1251691a19, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.65
+      value: 130.65
       objectReference: {fileID: 0}
     - target: {fileID: 3399878785677856949, guid: 5da608a4e63c9e84b95f9b1251691a19, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2497,12 +2497,14 @@ Transform:
   m_Children:
   - {fileID: 91245151}
   - {fileID: 251689086}
+  - {fileID: 819315338}
   - {fileID: 1358995195}
   - {fileID: 1739287264}
   - {fileID: 291314856}
   - {fileID: 1057778837}
   - {fileID: 1800677259}
   - {fileID: 531525463}
+  - {fileID: 1781869461}
   - {fileID: 1070063050}
   - {fileID: 823603725}
   - {fileID: 181553634}
@@ -3295,8 +3297,7 @@ Transform:
   m_LocalPosition: {x: 130, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1781869461}
+  m_Children: []
   m_Father: {fileID: 756043155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1103002989 stripped
@@ -3858,7 +3859,6 @@ Transform:
   - {fileID: 1652225238}
   - {fileID: 419021234}
   - {fileID: 1103002989}
-  - {fileID: 819315338}
   - {fileID: 914561786}
   m_Father: {fileID: 756043155}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6707,7 +6707,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1358995195}
+    m_TransformParent: {fileID: 756043155}
     m_Modifications:
     - target: {fileID: 3388911057036236210, guid: 5da608a4e63c9e84b95f9b1251691a19, type: 3}
       propertyPath: m_Name
@@ -6715,7 +6715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3399878785677856949, guid: 5da608a4e63c9e84b95f9b1251691a19, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.792973
+      value: 60.792973
       objectReference: {fileID: 0}
     - target: {fileID: 3399878785677856949, guid: 5da608a4e63c9e84b95f9b1251691a19, type: 3}
       propertyPath: m_LocalPosition.y

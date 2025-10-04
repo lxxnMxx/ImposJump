@@ -616,7 +616,6 @@ Transform:
   - {fileID: 475844424}
   - {fileID: 313896546}
   - {fileID: 1911909706}
-  - {fileID: 1495144683}
   m_Father: {fileID: 1668211970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &157974457
@@ -2229,7 +2228,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 157929493}
+    m_TransformParent: {fileID: 1668211970}
     m_Modifications:
     - target: {fileID: 3388911057036236210, guid: bc365df4e4af83248b07f249b6778950, type: 3}
       propertyPath: m_Name
@@ -2237,7 +2236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3399878785677856949, guid: bc365df4e4af83248b07f249b6778950, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.619995
+      value: 159.62
       objectReference: {fileID: 0}
     - target: {fileID: 3399878785677856949, guid: bc365df4e4af83248b07f249b6778950, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3293,7 +3292,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1748516948}
+    m_TransformParent: {fileID: 1668211970}
     m_Modifications:
     - target: {fileID: 3388911057036236210, guid: bc365df4e4af83248b07f249b6778950, type: 3}
       propertyPath: m_Name
@@ -3301,7 +3300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3399878785677856949, guid: bc365df4e4af83248b07f249b6778950, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.799999
+      value: 21.2
       objectReference: {fileID: 0}
     - target: {fileID: 3399878785677856949, guid: bc365df4e4af83248b07f249b6778950, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5888,6 +5887,7 @@ Transform:
   m_Children:
   - {fileID: 815064981}
   - {fileID: 935082204}
+  - {fileID: 1096150102}
   - {fileID: 1748516948}
   - {fileID: 211086858}
   - {fileID: 1136019109}
@@ -5895,6 +5895,7 @@ Transform:
   - {fileID: 817032715}
   - {fileID: 997145890}
   - {fileID: 515869314}
+  - {fileID: 1495144683}
   - {fileID: 157929493}
   - {fileID: 2018191749}
   m_Father: {fileID: 0}
@@ -6180,7 +6181,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1096150102}
   - {fileID: 1508415932}
   - {fileID: 1074965291}
   - {fileID: 1927796031}
