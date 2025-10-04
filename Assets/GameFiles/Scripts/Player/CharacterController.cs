@@ -5,10 +5,7 @@ public class CharacterController : MonoBehaviour
     [Header("Player data")]
     [SerializeField] private PlayerData playerData;
     
-    [Header("Game data")]
-    [SerializeField] private GameManagerDataScriptableObject gameManagerData;
-    
-    private Rigidbody2D _rb;
+    [SerializeField] private Rigidbody2D rb;
 
     private bool _canMove = true;
     private float _moveDirection;
@@ -18,17 +15,16 @@ public class CharacterController : MonoBehaviour
     {
         GameManager.Instance.OnLevelFinished += LevelFinished;
         GameManager.Instance.OnGameStart += StartGame;
+        
+        playerData.gravityDirection = 1;
+        rb.linearVelocityY = 0;
+        rb.gravityScale = 2.7f;
     }
 
     private void OnDisable()
     {
         GameManager.Instance.OnLevelFinished -= LevelFinished;
         GameManager.Instance.OnGameStart -= StartGame;
-    }
-
-    void Start()
-    {
-        _rb = GetComponent<Rigidbody2D>();
     }
     
     // if the Player falls of a Platform - dies (Code is in CameraFollowControl.cs)
@@ -50,7 +46,7 @@ public class CharacterController : MonoBehaviour
             GameManager.Instance.GameState == GameState.PauseMenu) return;
         
         SoundManager.Instance.Play(SoundList.Player, SoundType.PlayerJump);
-        _rb.AddForce(new Vector2(0, playerData.gravityDirection) * playerData.JumpForce, ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(0, playerData.gravityDirection) * playerData.JumpForce, ForceMode2D.Impulse);
     }
     
     private void OnDrawGizmos()
@@ -71,6 +67,9 @@ public class CharacterController : MonoBehaviour
 
     private void StartGame()
     {
+        playerData.gravityDirection = 1;
+        rb.linearVelocityY = 0;
+        rb.gravityScale = 2.7f;
         _canMove = true;
     }
 }

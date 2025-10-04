@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  speed: 13
+  speed: 9
   lifeTime: 3.5
   impactParticle: {fileID: 8172966564765919144, guid: 395ecb0e00c9da24e92bce94678326f7, type: 3}
 --- !u!50 &9042333612733377636

@@ -192,12 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30ee8ab2e4ec58a42a84250bbbf3d7b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castDistance: 0
-  boxSize: {x: 1.05, y: 1.27}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 64
   playerData: {fileID: 11400000, guid: ef288e60f4e0bc746bc3e5d6db465e90, type: 2}
+  rb: {fileID: 8688737304777549779}
 --- !u!114 &6575291925137975125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +206,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7fa00d3117606d4c9f12ad57cf908d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravityDirection: 1
   finishEffect: {fileID: 3361502584967513894, guid: 82b138521ab69934fa04fec0fe85677f, type: 3}
   playerData: {fileID: 11400000, guid: ef288e60f4e0bc746bc3e5d6db465e90, type: 2}

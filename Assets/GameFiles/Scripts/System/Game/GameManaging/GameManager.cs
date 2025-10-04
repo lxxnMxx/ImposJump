@@ -72,7 +72,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 break;
             case GameState.GameContinues or GameState.Danger when Input.GetKeyDown(KeyCode.Return):
             {
-                if(!SceneHandler.Instance.IsCurrentSceneTutorial())
+                if(!SceneHandler.Instance.IsCurrentSceneTutorial() && GameState != GameState.GameOver)
                     LevelManager.Instance.GetActiveLevel().deathCount += 1;
                 ButtonManager.Instance.Reset();
                 break;
@@ -146,14 +146,12 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     private void GameStarted()
     {
         LockCursor();
-        ChangeGameState(GameState.GameContinues);
 
-        // I don't like the way how this is fixed ...
-        if(_player == null) return; // question mark didn't work here (specifically at the transform.position access)
+        if(_player == null) return;
         _player.transform.position = _playerStartPosition;
         _player.SetActive(true);
-        playerData.gravityDirection = 1;
-        _player.GetComponent<Rigidbody2D>().gravityScale = 2.7f;
+        
+        ChangeGameState(GameState.GameContinues);
     }
 
     private void GamePaused()
