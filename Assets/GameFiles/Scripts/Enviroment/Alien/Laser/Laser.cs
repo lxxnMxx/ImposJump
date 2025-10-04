@@ -13,8 +13,6 @@ public class Laser : MonoBehaviour
     [Space(7)]
     
     [SerializeField] ParticleSystem impactParticle;
-    private ParticleSystem _ps;
-    private ParticleSystem _component;
     
     private void OnEnable()
     {
@@ -47,9 +45,7 @@ public class Laser : MonoBehaviour
 
         if (!other.gameObject.CompareTag("Ground") && !other.gameObject.CompareTag("Player") &&
             !other.gameObject.CompareTag("MovingPlatform")) return;
-        _ps = Instantiate(impactParticle, transform.position, Quaternion.identity);
-        _component = _ps.gameObject.GetComponent<ParticleSystem>();
+        ParticleHandler.Instance.SpawnParticles(impactParticle, transform.position, transform.rotation);
         gameObject.SetActive(false);
-        Destroy(_ps.gameObject, _component.main.duration + _component.startLifetime);
     }
 }

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694d0b852f267dc4494e8c67cb852fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 5
   type: 1
   target: {fileID: 0}
   distanceToPlayer: {x: 0, y: 0}

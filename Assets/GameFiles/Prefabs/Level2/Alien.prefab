@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 694d0b852f267dc4494e8c67cb852fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 5
+  type: 0
   target: {fileID: 0}
   distanceToPlayer: {x: 8, y: 3}
   speed: 5
@@ -116,4 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3cfea382765ab429a9f2eef6cdbc82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
+  target: {fileID: 0}
   shootTime: 0.5
+  laserPool: []

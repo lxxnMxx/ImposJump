@@ -1,7 +1,5 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 
 
@@ -10,6 +8,17 @@ public class PoolingHandler : MonoBehaviour
     [SerializeField] private List<GameObject> pool;
     
     private GameObject _obj;
+
+    // only for debugging purposes
+    private void Awake()
+    {
+        foreach (var o in pool)
+        {
+            if (o.TryGetComponent(out ISpawnable spawnable))
+                continue;
+            Debug.LogError($"{o.name} does not implement ISpawnable interface (PoolingHandler l.20)");
+        }
+    }
 
     public GameObject Spawn(Vector3 position, Quaternion rotation)
     {
@@ -20,15 +29,10 @@ public class PoolingHandler : MonoBehaviour
     {
         go.SetActive(false);
     }
-
+    
     GameObject FindActiveObjects(List<GameObject> gameObjects, Vector3 position, Quaternion rotation)
     {
-        GameObject go = null;
-        foreach (var obj in gameObjects.Where(obj => obj.activeInHierarchy == false))
-        {
-            go = obj;
-            break;
-        }
+        GameObject go = gameObjects.FirstOrDefault(obj => !obj.active);
         if (go)
         {
             go.transform.position = position;

@@ -8,8 +8,14 @@ public enum EnemyType
     Cloud
 }
 
-public class AlienMovement : MonoBehaviour
+public class AlienMovement : MonoBehaviour, ISpawnable
 {
+    [Header("ISpawnable")]
+    [SerializeField] private float lifeTime;
+    [SerializeField] private Vector2 spawnTimeRange;
+    public float LifeTime => lifeTime;
+    public Vector2 SpawnTimeRange => spawnTimeRange;
+
     [SerializeField] private EnemyType type;
     [SerializeField] private Transform target;
     
