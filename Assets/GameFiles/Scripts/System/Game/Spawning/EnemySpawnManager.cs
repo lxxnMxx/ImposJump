@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Unity.Burst;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [BurstCompile]
 public class EnemySpawnManager : SpawningManager
@@ -25,21 +26,28 @@ public class EnemySpawnManager : SpawningManager
     private int _lifeTime;
     private Vector3 _position;
 
-    protected override async void Spawn(CancellationToken cancelToken)
+    protected override async Task<int> Spawn(CancellationToken cancelToken)
     {
         while (!cancelToken.IsCancellationRequested)
         {
-            _rndTime = await RandomNumber(spawnTimeRange.x, spawnTimeRange.y)*1000;
-            await Task.Delay((int)_rndTime, cancelToken);
+            _rndTime = Random.Range(spawnTimeRange.x, spawnTimeRange.y);
+            try
+            {
+                await Countdown(cancelToken, _rndTime);
+            }
+            catch (TaskCanceledException e)
+            {
+                print("TaskCanceledException");
+                return 0;
+            }
             
-            // Fix error with get_position
-            // Note: can't use Unity tools here, cause of multithreading
-            // Another Note: use rider debugger for every single test
-            _position = new Vector3(cameraPosition.position.x + cameraDistance, cameraPosition.position.y + await RandomNumber(spawnRangeY.x, spawnRangeY.y), 0);
-            _object = poolingHandler.Spawn(_position, Quaternion.identity);
+            _position = new Vector3(cameraPosition.position.x + cameraDistance, cameraPosition.position.y + Random.Range(spawnRangeY.x, spawnRangeY.y), 0);
+            _object = await poolingHandler.Spawn(_position, Quaternion.identity);
             
             await Despawn(cancelToken, _object);
         }
+
+        return 0;
     }
 
     protected override async Task<int> Despawn(CancellationToken cancelToken, GameObject go)
@@ -48,7 +56,15 @@ public class EnemySpawnManager : SpawningManager
         
         go.TryGetComponent(out ISpawnable spawnable);
         _lifeTime = (int)(spawnable.LifeTime * 1000);
-        await Task.Delay(_lifeTime, cancelToken);
+
+        try
+        {
+            await Task.Delay(_lifeTime, cancelToken);
+        }
+        catch (TaskCanceledException e)
+        {
+            print("TaskCanceledException");
+        }
         
         if (despawnEffect)
             ParticleHandler.Instance.SpawnParticles(despawnEffect, go.transform.position, go.transform.rotation);

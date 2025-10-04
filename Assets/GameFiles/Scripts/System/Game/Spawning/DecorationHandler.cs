@@ -28,7 +28,7 @@ public class DecorationHandler : SpawningManager
     private Vector3 _position;
 
 
-    protected override async void Spawn(CancellationToken cancelToken)
+    protected override async Task<int> Spawn(CancellationToken cancelToken)
     {
         while (cancelToken.IsCancellationRequested)
         {
@@ -37,10 +37,12 @@ public class DecorationHandler : SpawningManager
             
             await Task.Run(() => Countdown(cancelToken, _rndTime));
             _position = new Vector3(cameraPosition.position.x + cameraDistance, cameraPosition.position.y + Random.Range(spawnRangeY.x, spawnRangeY.y), 0);
-            _object = poolingHandlers[_rndPooling].Spawn(_position, Quaternion.identity);
+            _object = await poolingHandlers[_rndPooling].Spawn(_position, Quaternion.identity);
             
             await Task.Run(() => Despawn(cancelToken, _object, _rndPooling));
         }
+
+        return 0;
     }
 
     protected override async Task<int> Despawn(CancellationToken cancelToken, GameObject go, int poolingIndex)

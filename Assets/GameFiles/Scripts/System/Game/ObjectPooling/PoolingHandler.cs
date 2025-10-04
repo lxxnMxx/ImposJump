@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
-
 
 public class PoolingHandler : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class PoolingHandler : MonoBehaviour
         }
     }
 
-    public GameObject Spawn(Vector3 position, Quaternion rotation)
+    public async Task<GameObject> Spawn(Vector3 position, Quaternion rotation)
     {
         return FindActiveObjects(pool, position, rotation);
     }
