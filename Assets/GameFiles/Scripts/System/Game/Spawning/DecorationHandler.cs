@@ -24,7 +24,6 @@ public class DecorationHandler : SpawningManager
     private GameObject _object;
     private float _rndTime;
     private int _rndPooling;
-    private int _rndType;
     private Vector3 _position;
 
 
