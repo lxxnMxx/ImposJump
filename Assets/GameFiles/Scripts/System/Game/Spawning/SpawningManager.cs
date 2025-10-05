@@ -31,7 +31,9 @@ public abstract class SpawningManager : Singleton<SpawningManager>
 
     private async void LevelStart()
     {
+        if(_cancelToken.CanBeCanceled) TokenSource.Cancel();
         TokenSource?.Dispose();
+        
         TokenSource = new CancellationTokenSource();
         _cancelToken = TokenSource.Token;
         await Spawn(_cancelToken);
@@ -59,7 +61,9 @@ public abstract class SpawningManager : Singleton<SpawningManager>
         {
             if(cancelToken.IsCancellationRequested)
                 throw new TaskCanceledException();
-            time += Time.deltaTime;
+            
+            if(Time.timeScale > 0)
+                time += Time.deltaTime;
             await Task.Yield();
         }
 

@@ -55,11 +55,10 @@ public class EnemySpawnManager : SpawningManager
         if (TokenSource.IsCancellationRequested) return 0;
         
         go.TryGetComponent(out ISpawnable spawnable);
-        _lifeTime = (int)(spawnable.LifeTime * 1000);
 
         try
         {
-            await Task.Delay(_lifeTime, cancelToken);
+            await Countdown(cancelToken, spawnable.LifeTime);
         }
         catch (TaskCanceledException e)
         {
