@@ -30,16 +30,24 @@ public class DecorationHandler : SpawningManager
 
     protected override async Task<int> Spawn(CancellationToken cancelToken)
     {
-        while (cancelToken.IsCancellationRequested)
+        while (!cancelToken.IsCancellationRequested)
         {
             _rndTime = Random.Range(spawnTimeRange.x, spawnTimeRange.y);
             _rndPooling = Random.Range(0, poolingHandlers.Count);
             
-            await Task.Run(() => Countdown(cancelToken, _rndTime));
+            try
+            {
+                await Countdown(cancelToken, _rndTime);
+            }
+            catch (TaskCanceledException e)
+            {
+                print("TaskCanceledException");
+            }
+            
             _position = new Vector3(cameraPosition.position.x + cameraDistance, cameraPosition.position.y + Random.Range(spawnRangeY.x, spawnRangeY.y), 0);
             _object = await poolingHandlers[_rndPooling].Spawn(_position, Quaternion.identity);
             
-            await Task.Run(() => Despawn(cancelToken, _object, _rndPooling));
+            await Despawn(cancelToken, _object, _rndPooling);
         }
 
         return 0;
@@ -47,10 +55,16 @@ public class DecorationHandler : SpawningManager
 
     protected override async Task<int> Despawn(CancellationToken cancelToken, GameObject go, int poolingIndex)
     {
-        if (TokenSource.IsCancellationRequested) return 0;
-        
+        if (cancelToken.IsCancellationRequested) return 0;
         go.TryGetComponent(out ISpawnable spawnable);
-        await Task.Run(() => Countdown(cancelToken, spawnable.LifeTime));
+        try
+        {
+            await Countdown(cancelToken, spawnable.LifeTime);
+        }
+        catch (TaskCanceledException e)
+        {
+            print("TaskCanceledException");
+        }
         
         poolingHandlers[poolingIndex].Despawn(go);
         return 0;

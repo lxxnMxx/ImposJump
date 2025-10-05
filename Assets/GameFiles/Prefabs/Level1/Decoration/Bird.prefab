@@ -124,6 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5b20cbf99b4f708d41642dec01cd68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeTime: 7.5
+  spawnTimeRange: {x: 0, y: 0}
   speed: 4.2
   direction: {x: -1, y: 0, z: 0}
 --- !u!114 &1590851650924926007

@@ -10,13 +10,6 @@ public abstract class SpawningManager : Singleton<SpawningManager>
     protected CancellationTokenSource TokenSource;
     private CancellationToken _cancelToken;
 
-    private System.Random _random;
-
-    new void Awake()
-    {
-        _random = new System.Random();
-    }
-
     private void OnEnable()
     {
         GameManager.Instance.OnGameStart += LevelStart;
