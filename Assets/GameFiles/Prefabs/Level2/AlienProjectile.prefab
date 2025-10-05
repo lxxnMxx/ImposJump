@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9cf13821c527b4c805a7777596dd41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   speed: 13
   lifeTime: 3.3
   impactParticle: {fileID: 3419316162597922563, guid: 8d4326ec8e5d44b4f933bec39310ecaa, type: 3}
