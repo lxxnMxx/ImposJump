@@ -94,7 +94,7 @@ public class UIManager : Singleton<UIManager>
 
     private void PauseMenu(GameState state)
     {
-        if (state != GameState.PauseMenu || !_pausePanel) return;
+        if (state != GameState.Pause || !_pausePanel) return;
         _pausePanel.SetActive(true);
         
         if (SceneHandler.Instance.IsCurrentSceneLevel())
@@ -119,14 +119,14 @@ public class UIManager : Singleton<UIManager>
         }
         
         // return here cause when not, it would get deactivated in the pauseMenu
-        if(GameManager.Instance.LastGameState == GameState.Danger && state == GameState.PauseMenu || !_timeLeftBadCloud) 
+        if(GameManager.Instance.LastGameState == GameState.Danger && state == GameState.Pause || !_timeLeftBadCloud) 
             return;
         _timeLeftBadCloud.gameObject.SetActive(false);
     }
 
     private void ResumeGame(GameState state)
     {
-        if (state is GameState.PauseMenu or GameState.MainMenu or GameState.StartGame || !_pausePanel) return;
+        if (state is GameState.Pause or GameState.MainMenu or GameState.StartGame || !_pausePanel) return;
         _pausePanel.SetActive(false);
     }
 

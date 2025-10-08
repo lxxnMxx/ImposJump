@@ -17,9 +17,12 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
     public event Action OnGameStart;
     public event Action OnLevelFinished;
 
+    public bool IsPlaying => GameState is GameState.Danger or GameState.GameContinues or GameState.StartGame;
+
 
     private GameObject _player;
     private Vector3 _playerStartPosition;
+    private InputManager _inputManager;
 
     private new void Awake()
     {
@@ -59,31 +62,6 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
 		if(SceneManager.GetActiveScene().name == "MainMenu") 
             ChangeGameState(GameState.MainMenu);
 	}
-
-	void Update()
-    {
-        switch (GameState)
-        {
-            case GameState.PauseMenu when Input.GetKeyDown(KeyCode.Return):
-                ButtonManager.Instance.Resume();
-                break;
-            case GameState.GameContinues or GameState.Danger when Input.GetKeyDown(KeyCode.Escape):
-                ChangeGameState(GameState.PauseMenu);
-                break;
-            case GameState.GameContinues or GameState.Danger when Input.GetKeyDown(KeyCode.Return):
-            {
-                if(!SceneHandler.Instance.IsCurrentSceneTutorial() && GameState != GameState.GameOver)
-                    LevelManager.Instance.GetActiveLevel().deathCount += 1;
-                ButtonManager.Instance.Reset();
-                break;
-            }
-            default:
-            {
-                if(Input.GetKeyDown(KeyCode.Return) && GameState is GameState.GameOver) ButtonManager.Instance.Reset();
-                break;
-            }
-        }
-    }
     
     public void LoadData(GameData data)
     {
@@ -123,7 +101,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
                 LockCursor();
                 break;
 
-            case GameState.PauseMenu:
+            case GameState.Pause:
                 GamePaused();
                 UnlockCursor();
                 break;
@@ -161,7 +139,7 @@ public class GameManager : Singleton<GameManager>, IDataPersistence
 
     private void ResumeGame(GameState state)
     {
-        if(state == GameState.PauseMenu) return;
+        if(state == GameState.Pause) return;
         Time.timeScale = 1;
     }
 

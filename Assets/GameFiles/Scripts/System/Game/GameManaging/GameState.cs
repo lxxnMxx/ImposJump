@@ -5,7 +5,7 @@ public enum GameState
     StartGame,
     GameContinues,
     Danger,
-    PauseMenu,
+    Pause,
     GameOver,
     LevelFinished
 }
