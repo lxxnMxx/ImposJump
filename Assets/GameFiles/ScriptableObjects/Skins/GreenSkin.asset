@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a511b5ee2c2e42e38abd0c1807ec86a5, type: 3}
   m_Name: GreenSkin
   m_EditorClassIdentifier: 
-  <Skin>k__BackingField:
-    name: GreenSkin
-    price: 1
-    color: {r: 0.009265613, g: 0.7987421, b: 0, a: 1}
-    state: 1
+  skin:
+    name: Skin
+    price: 3
+    color: {r: 0, g: 0, b: 0, a: 0}
+    state: 0

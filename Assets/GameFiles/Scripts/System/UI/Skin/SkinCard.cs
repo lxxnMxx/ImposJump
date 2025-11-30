@@ -31,7 +31,7 @@ public class SkinCard : MonoBehaviour
     private void OnEnable()
     {
         SkinCardScriptableObject.OnSkinPropertyChanged += OnSkinChanged;
-        UpdateSkinState(SkinCardScriptableObject.Skin.state);
+        UpdateSkinState(SkinCardScriptableObject.skin.state);
     }
     private void OnDisable()
     {
@@ -40,8 +40,8 @@ public class SkinCard : MonoBehaviour
 
     public void UpdateSkinState(SkinState newState)
     {
-        SkinCardScriptableObject.Skin.state = newState;
-        switch (SkinCardScriptableObject.Skin.state)
+        SkinCardScriptableObject.skin.state = newState;
+        switch (SkinCardScriptableObject.skin.state)
         {
             case SkinState.Locked:
                 spriteRenderer.sprite = lockedSkin;
@@ -59,8 +59,8 @@ public class SkinCard : MonoBehaviour
 
     private void OnSkinChanged(Skin skin)
     {
-        if (skin.name != SkinCardScriptableObject.Skin.name) return;
-        UpdateSkinState(SkinCardScriptableObject.Skin.state);
+        if (skin.name != SkinCardScriptableObject.skin.name) return;
+        UpdateSkinState(SkinCardScriptableObject.skin.state);
     }
 
     private void SetSkinSprite(Sprite sprite) { spriteRenderer.sprite = sprite; }
@@ -68,7 +68,7 @@ public class SkinCard : MonoBehaviour
     private void SelectSkin()
     {
         SetSkinSprite(selectedSkin);
-        playerData.PlayerColor = SkinCardScriptableObject.Skin.color;
+        playerData.PlayerColor = SkinCardScriptableObject.skin.color;
         if (lockObject) lockObject.SetActive(false);
     }
     

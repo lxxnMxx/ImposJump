@@ -14,12 +14,12 @@ public class DataPersistence : Singleton<DataPersistence>
     
     private GameData _gameData;
     private FileDataHandler _dataHandler;
-    private List<IDataPersistence> dataPersistenceObjects;
+    private List<IDataPersistence> _dataPersistenceObjects;
     
     private void Start()
     {
         _dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
-        dataPersistenceObjects = FindAllDataPersistenceObjects();
+        _dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }
 
@@ -44,7 +44,7 @@ public class DataPersistence : Singleton<DataPersistence>
             NewGame();
         }
         
-        foreach (IDataPersistence obj in dataPersistenceObjects)
+        foreach (IDataPersistence obj in _dataPersistenceObjects)
         {
             obj.LoadData(_gameData);
         }
@@ -52,7 +52,7 @@ public class DataPersistence : Singleton<DataPersistence>
 
     public void SaveGame()
     {
-        foreach (IDataPersistence obj in dataPersistenceObjects)
+        foreach (IDataPersistence obj in _dataPersistenceObjects)
         {
             obj.SaveData(ref _gameData);
         }

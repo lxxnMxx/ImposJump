@@ -94,11 +94,11 @@ public class ButtonManager : Singleton<ButtonManager>
 
     public void BuySkin(SkinCard skin)
     {
-        switch ((int)skin.SkinCardScriptableObject.Skin.state)
+        switch ((int)skin.SkinCardScriptableObject.skin.state)
         {
             case 0:
                 // get all Coins and compare them with skin price
-                if(LevelManager.Instance.GetAllCoins() >= skin.SkinCardScriptableObject.Skin.price)
+                if(LevelManager.Instance.GetAllCoins() >= skin.SkinCardScriptableObject.skin.price)
                 {skin.UpdateSkinState(SkinState.Unlocked);}
                 else
                 {
@@ -109,7 +109,7 @@ public class ButtonManager : Singleton<ButtonManager>
             {
                 // get skin that was selected before button press, deselect and update it
                 var oldSkin = SkinManager.Instance.GetCurrentSelectedSkin();
-                oldSkin.Skin.state = SkinState.Unlocked;
+                oldSkin.skin.state = SkinState.Unlocked;
                 oldSkin.TriggerOnSkinChanged();
             
                 skin.UpdateSkinState(SkinState.Selected);

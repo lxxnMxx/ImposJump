@@ -16,32 +16,32 @@ public class SkinManager : Singleton<SkinManager>, IDataPersistence
     {
         for (var i = 0; i < data.skins.Count; i++)
         {
-            skinCards[i].Skin = data.skins[i];
+            skinCards[i].skin = data.skins[i];
         }
         SelectStandardSkin();
     }
     
     public void SaveData(ref GameData data)
     {
-        foreach (var skinCard in skinCards.Where(skinCard => skinCard.Skin.state == SkinState.Selected))
+        foreach (var skinCard in skinCards.Where(skinCard => skinCard.skin.state == SkinState.Selected))
         {
-            skinCard.Skin.state = SkinState.Unlocked;
+            skinCard.skin.state = SkinState.Unlocked;
         }
 
         for (var i = 0; i < data.skins.Count; i++)
         {
-            data.skins[i] = skinCards[i].Skin;
+            data.skins[i] = skinCards[i].skin;
         }
     }
     
     public SkinCardScriptableObject GetCurrentSelectedSkin()
-        => skinCards.Find(skin => skin.Skin.state == SkinState.Selected);
+        => skinCards.Find(skin => skin.skin.state == SkinState.Selected);
 
     public void CanNotCollectSkin() { CameraShakerHandler.Shake(shakeData);}
 
     private void SelectStandardSkin()
     {
-        var standardSkin = skinCards.Find(skin => skin.Skin.name == "StandardSkin").Skin;
+        var standardSkin = skinCards.Find(skin => skin.skin.name == "StandardSkin").skin;
         standardSkin.state = SkinState.Selected;
         playerData.PlayerColor =  standardSkin.color;
     }

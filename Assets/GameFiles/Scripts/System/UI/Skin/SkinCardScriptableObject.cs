@@ -8,8 +8,8 @@ public class SkinCardScriptableObject : ScriptableObject
 {
     public event Action<Skin> OnSkinPropertyChanged;
 
-    [field:SerializeField, Header("Skin settings")]
-    public Skin Skin { get; set; }
+    [SerializeField, Header("Skin settings")]
+    public Skin skin;
 
-    public void TriggerOnSkinChanged() { OnSkinPropertyChanged?.Invoke(Skin); }
+    public void TriggerOnSkinChanged() { OnSkinPropertyChanged?.Invoke(skin); }
 }
